@@ -9,10 +9,10 @@ site:
   nav:
     - title: Docs
       children:
-        - title: Python
-          url: https://myst-parser.readthedocs.io/
         - title: Javascript
           url: https://js.myst.tools
+        - title: Python
+          url: https://myst-parser.readthedocs.io/
     - title: GitHub
       url: https://github.com/executablebooks
     - title: Community

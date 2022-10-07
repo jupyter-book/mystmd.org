@@ -141,12 +141,12 @@ Go to Project »
 :::
 
 :::{card}
-:link: https://myst-parser.readthedocs.io/
+:link: https://rst-to-myst.readthedocs.io/en/latest/index.html
 **Onboard from RST**
 ^^^
-Easily integrate Python documentation and existing RST documents as well as MyST Markdown.
+Convert your RST to MyST using this lossless converter, which is designed to be a fault tolerant to get your whole project onto MyST Markdown.
 +++
-Go to Project »
+Migrate from RST »
 :::
 
 :::{card}
@@ -281,7 +281,7 @@ Make Science Reproducible »
 :::
 
 :::{card}
-:link: https://executablebooks.org/
+:link: https://spec.myst.tools/
 
 **Community Driven** 🤝
 ^^^

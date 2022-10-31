@@ -9,6 +9,46 @@
         }
       ],
       "destination": "https://www.myst.tools/docs/mystjs/:path*"
+    },
+    {
+      "source": "/jtex/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "js.myst.tools"
+        }
+      ],
+      "destination": "https://www.myst.tools/docs/jtex/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "js.myst.tools"
+        }
+      ],
+      "destination": "https://www.myst.tools/docs/mystjs"
+    },
+    {
+      "source": "/spec/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "spec.myst.tools"
+        }
+      ],
+      "destination": "https://www.myst.tools/docs/spec/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "spec.myst.tools"
+        }
+      ],
+      "destination": "https://www.myst.tools/docs/spec"
     }
   ]
 }

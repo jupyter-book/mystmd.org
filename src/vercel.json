@@ -8,7 +8,8 @@
           "value": "js.myst.tools"
         }
       ],
-      "destination": "https://www.myst.tools/docs/mystjs/:path*"
+      "destination": "https://www.myst.tools/docs/mystjs/:path*",
+      "permanent": false
     },
     {
       "source": "/jtex/:path*",
@@ -18,7 +19,8 @@
           "value": "js.myst.tools"
         }
       ],
-      "destination": "https://www.myst.tools/docs/jtex/:path*"
+      "destination": "https://www.myst.tools/docs/jtex/:path*",
+      "permanent": false
     },
     {
       "source": "/:path*",
@@ -28,7 +30,8 @@
           "value": "js.myst.tools"
         }
       ],
-      "destination": "https://www.myst.tools/docs/mystjs"
+      "destination": "https://www.myst.tools/docs/mystjs",
+      "permanent": false
     },
     {
       "source": "/spec/:path*",
@@ -38,7 +41,8 @@
           "value": "spec.myst.tools"
         }
       ],
-      "destination": "https://www.myst.tools/docs/spec/:path*"
+      "destination": "https://www.myst.tools/docs/spec/:path*",
+      "permanent": false
     },
     {
       "source": "/:path*",
@@ -48,7 +52,8 @@
           "value": "spec.myst.tools"
         }
       ],
-      "destination": "https://www.myst.tools/docs/spec"
+      "destination": "https://www.myst.tools/docs/spec",
+      "permanent": false
     }
   ]
 }

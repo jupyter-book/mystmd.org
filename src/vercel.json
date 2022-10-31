@@ -1,6 +1,28 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "js.myst.tools"
+        }
+      ],
+      "destination": "https://www.myst.tools/docs/mystjs",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "spec.myst.tools"
+        }
+      ],
+      "destination": "https://www.myst.tools/docs/spec",
+      "permanent": false
+    },
+    {
       "source": "/guide/:path*",
       "has": [
         {

@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/guide/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "js.myst.tools"
+        }
+      ],
+      "destination": "/docs/mystjs/:path*"
+    }
+  ]
+}

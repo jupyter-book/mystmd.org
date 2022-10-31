@@ -5,8 +5,8 @@ import type { SiteManifest } from '@curvenote/site-common';
 // const CONTENT_CDN_PORT = process.env.CONTENT_CDN_PORT ?? '3100';
 // const CONTENT_CDN = `http://localhost:${CONTENT_CDN_PORT}`;
 
-// const INDEX_SITE = 'www.myst.tools';
-const INDEX_SITE = 'rowanc1-myst_tools.curve.space';
+// const INDEX_SITE = 'rowanc1-myst_tools.curve.space';
+const INDEX_SITE = 'www.myst.tools';
 
 export async function getConfig(): Promise<SiteManifest> {
   return cdn.getConfig(INDEX_SITE);

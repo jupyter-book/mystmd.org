@@ -1,0 +1,10 @@
+node_modules
+
+.cache
+.env
+.vercel
+.output
+.turbo
+
+/public/build
+/api/*

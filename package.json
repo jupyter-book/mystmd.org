@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "workspaces": [
+    "src",
+    "theme-base/packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "start": "cd theme && npm run start",
+    "lint": "turbo run lint",
+    "lint:format": "turbo run lint:format",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@remix-run/node": "^1.7.2",
+    "@remix-run/react": "^1.7.2",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "eslint-config-curvenote": "*",
+    "prettier": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "npm@8.10.0",
+  "overrides": {
+    "ansi-to-react": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
+    },
+    "myst-frontmatter": "latest"
+  },
+  "dependencies": {
+    "vercel": "^28.4.12"
+  }
+}

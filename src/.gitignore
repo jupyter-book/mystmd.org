@@ -1,0 +1,9 @@
+.cache
+.env
+.vercel
+.output
+
+/public/build
+/api/*
+
+/app/styles/app.css

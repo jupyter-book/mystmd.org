@@ -1,0 +1,14 @@
+{
+  "articles": [
+    {
+      "slug": "/articles/pixels-and-their-neighbours",
+      "title": "Pixels and Their Neighbours: Finite Volume",
+      "description": "In this tutorial we take you on the journey from continuous equations to their discrete matrix representations using the finite volume method for the Direct Current (DC) resistivity problem."
+    },
+    {
+      "slug": "/articles/phase-and-hilbert",
+      "title": "Phase and the Hilbert Transform",
+      "description": "Phase is a useful underlying property of the analytic trace model of seismic data that can be used as both an interpretation aid and a means to calibrate and check interpretations on a given seismic dataset."
+    }
+  ]
+}

@@ -95,7 +95,7 @@ Create interactive scientific publications for the web or export to PDF, LaTeX a
 ::::{grid} 1 1 2 3
 
 :::{card}
-:link: https://js.myst.tools/guide/creating-pdf-documents
+:link: /docs/mystjs/creating-pdf-documents
 **Create Scientific PDFs** 📄
 ^^^
 Create PDF print-ready scientific papers over 400 $\LaTeX$ journal templates.
@@ -105,7 +105,7 @@ Create a PDF »
 :::
 
 :::{card}
-:link: https://js.myst.tools/guide/creating-word-documents
+:link: /docs/mystjs/creating-word-documents
 **Create Word Docs** 📃
 ^^^
 
@@ -115,7 +115,7 @@ Export to Word »
 :::
 
 :::{card}
-:link: https://js.myst.tools/jtex
+:link: /docs/jtex
 **Flexible Templating** 🧱
 ^^^
 Easily create and contribute data-driven templates using $\LaTeX$.
@@ -185,7 +185,7 @@ Go to Project »
 :::
 
 :::{card}
-:link: https://js.myst.tools
+:link: /docs/mystjs
 **Javascript Parser**
 ^^^
 Use the Javascript parser to create interactive online articles, export to LaTeX, PDF or Word documents.
@@ -229,7 +229,7 @@ MyST is a powerful authoring framework that supports blogs, books, articles and 
 ::::{grid} 1 1 2 3
 
 :::{card}
-:link: https://js.myst.tools/guide/citations
+:link: /docs/mystjs/citations
 
 **Built for Science** 👩‍🔬
 ^^^
@@ -240,7 +240,7 @@ MyST for Science »
 :::
 
 :::{card}
-:link: https://js.myst.tools/guide/interactive-notebooks
+:link: /docs/mystjs/interactive-notebooks
 
 **Dynamic Documents** 📈
 ^^^
@@ -251,7 +251,7 @@ Bring your pages to life »
 :::
 
 :::{card}
-:link: https://js.myst.tools/guide/accessibility-and-performance
+:link: /docs/mystjs/accessibility-and-performance
 
 **Fast & Accessible** ⚡️
 ^^^
@@ -271,7 +271,7 @@ Our Goals & Values »
 :::
 
 :::{card}
-:link: https://js.myst.tools/guide/interactive-notebooks
+:link: /docs/mystjs/interactive-notebooks
 
 **Reproducible** 💎
 ^^^
@@ -281,7 +281,7 @@ Make Science Reproducible »
 :::
 
 :::{card}
-:link: https://spec.myst.tools/
+:link: /docs/spec
 
 **Community Driven** 🤝
 ^^^

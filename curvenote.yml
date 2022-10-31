@@ -8,11 +8,7 @@ site:
       slug: overview
   nav:
     - title: Docs
-      children:
-        - title: Javascript
-          url: https://js.myst.tools
-        - title: Python
-          url: https://myst-parser.readthedocs.io/
+      url: /docs
     - title: GitHub
       url: https://github.com/executablebooks
     - title: Community
@@ -23,7 +19,7 @@ site:
   #   - title: Try
   #     url: /sandbox
   domains:
-    - rowanc1-myst_tools.curve.space
+    # - rowanc1-myst_tools.curve.space
     - www.myst.tools
   twitter: executablebooks
   logo: public/logo.svg

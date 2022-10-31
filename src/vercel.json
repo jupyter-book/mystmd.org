@@ -8,7 +8,7 @@
           "value": "js.myst.tools"
         }
       ],
-      "destination": "/docs/mystjs/:path*"
+      "destination": "https://www.myst.tools/docs/mystjs/:path*"
     }
   ]
 }

@@ -2,7 +2,7 @@ version: 1
 project:
   title: MyST Markdown
 site:
-  title: myst.tools
+  title: MyST Markdown
   projects:
     - path: .
       slug: overview

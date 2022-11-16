@@ -78,7 +78,7 @@ Explore this book »
 **The Turing Way**
 ^^^
 
-```{image} https://the-turing-way.netlify.app/_static/logo.jpg
+```{image} https://the-turing-way.netlify.app/_static/logo-detail-with-text.svg
 :height: 100
 ```
 

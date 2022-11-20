@@ -153,7 +153,7 @@ Migrate from RST »
 :link: https://myst-parser.readthedocs.io/
 **Highly Configurable**
 ^^^
-Configure MyST-parser at global and individual document levelss and access extended syntax features.
+Configure MyST-parser at global and individual document levels and access extended syntax features.
 +++
 Go to Project »
 :::

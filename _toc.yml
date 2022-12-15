@@ -1,4 +1,5 @@
 format: jb-book
 root: index
 chapters:
-  - file: docs
+  - file: ecosystem
+  - file: gallery

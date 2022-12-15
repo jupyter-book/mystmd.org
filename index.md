@@ -1,11 +1,6 @@
 ---
 title: MyST Markdown - Tools for the future of technical communication
 description: Community-driven tools for the future of technical communication and publication. MyST makes markdown more extensible and powerful to support an ecosystem of tools for computational narratives, technical documentation, and open scientific communication.
-design:
-  hide_title_block: true
-  hide_toc: true
-  hide_outline: true
-  hide_footer_links: true
 thumbnail: thumbnails/index.png
 ---
 
@@ -14,7 +9,7 @@ thumbnail: thumbnails/index.png
 ## MyST extends Markdown for technical and scientific communication
 
 ```{myst}
-MyST makes <wiki:Markdown> more _extensible_ & **powerful** to support an
+MyST makes Markdown more _extensible_ & **powerful** to support an
 ecosystem of tools for computational narratives, technical documentation,
 and open scientific communication.
 
@@ -36,57 +31,6 @@ composable and extensible.
   - LaTeX
   - Microsoft Word
 ```
-
-### Create Online Books
-
-Jupyter Book uses MyST markdown to create online books and tutorials from computational content.
-
-::::{grid} 1 1 2 3
-
-:::{card}
-:link: https://www.inferentialthinking.com/
-**Inferential Thinking**
-^^^
-
-```{image} https://inferentialthinking.com/_static/favicon.png
-:height: 100
-```
-
-The textbook used by UC Berkeley's popular Data 8 class.
-+++
-Explore this book »
-:::
-
-:::{card}
-:link: https://python.quantecon.org/
-
-**QuantEcon**
-^^^
-
-```{image} https://python.quantecon.org/_static/qe-logo-large.png
-:height: 100
-```
-
-A free online book to teach computational economics with open source tools.
-+++
-Explore this book »
-:::
-
-:::{card}
-:link: https://the-turing-way.netlify.app
-
-**The Turing Way**
-^^^
-
-```{image} https://the-turing-way.netlify.app/_static/logo-detail-with-text.svg
-:height: 100
-```
-
-A guidebook for best-practices in reproducible and community-driven science.
-+++
-Explore this book »
-:::
-::::
 
 ### Create Scientific Publications
 
@@ -123,103 +67,6 @@ Easily create and contribute data-driven templates using $\LaTeX$.
 Contribute a Template »
 :::
 
-::::
-
-### Create Python Documentation
-
-Use MyST in your Sphinx or Docutils software documentation
-
-::::{grid} 1 1 2 3
-
-:::{card}
-:link: https://myst-parser.readthedocs.io/
-**Sphinx compatible**
-^^^
-Use the MyST role and directive syntax to harness the full capability of Sphinx including all existing Sphinx extensions.
-+++
-Go to Project »
-:::
-
-:::{card}
-:link: https://rst-to-myst.readthedocs.io/en/latest/index.html
-**Onboard from RST**
-^^^
-Convert your RST to MyST using this lossless converter, which is designed to be a fault tolerant to get your whole project onto MyST Markdown.
-+++
-Migrate from RST »
-:::
-
-:::{card}
-:link: https://myst-parser.readthedocs.io/
-**Highly Configurable**
-^^^
-Configure MyST-parser at global and individual document levelss and access extended syntax features.
-+++
-Go to Project »
-:::
-
-::::
-
-### Projects and Ecosystem
-
-MyST can be rendered and transformed by a variety of tools.
-
-::::{grid} 1 1 2 3
-
-:::{card}
-:link: https://jupyterbook.org
-**Jupyter Book**
-^^^
-Build beautiful, publication-quality books and documents from computational content.
-+++
-Go to Project »
-:::
-
-:::{card}
-:link: https://myst-parser.readthedocs.io/
-**Python Parser**
-^^^
-Use the Python parser if you are working with Sphinx, JupyterBook or need to access through Python.
-+++
-Go to Project »
-:::
-
-:::{card}
-:link: /docs/mystjs
-**Javascript Parser**
-^^^
-Use the Javascript parser to create interactive online articles, export to LaTeX, PDF or Word documents.
-+++
-Go to Project »
-:::
-
-:::{card}
-:link: https://github.com/executablebooks/jupyterlab-myst
-**JupyterLab**
-^^^
-Write and render MyST markup directly in Jupyter Lab.
-+++
-Go to Tool »
-:::
-
-:::{card}
-:link: https://marketplace.visualstudio.com/items?itemName=ExecutableBookProject.myst-highlight
-**VSCode**
-^^^
-Write, render and preview MyST markup directly in VSCode.
-+++
-Go to Tool »
-:::
-
-:::{card}
-:link: https://curvenote.com/for/writing
-**Curvenote**
-^^^
-Author MyST content and export or publish online using the CLI.
-
-+++
-Go to Tool »
-:::
 ::::
 
 ### An ecosystem for the next generation of technical communication
@@ -261,7 +108,7 @@ Read about performance »
 :::
 
 :::{card}
-:link: https://executablebooks.org/en/latest/about.html
+:link: https://compass.executablebooks.org/en/latest/strategy.html
 
 **Composable Tools** 🧱
 ^^^
@@ -315,7 +162,7 @@ Our gallery of Jupyter Books has contributions from across the community: from d
 :::
 
 :::{card}
-:link: https://executablebooks.org/en/latest/about.html
+:link: https://compass.executablebooks.org/en/latest/strategy.html
 
 **About Executable Books** ✨
 ^^^

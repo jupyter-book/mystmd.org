@@ -1,0 +1,36 @@
+version: 1
+project:
+  title: MyST Markdown
+site:
+  title: MyST Markdown
+  projects:
+    - path: .
+      slug: overview
+  nav:
+    - title: Guide
+      url: /docs/mystjs
+    - title: Overview
+      url: /ecosystem
+    - title: Projects
+      children:
+        - title: MyST CLI
+          url: /docs/mystjs
+        - title: LaTeX Templates (jtex)
+          url: /docs/jtex
+        - title: JATS XML
+          url: /docs/mystjs/creating-jats-xml
+        - title: MyST Transforms
+          url: /docs/myst-transforms
+        - title: MyST Spec
+          url: /docs/spec
+    - title: Community
+      url: https://github.com/orgs/executablebooks/discussions
+  # actions:
+  #   - title: Try
+  #     url: /sandbox
+  domains:
+    - rowanc1-myst_tools.curve.space
+    # - www.myst.tools
+  twitter: executablebooks
+  logo: public/logo.svg
+  logo_text: MyST Markdown

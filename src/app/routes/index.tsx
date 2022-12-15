@@ -29,6 +29,9 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function LandingPage() {
   const { ref, height } = useNavigationHeight();
   const article = useLoaderData<PageLoader>() as PageLoader;
+  // Big of a hack...
+  const design = { hide_title_block: true, hide_footer_links: true };
+  (article.frontmatter as any).design = design;
   return (
     <ArticleAndNavigation header={<HeaderSection />}>
       <main ref={ref} className="article column-body-outset mt-[60px]">

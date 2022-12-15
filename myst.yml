@@ -29,8 +29,8 @@ site:
   #   - title: Try
   #     url: /sandbox
   domains:
-    - rowanc1-myst_tools.curve.space
-    # - www.myst.tools
+    # - rowanc1-myst_tools.curve.space
+    - www.myst.tools
   twitter: executablebooks
   logo: public/logo.svg
   logo_text: MyST Markdown

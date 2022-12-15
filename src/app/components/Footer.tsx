@@ -42,8 +42,13 @@ export function Footer() {
             <div className="font-semibold">Documentation</div>
             <ul className="pl-2">
               <li>
-                <Link to="/docs" prefetch="intent">
-                  Overview
+                <Link to="/ecosystem" prefetch="intent">
+                  Projects &amp; Ecosystem
+                </Link>
+              </li>
+              <li>
+                <Link to="/docs/mystjs" prefetch="intent">
+                  MyST CLI
                 </Link>
               </li>
               <li>
@@ -54,11 +59,6 @@ export function Footer() {
                 >
                   Python Tools
                 </a>
-              </li>
-              <li>
-                <Link to="/docs/mystjs" prefetch="intent">
-                  Javascript Tools
-                </Link>
               </li>
             </ul>
           </div>

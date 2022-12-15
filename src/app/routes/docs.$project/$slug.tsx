@@ -13,7 +13,7 @@ import {
 } from '@curvenote/site';
 import { getArticlePage } from '~/utils/loaders.server';
 import { useLoaderData, useTransition } from '@remix-run/react';
-import type { SiteManifest } from '@curvenote/site-common';
+import type { SiteManifest } from 'myst-config';
 import { ReferencesProvider } from '@curvenote/ui-providers';
 import { ArticlePageCatchBoundary } from '@curvenote/site';
 import { ArticleWithProviders } from '../../components/Page';

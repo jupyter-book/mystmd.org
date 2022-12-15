@@ -2,7 +2,7 @@ import { Link, NavLink } from '@remix-run/react';
 import { Fragment } from 'react';
 import classNames from 'classnames';
 import { Menu, Transition } from '@headlessui/react';
-import type { SiteManifest, SiteNavItem } from '@curvenote/site-common';
+import type { SiteManifest, SiteNavItem } from 'myst-config';
 import { LoadingBar, ThemeButton } from '@curvenote/site';
 import { useSiteManifest } from '@curvenote/ui-providers';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
@@ -51,20 +51,24 @@ function NavItem({ item }: { item: SiteNavItem }) {
   if (!('children' in item)) {
     return (
       <div className="relative grow-0 inline-block mx-2">
-        <ExternalOrInternalLink
-          nav
-          to={item.url}
-          className={({ isActive }) =>
-            classNames(
-              'inline-flex items-center justify-center w-full mx-2 py-1 text-md font-medium text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75',
-              {
-                'border-b border-stone-200': isActive,
-              }
-            )
-          }
-        >
-          {item.title}
-        </ExternalOrInternalLink>
+        {item.url ? (
+          <ExternalOrInternalLink
+            nav
+            to={item.url}
+            className={({ isActive }) =>
+              classNames(
+                'inline-flex items-center justify-center w-full mx-2 py-1 text-md font-medium text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75',
+                {
+                  'border-b border-stone-200': isActive,
+                }
+              )
+            }
+          >
+            {item.title}
+          </ExternalOrInternalLink>
+        ) : (
+          <>{item.title}</>
+        )}
       </div>
     );
   }

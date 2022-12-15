@@ -1,6 +1,6 @@
 import type { PageLoader } from '@curvenote/site';
 import { cdn } from '@curvenote/site';
-import type { SiteManifest } from '@curvenote/site-common';
+import type { SiteManifest } from 'myst-config';
 
 // const CONTENT_CDN_PORT = process.env.CONTENT_CDN_PORT ?? '3100';
 // const CONTENT_CDN = `http://localhost:${CONTENT_CDN_PORT}`;

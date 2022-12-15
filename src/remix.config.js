@@ -25,7 +25,6 @@ module.exports = {
     '@curvenote/ui-providers',
     '@curvenote/icons',
     '@curvenote/site',
-    '@curvenote/site-common',
     'myst-common',
     'react-syntax-highlighter',
     '@jupyterlab/rendermime',

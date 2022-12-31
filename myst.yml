@@ -25,9 +25,8 @@ site:
           url: /docs/spec
     - title: Community
       url: https://github.com/orgs/executablebooks/discussions
-  # actions:
-  #   - title: Try
-  #     url: /sandbox
+    - title: Try MyST
+      url: /sandbox
   domains:
     # - rowanc1-myst_tools.curve.space
     - www.myst.tools

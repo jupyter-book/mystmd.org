@@ -3,7 +3,6 @@ import type { PageLoader } from '@curvenote/site';
 import { ArticlePage, ProjectPageCatchBoundary, useNavigationHeight } from '@curvenote/site';
 import { getPage } from '../utils/loaders.server';
 import { NavLink, useLoaderData } from '@remix-run/react';
-import type { ManifestProjectPage } from '@curvenote/site-common';
 import { ArticleAndNavigation } from '../components/Page';
 import { useSiteManifest } from '@curvenote/ui-providers';
 import classNames from 'classnames';
@@ -18,19 +17,14 @@ export default function ContentPage() {
   const { ref, height } = useNavigationHeight();
   const site = useSiteManifest();
   const article = useLoaderData<PageLoader>() as PageLoader;
-  article.frontmatter.design = {
-    ...article.frontmatter.design,
-    hide_title_block: true,
-    hide_footer_links: true,
-  };
   return (
     <ArticleAndNavigation>
       <main ref={ref} className="article py-[100px]">
         <h1 className="text-center">{article.frontmatter.title}</h1>
         <div className="column-page xl:px-[150px]">
           <div className="border-y border-gray-200 py-3 my-[100px] flex flex-row justify-around">
-            {site?.projects[0].pages
-              .filter((p): p is ManifestProjectPage => 'slug' in p)
+            {site?.projects?.[0].pages
+              .filter((p) => 'slug' in p)
               .map((p) => {
                 if (p.level === 1)
                   return (

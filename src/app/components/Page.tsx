@@ -24,9 +24,11 @@ export function HeaderSection() {
 export function NavigationAndFooter({
   children,
   top = DEFAULT_NAV_HEIGHT,
+  tightFooter,
 }: {
   top?: number;
   children: React.ReactNode;
+  tightFooter?: boolean;
 }) {
   const { ref, height } = useNavigationHeight<HTMLDivElement>();
   return (
@@ -40,7 +42,7 @@ export function NavigationAndFooter({
       >
         {children}
       </div>
-      <Footer />
+      <Footer tight={tightFooter} />
     </>
   );
 }

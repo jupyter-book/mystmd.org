@@ -2,11 +2,12 @@ import twitter from '~/icons/twitter.svg';
 import github from '~/icons/github.svg';
 import { Link } from '@remix-run/react';
 import Logo from './logo-wide-text.svg';
+import classnames from 'classnames';
 
-export function Footer() {
+export function Footer({ tight }: { tight?: boolean }) {
   return (
     <section>
-      <div className="bg-[#f3f3f3] mt-5 md:mt-12">
+      <div className={classnames('bg-[#f3f3f3]', { 'mt-5 md:mt-12': !tight, 'mt-0': tight })}>
         <div className="column-page p-2 sm:p-5 lg:px-[150px] xl:px-[300px] flex flex-row flex-wrap items-center">
           <div>
             <a href="/" className="inline-block">

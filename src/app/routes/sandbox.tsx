@@ -1,14 +1,18 @@
-import { FrontmatterBlock } from '@curvenote/site';
+import { FrontmatterBlock, getMetaTagsForArticle } from '@curvenote/site';
 import { ProjectPageCatchBoundary, useNavigationHeight } from '@curvenote/site';
 import { ArticleAndNavigation, NavigationAndFooter } from '../components/Page';
 import { TabStateProvider, UiStateProvider } from '@curvenote/ui-providers';
 import { MySTRenderer } from 'myst-to-react';
+import type { MetaFunction } from '@remix-run/node';
 
-// export const loader: LoaderFunction = async ({ params, request }) => {
-//   const { info } = params;
-//   const page = await getPage(request, { project: 'overview', slug: info });
-//   return page;
-// };
+export const meta: MetaFunction = (args) => {
+  return getMetaTagsForArticle({
+    origin: '',
+    url: args.location.pathname,
+    title: 'MyST Markdown Sandbox',
+    description: 'Try MyST Markdown directly in your browser.',
+  });
+};
 
 const value = `---
 title: Working with MyST Markdown

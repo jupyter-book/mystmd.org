@@ -5,13 +5,13 @@ module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     // Look to the actual packages too (better than node_modules for pnpm)
-    '../theme-base/packages/myst-to-react/src/**/*.{js,ts,jsx,tsx}',
-    '../theme-base/packages/myst-demo/src/**/*.{js,ts,jsx,tsx}',
-    '../theme-base/packages/jupyter/src/**/*.{js,ts,jsx,tsx}',
-    '../theme-base/packages/frontmatter/src/**/*.{js,ts,jsx,tsx}',
-    '../theme-base/packages/diagrams/src/**/*.{js,ts,jsx,tsx}',
-    '../theme-base/packages/site/src/**/*.{js,ts,jsx,tsx}',
-    '../theme-base/packages/icons/react/**/*.{js,ts,jsx,tsx}',
+    './node_modules/myst-to-react/dist/**/*.{js,ts,jsx,tsx}',
+    './node_modules/myst-demo/dist/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@myst-theme/jupyter/dist/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@myst-theme/frontmatter/dist/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@myst-theme/diagrams/dist/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@myst-theme/site/{src,dist}/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@curvenote/icons/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {

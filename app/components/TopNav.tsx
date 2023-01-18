@@ -6,8 +6,7 @@ import type { SiteManifest, SiteNavItem } from 'myst-config';
 import { LoadingBar, ThemeButton } from '@myst-theme/site';
 import { useSiteManifest } from '@myst-theme/providers';
 import { ChevronDownIcon } from '@heroicons/react/24/solid';
-import twitter from '~/icons/twitter.svg';
-import github from '~/icons/github.svg';
+import { TwitterIcon, GithubIcon } from '@scienceicons/react/24/solid';
 import HeaderLogo from './logo-wide.svg';
 
 export const DEFAULT_NAV_HEIGHT = 60;
@@ -153,23 +152,23 @@ function HomeLink() {
 
 function ThemeTag() {
   return (
-    <div className="bg-[#2B2A2D] absolute top-0 right-4 sm:right-0 flex flex-row p-1">
-      <ThemeButton className="inline-block ml-1 h-6 w-6 self-center" />
+    <div className="bg-[#2B2A2D] absolute top-0 right-4 sm:right-0 flex flex-row p-1 text-white">
+      <ThemeButton className="inline-block mx-1 h-5 w-5 self-center" />
       <a
         href="https://twitter.com/executablebooks"
         target="_blank"
-        className="p-1 invert"
+        className="p-1.5 hover:opacity-80"
         rel="noreferrer"
       >
-        <img src={twitter} loading="lazy" width="25" alt="Follow us on Twitter" />
+        <TwitterIcon className="h-5 w-5" title="Follow us on Twitter" />
       </a>
       <a
         href="https://github.com/executablebooks"
         target="_blank"
-        className="p-1 invert"
+        className="p-1.5 hover:opacity-80"
         rel="noreferrer"
       >
-        <img src={github} loading="lazy" width="25" alt="Fork us on GitHub" />
+        <GithubIcon className="h-5 w-5" title="Fork us on GitHub" />
       </a>
     </div>
   );

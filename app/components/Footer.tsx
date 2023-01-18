@@ -1,5 +1,4 @@
-import twitter from '~/icons/twitter.svg';
-import github from '~/icons/github.svg';
+import { TwitterIcon, GithubIcon } from '@scienceicons/react/24/solid';
 import { Link } from '@remix-run/react';
 import Logo from './logo-wide-text.svg';
 import classnames from 'classnames';
@@ -70,7 +69,7 @@ export function Footer({ tight }: { tight?: boolean }) {
               className="p-1"
               rel="noreferrer"
             >
-              <img src={twitter} loading="lazy" width="25" alt="Follow us on Twitter" />
+              <TwitterIcon className="h-5 w-5" title="Follow us on Twitter" />
             </a>
             <a
               href="https://github.com/executablebooks"
@@ -78,7 +77,7 @@ export function Footer({ tight }: { tight?: boolean }) {
               className="p-1"
               rel="noreferrer"
             >
-              <img src={github} loading="lazy" width="25" alt="Fork us on GitHub" />
+              <GithubIcon className="h-5 w-5" title="Fork us on GitHub" />
             </a>
           </div>
         </div>

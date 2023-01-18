@@ -3,8 +3,6 @@ import { TabStateProvider, UiStateProvider } from '@myst-theme/providers';
 import LogoWhite from './logo-icon-white.svg';
 import { Footer } from './Footer';
 import { TopNav } from './TopNav';
-import twitter from '~/icons/twitter.svg';
-import github from '~/icons/github.svg';
 
 export function HeaderSection() {
   return (

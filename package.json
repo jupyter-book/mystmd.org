@@ -1,42 +1,54 @@
 {
+  "name": "@myst-tools/theme",
   "private": true,
-  "workspaces": [
-    "src",
-    "theme-base/packages/*"
-  ],
+  "sideEffects": false,
   "scripts": {
-    "dev": "turbo run dev --parallel",
-    "build": "turbo run build",
-    "start": "cd theme && npm run start",
-    "lint": "turbo run lint",
-    "lint:format": "turbo run lint:format",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+    "build": "npm run build:css && remix build",
+    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
+    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+    "start": "npm run build:css && remix dev"
   },
-  "devDependencies": {
+  "dependencies": {
+    "@curvenote/components": "^0.3.4",
+    "@headlessui/react": "^1.7.7",
+    "@heroicons/react": "^2.0.13",
+    "@myst-theme/providers": "^0.1.20",
+    "@myst-theme/site": "^0.0.19",
     "@remix-run/node": "^1.10.1",
     "@remix-run/react": "^1.10.1",
+    "@remix-run/vercel": "^1.10.1",
+    "classnames": "^2.3.2",
+    "myst-common": "^0.0.12",
+    "myst-config": "^0.0.6",
+    "myst-demo": "0.1.20",
+    "node-fetch": "^2.6.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.10.1",
+    "@remix-run/eslint-config": "^1.10.1",
+    "@remix-run/serve": "^1.10.1",
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/node-fetch": "^2.6.2",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
-    "eslint-config-curvenote": "*",
+    "concurrently": "^7.2.2",
+    "eslint": "^8.23.1",
     "prettier": "latest",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "turbo": "latest"
-  },
-  "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=14.0.0"
+    "vercel": "^27.4.0",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.9.4"
   },
   "packageManager": "npm@8.10.0",
+  "engines": {
+    "node": ">=16"
+  },
   "overrides": {
     "ansi-to-react": {
       "react": "^18.2.0",
       "react-dom": "^18.2.0"
-    },
-    "myst-config": "latest",
-    "myst-frontmatter": "latest"
-  },
-  "dependencies": {
-    "vercel": "^28.12.6"
+    }
   }
 }

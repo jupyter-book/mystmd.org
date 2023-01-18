@@ -6,10 +6,10 @@ module.exports = {
   // so we default back to the standard build output.
   server: process.env.NODE_ENV === 'development' ? undefined : './server.js',
   ignoredRouteFiles: ['**/.*'],
-  // appDirectory: "app",
-  // assetsBuildDirectory: "public/build",
-  // serverBuildPath: "api/index.js",
-  // publicPath: "/build/",
+  appDirectory: 'app',
+  assetsBuildDirectory: 'public/build',
+  serverBuildPath: 'api/index.js',
+  publicPath: '/build/',
   serverDependenciesToBundle: [
     /^rehype.*/,
     /^remark.*/,
@@ -34,5 +34,5 @@ module.exports = {
     '@jupyterlab/rendermime',
     '@jupyterlab/rendermime-interfaces',
   ],
-  watchPaths: ['../theme-base/packages/**/*'],
+  watchPaths: [],
 };

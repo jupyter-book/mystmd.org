@@ -14,6 +14,6 @@ jobs:
         with:
           submodules: true
       - run: npm install
-      - run: npx vercel pull --yes
+      - run: npx vercel pull --yes --token=${{ secrets.VERCEL_TOKEN }}
       - run: npx vercel build --prod
       - run: npx vercel deploy --prod --prebuilt --token=${{ secrets.VERCEL_TOKEN }}

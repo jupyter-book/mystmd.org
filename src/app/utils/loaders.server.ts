@@ -1,5 +1,5 @@
-import type { PageLoader } from '@curvenote/site';
-import { cdn } from '@curvenote/site';
+import type { PageLoader } from '@myst-theme/site';
+import { cdn } from '@myst-theme/site';
 import type { SiteManifest } from 'myst-config';
 
 // const CONTENT_CDN_PORT = process.env.CONTENT_CDN_PORT ?? '3100';

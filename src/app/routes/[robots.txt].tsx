@@ -1,5 +1,5 @@
-import { createRobotsTxtResponse } from '@curvenote/site';
-import { getDomainFromRequest } from '@curvenote/site';
+import { createRobotsTxtResponse } from '@myst-theme/site';
+import { getDomainFromRequest } from '@myst-theme/site';
 import type { LoaderFunction } from '@remix-run/node';
 
 export const loader: LoaderFunction = async ({ request }): Promise<Response | null> => {

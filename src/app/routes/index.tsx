@@ -1,10 +1,15 @@
 import type { LinksFunction, LoaderFunction, MetaFunction } from '@remix-run/node';
-import type { PageLoader } from '@curvenote/site';
-import { getMetaTagsForArticle, KatexCSS, ArticlePage, useNavigationHeight } from '@curvenote/site';
+import type { PageLoader } from '@myst-theme/site';
+import {
+  getMetaTagsForArticle,
+  KatexCSS,
+  ArticlePage,
+  useNavigationHeight,
+} from '@myst-theme/site';
 import { getPage } from '~/utils/loaders.server';
 import { useLoaderData } from '@remix-run/react';
 import type { SiteManifest } from 'myst-config';
-import { ArticlePageCatchBoundary } from '@curvenote/site';
+import { ArticlePageCatchBoundary } from '@myst-theme/site';
 import { ArticleAndNavigation, HeaderSection } from '../components/Page';
 
 export const meta: MetaFunction = (args) => {

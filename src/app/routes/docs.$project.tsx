@@ -1,11 +1,11 @@
 import type { LinksFunction, LoaderFunction } from '@remix-run/node';
-import type { SiteLoader } from '@curvenote/site';
-import { KatexCSS, responseNoSite } from '@curvenote/site';
+import type { SiteLoader } from '@myst-theme/site';
+import { KatexCSS, responseNoSite } from '@myst-theme/site';
 import { Outlet, useLoaderData } from '@remix-run/react';
-import { ArticlePageCatchBoundary } from '@curvenote/site';
+import { ArticlePageCatchBoundary } from '@myst-theme/site';
 import { NavigationAndFooter } from '../components/Page';
 import { getArticleConfig } from '../utils/loaders.server';
-import { SiteProvider } from '@curvenote/ui-providers';
+import { SiteProvider } from '@myst-theme/providers';
 
 type ArticleConfig = Omit<SiteLoader, 'theme'>;
 

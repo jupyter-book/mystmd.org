@@ -5,7 +5,7 @@ import { hydrateRoot } from 'react-dom/client';
 import type { types } from '@curvenote/runtime';
 import { register } from '@curvenote/components';
 import { host } from '@curvenote/connect';
-import { createCurvenoteReduxStore } from '@curvenote/site';
+import { createCurvenoteReduxStore } from '@myst-theme/site';
 
 function hydrate() {
   const store = createCurvenoteReduxStore();

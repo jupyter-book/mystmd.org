@@ -1,1 +1,1 @@
-export { sitemapStylesheetResponse as loader } from '@curvenote/site';
+export { sitemapStylesheetResponse as loader } from '@myst-theme/site';

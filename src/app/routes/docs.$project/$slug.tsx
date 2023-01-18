@@ -1,21 +1,21 @@
 import type { LoaderFunction, MetaFunction } from '@remix-run/node';
-import type { PageLoader } from '@curvenote/site';
-import { FooterLinksBlock } from '@curvenote/site';
-import { FrontmatterBlock } from '@curvenote/site';
-import { DEFAULT_NAV_HEIGHT } from '@curvenote/site';
-import { TableOfContents } from '@curvenote/site';
+import type { PageLoader } from '@myst-theme/site';
+import { FrontmatterBlock } from '@myst-theme/frontmatter';
 import {
+  FooterLinksBlock,
+  DEFAULT_NAV_HEIGHT,
+  TableOfContents,
   getMetaTagsForArticle,
   useNavigationHeight,
   DocumentOutline,
   ContentBlocks,
   Bibliography,
-} from '@curvenote/site';
-import { getArticlePage } from '~/utils/loaders.server';
+  ArticlePageCatchBoundary,
+} from '@myst-theme/site';
 import { useLoaderData, useTransition } from '@remix-run/react';
 import type { SiteManifest } from 'myst-config';
-import { ReferencesProvider } from '@curvenote/ui-providers';
-import { ArticlePageCatchBoundary } from '@curvenote/site';
+import { ReferencesProvider } from '@myst-theme/providers';
+import { getArticlePage } from '~/utils/loaders.server';
 import { ArticleWithProviders } from '../../components/Page';
 import { useEffect, useRef, useState } from 'react';
 

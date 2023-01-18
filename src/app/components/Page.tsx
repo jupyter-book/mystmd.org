@@ -1,5 +1,5 @@
-import { DEFAULT_NAV_HEIGHT, Navigation, useNavigationHeight } from '@curvenote/site';
-import { TabStateProvider, UiStateProvider } from '@curvenote/ui-providers';
+import { DEFAULT_NAV_HEIGHT, Navigation, useNavigationHeight } from '@myst-theme/site';
+import { TabStateProvider, UiStateProvider } from '@myst-theme/providers';
 import LogoWhite from './logo-icon-white.svg';
 import { Footer } from './Footer';
 import { TopNav } from './TopNav';

@@ -1,10 +1,10 @@
 import type { LoaderFunction } from '@remix-run/node';
-import type { PageLoader } from '@curvenote/site';
-import { ArticlePage, ProjectPageCatchBoundary, useNavigationHeight } from '@curvenote/site';
+import type { PageLoader } from '@myst-theme/site';
+import { ArticlePage, ProjectPageCatchBoundary, useNavigationHeight } from '@myst-theme/site';
 import { getPage } from '../utils/loaders.server';
 import { NavLink, useLoaderData } from '@remix-run/react';
 import { ArticleAndNavigation } from '../components/Page';
-import { useSiteManifest } from '@curvenote/ui-providers';
+import { useSiteManifest } from '@myst-theme/providers';
 import classNames from 'classnames';
 
 export const loader: LoaderFunction = async ({ params, request }) => {

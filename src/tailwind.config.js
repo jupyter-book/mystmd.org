@@ -6,6 +6,10 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
     // Look to the actual packages too (better than node_modules for pnpm)
     '../theme-base/packages/myst-to-react/src/**/*.{js,ts,jsx,tsx}',
+    '../theme-base/packages/myst-demo/src/**/*.{js,ts,jsx,tsx}',
+    '../theme-base/packages/jupyter/src/**/*.{js,ts,jsx,tsx}',
+    '../theme-base/packages/frontmatter/src/**/*.{js,ts,jsx,tsx}',
+    '../theme-base/packages/diagrams/src/**/*.{js,ts,jsx,tsx}',
     '../theme-base/packages/site/src/**/*.{js,ts,jsx,tsx}',
     '../theme-base/packages/icons/react/**/*.{js,ts,jsx,tsx}',
   ],

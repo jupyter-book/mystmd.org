@@ -1,5 +1,5 @@
-import { createSitemapResponse, getSiteSlugs } from '@curvenote/site';
-import { getDomainFromRequest } from '@curvenote/site';
+import { createSitemapResponse, getSiteSlugs } from '@myst-theme/site';
+import { getDomainFromRequest } from '@myst-theme/site';
 import type { LoaderFunction } from '@remix-run/node';
 import { getArticleConfig } from '~/utils/loaders.server';
 

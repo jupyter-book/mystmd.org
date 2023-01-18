@@ -1,5 +1,5 @@
-import { createSitemapIndexResponse } from '@curvenote/site';
-import { getDomainFromRequest } from '@curvenote/site';
+import { createSitemapIndexResponse } from '@myst-theme/site';
+import { getDomainFromRequest } from '@myst-theme/site';
 import type { LoaderFunction } from '@remix-run/node';
 
 // TODO: get these from the config!

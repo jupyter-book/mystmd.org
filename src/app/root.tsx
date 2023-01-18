@@ -1,28 +1,24 @@
 import type { LinksFunction, MetaFunction, LoaderFunction } from '@remix-run/node';
 import tailwind from '~/styles/app.css';
 import { getConfig } from '~/utils/loaders.server';
-import type { SiteLoader } from '@curvenote/site';
+import type { SiteLoader } from '@myst-theme/site';
 import {
   App,
   responseNoSite,
   getMetaTagsForSite,
   getThemeSession,
   KatexCSS,
-} from '@curvenote/site';
+} from '@myst-theme/site';
 export {
   AppCatchBoundary as CatchBoundary,
   AppDebugErrorBoundary as ErrorBoundary,
-} from '@curvenote/site';
+} from '@myst-theme/site';
 
 export const meta: MetaFunction = ({ data }) => {
-  return {
-    charset: 'utf-8',
-    ...getMetaTagsForSite({
-      title: data?.config?.title,
-      twitter: data?.config?.twitter,
-    }),
-    viewport: 'width=device-width,initial-scale=1',
-  };
+  return getMetaTagsForSite({
+    title: data?.config?.title,
+    twitter: data?.config?.twitter,
+  });
 };
 
 export const links: LinksFunction = () => {

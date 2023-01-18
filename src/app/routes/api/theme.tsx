@@ -1,1 +1,1 @@
-export { setThemeAPI as action } from '@curvenote/site';
+export { setThemeAPI as action } from '@myst-theme/site';

@@ -1,8 +1,9 @@
-import { FrontmatterBlock, getMetaTagsForArticle } from '@curvenote/site';
-import { ProjectPageCatchBoundary, useNavigationHeight } from '@curvenote/site';
+import { FrontmatterBlock } from '@myst-theme/frontmatter';
+import { getMetaTagsForArticle } from '@myst-theme/site';
+import { ProjectPageCatchBoundary, useNavigationHeight } from '@myst-theme/site';
 import { ArticleAndNavigation, NavigationAndFooter } from '../components/Page';
-import { TabStateProvider, UiStateProvider } from '@curvenote/ui-providers';
-import { MySTRenderer } from 'myst-to-react';
+import { TabStateProvider, UiStateProvider } from '@myst-theme/providers';
+import { MySTRenderer } from 'myst-demo';
 import type { MetaFunction } from '@remix-run/node';
 
 export const meta: MetaFunction = (args) => {

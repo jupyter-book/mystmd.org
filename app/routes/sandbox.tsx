@@ -30,8 +30,7 @@ MyST makes Markdown more _extensible_ & **powerful** to support an
 ecosystem of tools for computational narratives, technical documentation,
 and open scientific communication. You can **edit this demo** including the [frontmatter][myst-frontmatter] to change the title!!
 
-:::{important}
-# Our Values
+:::{admonition} Our Values
 We believe in a community-driven approach of open-source tools that are
 composable and extensible. You can find out how to be involved in developing MyST Markdown by getting involved in the [ExecutableBooks][executable-books] project.
 :::

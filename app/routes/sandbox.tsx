@@ -92,7 +92,7 @@ This is initially hidden, and can be clicked to be opened when you are viewing t
 export default function ContentPage() {
   const { ref, height } = useNavigationHeight();
   return (
-    <NavigationAndFooter tightFooter>
+    <NavigationAndFooter tightFooter hide_toc>
       <TabStateProvider>
         <UiStateProvider>
           <main ref={ref} className="article p-0">

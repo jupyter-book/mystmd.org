@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import { Menu, Transition } from '@headlessui/react';
 import type { SiteManifest, SiteNavItem } from 'myst-config';
 import { LoadingBar, ThemeButton } from '@myst-theme/site';
-import { useSiteManifest } from '@myst-theme/providers';
-import { ChevronDownIcon } from '@heroicons/react/24/solid';
+import { useNavOpen, useSiteManifest } from '@myst-theme/providers';
+import { Bars3Icon as MenuIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
 import { TwitterIcon, GithubIcon } from '@scienceicons/react/24/solid';
 import HeaderLogo from './logo-wide.svg';
 
@@ -174,8 +174,8 @@ function ThemeTag() {
   );
 }
 
-export function TopNav() {
-  // const [open, setOpen] = useNavOpen();
+export function TopNav({ hide_toc }: { hide_toc?: boolean }) {
+  const [open, setOpen] = useNavOpen();
   const config = useSiteManifest();
   const { nav } = config ?? {};
   return (
@@ -183,17 +183,19 @@ export function TopNav() {
       <div className=" max-w-[1440px] relative mx-auto p-3">
         <nav className="flex items-center justify-between flex-wrap">
           <div className="flex flex-row mr-2 sm:mr-7 justify-start items-center">
-            {/* <div className="block xl:hidden">
-              <button
-                className="flex items-center text-stone-200 border-stone-400 hover:text-black"
-                onClick={() => {
-                  setOpen(!open);
-                }}
-              >
-                <span className="sr-only">Open Menu</span>
-                <MenuIcon className="fill-current h-8 w-8 p-1" />
-              </button>
-            </div> */}
+            {!hide_toc && (
+              <div className="block xl:hidden">
+                <button
+                  className="flex items-center text-stone-600 hover:text-black"
+                  onClick={() => {
+                    setOpen(!open);
+                  }}
+                >
+                  <span className="sr-only">Open Menu</span>
+                  <MenuIcon className="fill-current h-8 w-8 p-1" />
+                </button>
+              </div>
+            )}
             <HomeLink />
           </div>
           <div className="flex-grow flex items-center w-auto">

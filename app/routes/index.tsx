@@ -38,7 +38,7 @@ export default function LandingPage() {
   const design = { hide_title_block: true, hide_footer_links: true };
   (article.frontmatter as any).design = design;
   return (
-    <ArticleAndNavigation header={<HeaderSection />}>
+    <ArticleAndNavigation header={<HeaderSection />} hide_toc>
       <main ref={ref} className="article column-body-outset mt-[60px]">
         <ArticlePage article={article} />
       </main>

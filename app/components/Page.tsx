@@ -23,16 +23,18 @@ export function NavigationAndFooter({
   children,
   top = DEFAULT_NAV_HEIGHT,
   tightFooter,
+  hide_toc,
 }: {
   top?: number;
   children: React.ReactNode;
   tightFooter?: boolean;
+  hide_toc?: boolean;
 }) {
   const { ref, height } = useNavigationHeight<HTMLDivElement>();
   return (
-    <>
-      <Navigation top={top} height={height} hide_toc={true}>
-        <TopNav />
+    <UiStateProvider>
+      <Navigation top={top} height={height} hide_toc={hide_toc}>
+        <TopNav hide_toc={hide_toc} />
       </Navigation>
       <div
         ref={ref}
@@ -41,7 +43,7 @@ export function NavigationAndFooter({
         {children}
       </div>
       <Footer tight={tightFooter} />
-    </>
+    </UiStateProvider>
   );
 }
 
@@ -54,9 +56,7 @@ export function ArticleWithProviders({
 }) {
   return (
     <TabStateProvider>
-      <UiStateProvider>
-        <article>{children}</article>
-      </UiStateProvider>
+      <article>{children}</article>
     </TabStateProvider>
   );
 }
@@ -65,18 +65,18 @@ export function ArticleAndNavigation({
   children,
   header,
   top = header ? 500 : DEFAULT_NAV_HEIGHT,
+  hide_toc,
 }: {
   top?: number;
   header?: React.ReactNode;
   children: React.ReactNode;
+  hide_toc?: boolean;
 }) {
   return (
-    <NavigationAndFooter top={top}>
+    <NavigationAndFooter top={top} hide_toc={hide_toc}>
       {header}
       <TabStateProvider>
-        <UiStateProvider>
-          <article style={{ minHeight: `calc(100vh - ${top}px)` }}>{children}</article>
-        </UiStateProvider>
+        <article style={{ minHeight: `calc(100vh - ${top}px)` }}>{children}</article>
       </TabStateProvider>
     </NavigationAndFooter>
   );

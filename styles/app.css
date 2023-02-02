@@ -110,12 +110,6 @@ pre > code > span > .linenumber {
 pre > code > span[data-highlight='true'] > .linenumber {
   color: #5ca5ee;
 }
-r-var {
-  display: none;
-}
-r-dynamic {
-  @apply text-blue-600 border-b border-dotted border-blue-600;
-}
 
 figure.quote figcaption {
   text-align: right;
@@ -148,4 +142,8 @@ details[open] > summary svg {
   opacity: 0;
   user-select: none;
   pointer-events: none;
+}
+/* Hide the output prompts from jupyter by default */
+.jp-OutputPrompt {
+  display: none;
 }

@@ -109,9 +109,9 @@ function NavItem({ item }: { item: SiteNavItem }) {
                   to={action.url || ''}
                   className={({ isActive }) =>
                     classNames(
-                      'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black',
+                      ' block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black ',
                       {
-                        'text-black font-bold': isActive,
+                        ' text-black font-bold ': isActive,
                       }
                     )
                   }

@@ -9,7 +9,7 @@
         }
       ],
       "destination": "https://myst-tools.org/docs/mystjs",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/",
@@ -20,7 +20,7 @@
         }
       ],
       "destination": "https://myst-tools.org/docs/spec",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/guide/:path*",
@@ -31,7 +31,7 @@
         }
       ],
       "destination": "https://myst-tools.org/docs/mystjs/:path*",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/jtex/:path*",
@@ -42,7 +42,7 @@
         }
       ],
       "destination": "https://myst-tools.org/docs/jtex/:path*",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/:path*",
@@ -53,7 +53,7 @@
         }
       ],
       "destination": "https://myst-tools.org/docs/mystjs",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/spec/:path*",
@@ -64,7 +64,7 @@
         }
       ],
       "destination": "https://myst-tools.org/docs/spec/:path*",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/:path*",
@@ -75,7 +75,7 @@
         }
       ],
       "destination": "https://myst-tools.org/docs/spec",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/:path*",
@@ -86,7 +86,18 @@
         }
       ],
       "destination": "https://myst-tools.org/docs/spec/:path*",
-      "permanent": false
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "myst.tools"
+        }
+      ],
+      "destination": "https://myst-tools.org",
+      "permanent": true
     }
   ]
 }

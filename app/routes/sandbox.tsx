@@ -81,12 +81,12 @@ This is initially hidden, and can be clicked to be opened when you are viewing t
 :::
 
 % These are some links used above to keep things clean!
-[myst-frontmatter]: https://myst.tools/docs/mystjs/frontmatter
+[myst-frontmatter]: https://myst-tools.org/docs/mystjs/frontmatter
 [executable-books]: https://executablebooks.org/
-[latex]: https://myst.tools/docs/mystjs/creating-pdf-documents
-[websites]: https://myst.tools/docs/mystjs/website-overview
-[word]: https://myst.tools/docs/mystjs/creating-word-documents
-[jats]: https://myst.tools/docs/mystjs/creating-jats-xml
+[latex]: https://myst-tools.org/docs/mystjs/creating-pdf-documents
+[websites]: https://myst-tools.org/docs/mystjs/quickstart-myst-websites
+[word]: https://myst-tools.org/docs/mystjs/creating-word-documents
+[jats]: https://myst-tools.org/docs/mystjs/creating-jats-xml
 `;
 
 export default function ContentPage() {

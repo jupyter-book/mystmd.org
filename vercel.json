@@ -85,7 +85,7 @@
           "value": "myst.tools"
         }
       ],
-      "destination": "https://myst-tools.org/docs/spec/:path*",
+      "destination": "https://myst-tools.org/:path*",
       "permanent": true
     },
     {

@@ -4,7 +4,10 @@ import { ProjectPageCatchBoundary, useNavigationHeight } from '@myst-theme/site'
 import { ArticleAndNavigation, NavigationAndFooter } from '../components/Page';
 import { TabStateProvider, UiStateProvider } from '@myst-theme/providers';
 import { MySTRenderer } from 'myst-demo';
-import type { MetaFunction } from '@remix-run/node';
+import type { LoaderFunction, MetaFunction } from '@remix-run/node';
+import { json } from '@remix-run/node';
+import { useLoaderData } from '@remix-run/react';
+import { useEffect, useState } from 'react';
 
 export const meta: MetaFunction = (args) => {
   return getMetaTagsForArticle({
@@ -13,6 +16,42 @@ export const meta: MetaFunction = (args) => {
     title: 'MyST Markdown Sandbox',
     description: 'Try MyST Markdown directly in your browser.',
   });
+};
+
+// https://developer.mozilla.org/en-US/docs/Web/API/btoa#unicode_strings
+function fromBinary(binary: string) {
+  const bytes = Uint8Array.from({ length: binary.length }, (element, index) =>
+    binary.charCodeAt(index)
+  );
+  const charCodes = new Uint16Array(bytes.buffer);
+
+  let result = '';
+  charCodes.forEach((char) => {
+    result += String.fromCharCode(char);
+  });
+  return result;
+}
+
+function toBinary(string: string) {
+  const codeUnits = Uint16Array.from({ length: string.length }, (element, index) =>
+    string.charCodeAt(index)
+  );
+  const charCodes = new Uint8Array(codeUnits.buffer);
+
+  let result = '';
+  charCodes.forEach((char) => {
+    result += String.fromCharCode(char);
+  });
+  return result;
+}
+
+export const loader: LoaderFunction = async ({ request }) => {
+  const url = new URL(request.url);
+  const myst = url.searchParams.get('myst');
+  const tab = url.searchParams.get('tab');
+
+  const data = myst ? fromBinary(atob(myst)) : undefined;
+  return json({ data, tab });
 };
 
 const value = `---
@@ -90,20 +129,53 @@ This is initially hidden, and can be clicked to be opened when you are viewing t
 `;
 
 export default function ContentPage() {
+  const [copied, setCopied] = useState(false);
   const { ref, height } = useNavigationHeight();
+  const { data, tab } = useLoaderData();
+
+  const copy = () => {
+    const tab = Array(...document.getElementsByTagName('button'))
+      .filter((el) => el.ariaPressed === 'true')[0]
+      .innerText.toLowerCase();
+    const encoded = btoa(toBinary(document.getElementsByTagName('textarea')[0].value));
+    const params = new URLSearchParams(location.search);
+    params.set('tab', tab);
+    params.set('myst', encoded);
+    window.history.replaceState({}, '', `${location.pathname}?${params}`);
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    });
+  };
+
+  useEffect(() => {
+    if (!tab) return;
+    setTimeout(() =>
+      Array(...document.getElementsByTagName('button'))
+        .find((el) => el.innerText.toLowerCase() === tab)
+        ?.click()
+    );
+  }, [tab]);
+
   return (
     <NavigationAndFooter tightFooter hide_toc>
       <TabStateProvider>
         <UiStateProvider>
-          <main ref={ref} className="article p-0">
+          <main ref={ref} className="article p-0 relative">
             <MySTRenderer
-              value={value}
+              value={data ?? value}
               column
               fullscreen
               captureTab
               className="h-[calc(100vh-60px)]"
               TitleBlock={FrontmatterBlock}
             />
+            <button
+              className="px-2 py-1 bg-white hover:bg-slate-200 dark:bg-slate-500 dark:hover:bg-slate-700 absolute top-[10px] left-2 border dark:border-slate-600 text-sm"
+              onClick={copy}
+            >
+              {copied ? 'Copied!!' : 'Share'}
+            </button>
           </main>
         </UiStateProvider>
       </TabStateProvider>

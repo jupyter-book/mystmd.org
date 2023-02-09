@@ -10,7 +10,6 @@
     "start": "npm run build:css && remix dev"
   },
   "dependencies": {
-    "@curvenote/components": "^0.3.4",
     "@headlessui/react": "^1.7.8",
     "@heroicons/react": "^2.0.14",
     "@myst-theme/providers": "^0.1.22",

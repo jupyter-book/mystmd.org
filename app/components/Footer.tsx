@@ -64,7 +64,7 @@ export function Footer({ tight }: { tight?: boolean }) {
           </div>
           <div className="flex flex-row">
             <a
-              href="https://twitter.com/executablebooks"
+              href="https://twitter.com/myst_tools"
               target="_blank"
               className="p-1"
               rel="noreferrer"

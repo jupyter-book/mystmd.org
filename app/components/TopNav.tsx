@@ -155,7 +155,7 @@ function ThemeTag() {
     <div className="bg-[#2B2A2D] absolute top-0 right-4 sm:right-0 flex flex-row p-1 text-white">
       <ThemeButton className="inline-block mx-1 h-5 w-5 self-center" />
       <a
-        href="https://twitter.com/executablebooks"
+        href="https://twitter.com/myst_tools"
         target="_blank"
         className="p-1.5 hover:opacity-80"
         rel="noreferrer"

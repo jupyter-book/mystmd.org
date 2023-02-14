@@ -30,6 +30,6 @@ site:
   domains:
     # - rowanc1-myst_tools.curve.space
     - www.myst.tools
-  twitter: executablebooks
+  twitter: myst_tools
   logo: public/logo.svg
   logo_text: MyST Markdown

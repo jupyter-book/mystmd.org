@@ -17,11 +17,12 @@ export default function ContentPage() {
   const { ref, height } = useNavigationHeight();
   const site = useSiteManifest();
   const article = useLoaderData<PageLoader>() as PageLoader;
+  (article as any).frontmatter.design = { hide_title_block: true, hide_footer_links: true };
   return (
     <ArticleAndNavigation>
-      <main ref={ref} className="article py-[100px]">
+      <main ref={ref} className="article article-grid article-grid-gap py-[100px]">
         <h1 className="text-center">{article.frontmatter.title}</h1>
-        <div className="column-page xl:px-[150px]">
+        <div className="col-body-outset">
           <div className="border-y border-gray-200 py-3 my-[100px] flex flex-row justify-around">
             {site?.projects?.[0].pages
               .filter((p) => 'slug' in p)
@@ -43,9 +44,7 @@ export default function ContentPage() {
               })}
           </div>
         </div>
-        <div className=" column-body">
-          <ArticlePage article={article} />
-        </div>
+        <ArticlePage article={article} />
       </main>
     </ArticleAndNavigation>
   );

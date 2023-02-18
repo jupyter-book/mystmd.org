@@ -39,7 +39,7 @@ export default function LandingPage() {
   (article.frontmatter as any).design = design;
   return (
     <ArticleAndNavigation header={<HeaderSection />} hide_toc>
-      <main ref={ref} className="article column-body-outset mt-[60px]">
+      <main ref={ref} className="article content article-grid article-grid-gap mt-[60px]">
         <ArticlePage article={article} />
       </main>
     </ArticleAndNavigation>
@@ -49,7 +49,7 @@ export default function LandingPage() {
 export function CatchBoundary() {
   return (
     <ArticleAndNavigation>
-      <main className="article column-body">
+      <main className="article content article-grid article-grid-gap">
         <ArticlePageCatchBoundary />
       </main>
     </ArticleAndNavigation>

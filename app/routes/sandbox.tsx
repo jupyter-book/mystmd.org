@@ -171,7 +171,7 @@ export default function ContentPage() {
               TitleBlock={FrontmatterBlock}
             />
             <button
-              className="px-2 py-1 bg-white hover:bg-slate-200 dark:bg-slate-500 dark:hover:bg-slate-700 absolute top-[10px] left-2 border dark:border-slate-600 text-sm"
+              className="px-2 py-1 bg-blue-800 hover:bg-blue-900 text-white absolute top-[10px] left-2 border dark:border-slate-600 text-sm"
               onClick={copy}
             >
               {copied ? 'Copied!!' : 'Share'}

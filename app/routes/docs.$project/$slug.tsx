@@ -77,12 +77,8 @@ export default function Page() {
       frontmatter={article.frontmatter}
       urlbase="/docs"
     >
-      <TableOfContents
-        top={DEFAULT_NAV_HEIGHT}
-        height={height + DEFAULT_NAV_HEIGHT - 12}
-        showFooter={false}
-      />
-      <main ref={ref} className="article column-body min-h-screen">
+      <TableOfContents top={DEFAULT_NAV_HEIGHT} height={height + DEFAULT_NAV_HEIGHT - 12} />
+      <main ref={ref}>
         <ArticleWithProviders>
           <FrontmatterBlock kind={article.kind} frontmatter={article.frontmatter} />
           {/* <FloatingOutline height={height} /> */}

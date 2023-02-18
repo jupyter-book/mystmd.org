@@ -6,8 +6,8 @@ import { TopNav } from './TopNav';
 
 export function HeaderSection() {
   return (
-    <div className="bg-[#2B2A2D] min-h-[250px] hidden md:block">
-      <div className="column-body-outset flex flex-row items-center leading-tight pt-12">
+    <div className="bg-[#2B2A2D] min-h-[250px] article-grid article-grid-gap">
+      <div className="col-body-outset flex flex-row items-center leading-tight">
         <img src={LogoWhite} style={{ height: 150 }} alt="MyST Markdown Logo" className="mr-6" />
         <h1 className="text-white text-[2.754rem]">
           MyST Markdown
@@ -56,7 +56,9 @@ export function ArticleWithProviders({
 }) {
   return (
     <TabStateProvider>
-      <article>{children}</article>
+      <article className="article content article-grid article-grid-gap min-h-screen">
+        {children}
+      </article>
     </TabStateProvider>
   );
 }

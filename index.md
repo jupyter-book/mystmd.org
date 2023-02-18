@@ -4,9 +4,13 @@ description: Community-driven tools for the future of technical communication an
 thumbnail: thumbnails/index.png
 ---
 
++++ { "class": "col-body-outset" }
+
 # Community-driven tools for the future of technical communication and publication
 
 ## MyST extends Markdown for technical and scientific communication
+
++++ { "class": "col-page" }
 
 ```{myst}
 MyST makes Markdown more _extensible_ & **powerful** to support an
@@ -19,6 +23,8 @@ We believe in a community-driven approach of open-source tools that are
 composable and extensible.
 :::
 ```
+
++++ { "class": "col-body-outset" }
 
 ### The MyST Ecosystem
 

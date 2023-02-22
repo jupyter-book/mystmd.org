@@ -29,7 +29,7 @@ export function Footer({ tight }: { tight?: boolean }) {
               </li>
               <li>
                 <a
-                  href="https://executablebooks.org/en/latest/gallery.html"
+                  href="https://executablebooks.org/en/latest/gallery/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -45,7 +45,7 @@ Create interactive scientific publications for the web or export to PDF, LaTeX a
 ::::{grid} 1 1 2 3
 
 :::{card}
-:link: /docs/mystjs/creating-pdf-documents
+:link: /docs/mystjs/quickstart-myst-documents
 **Create Scientific PDFs** 📄
 ^^^
 Create PDF print-ready scientific papers over 400 $\LaTeX$ journal templates.
@@ -152,7 +152,7 @@ The MyST ecosystem is an open community supported by The Executable Book Project
 ::::{grid} 1 1 2 3
 
 :::{card}
-:link: https://executablebooks.org/en/latest/contributing.html
+:link: https://executablebooks.org/en/latest/contribute/
 
 **Contribute** ⏭
 ^^^
@@ -160,7 +160,7 @@ Read our Contributing Guide to learn about the conventions we follow, and see ou
 :::
 
 :::{card}
-:link: https://executablebooks.org/en/latest/gallery.html
+:link: https://executablebooks.org/en/latest/gallery/
 
 **Be inspired** 🚀
 ^^^

@@ -98,6 +98,11 @@
       ],
       "destination": "https://myst-tools.org",
       "permanent": true
+    },
+    {
+      "source": "/made-with-myst",
+      "destination": "https://myst-tools.org/docs/mystjs/quickstart-myst-websites",
+      "permanent": false
     }
   ]
 }

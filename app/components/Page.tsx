@@ -6,7 +6,7 @@ import { TopNav } from './TopNav';
 
 export function HeaderSection() {
   return (
-    <div className="bg-[#2B2A2D] min-h-[250px] article-grid article-grid-gap">
+    <div className="bg-[#2B2A2D] article-grid article-grid-gap py-[50px]">
       <div className="col-body-outset flex flex-row items-center leading-tight">
         <img src={LogoWhite} style={{ height: 150 }} alt="MyST Markdown Logo" className="mr-6" />
         <h1 className="text-white text-[2.754rem]">

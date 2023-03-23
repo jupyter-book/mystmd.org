@@ -1,4 +1,4 @@
-import { TwitterIcon, GithubIcon } from '@scienceicons/react/24/solid';
+import { MastadonIcon, TwitterIcon, GithubIcon } from '@scienceicons/react/24/solid';
 import { Link } from '@remix-run/react';
 import Logo from './logo-wide-text.svg';
 import classnames from 'classnames';
@@ -70,6 +70,14 @@ export function Footer({ tight }: { tight?: boolean }) {
               rel="noreferrer"
             >
               <TwitterIcon className="h-5 w-5" title="Follow us on Twitter" />
+            </a>
+            <a
+              href="https://fosstodon.org/@myst_tools"
+              target="_blank"
+              className="p-1"
+              rel="me noreferrer"
+            >
+              <MastadonIcon className="h-5 w-5" title="Follow us on Mastodon" />
             </a>
             <a
               href="https://github.com/executablebooks"

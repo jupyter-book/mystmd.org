@@ -6,7 +6,7 @@ import type { SiteManifest, SiteNavItem } from 'myst-config';
 import { LoadingBar, ThemeButton } from '@myst-theme/site';
 import { useNavOpen, useSiteManifest } from '@myst-theme/providers';
 import { Bars3Icon as MenuIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
-import { TwitterIcon, GithubIcon } from '@scienceicons/react/24/solid';
+import { TwitterIcon, MastadonIcon, GithubIcon } from '@scienceicons/react/24/solid';
 import HeaderLogo from './logo-wide.svg';
 
 export const DEFAULT_NAV_HEIGHT = 60;
@@ -161,6 +161,14 @@ function ThemeTag() {
         rel="noreferrer"
       >
         <TwitterIcon className="h-5 w-5" title="Follow us on Twitter" />
+      </a>
+      <a
+        href="https://fosstodon.org/@myst_tools"
+        target="_blank"
+        className="p-1.5 hover:opacity-80"
+        rel="me noreferrer"
+      >
+        <MastadonIcon className="h-5 w-5" title="Follow us on Mastodon" />
       </a>
       <a
         href="https://github.com/executablebooks"

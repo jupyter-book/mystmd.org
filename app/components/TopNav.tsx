@@ -8,6 +8,7 @@ import { useNavOpen, useSiteManifest } from '@myst-theme/providers';
 import { Bars3Icon as MenuIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
 import { TwitterIcon, MastadonIcon, GithubIcon } from '@scienceicons/react/24/solid';
 import HeaderLogo from './logo-wide.svg';
+import HeaderLogoDark from './logo-wide-dark.svg';
 
 export const DEFAULT_NAV_HEIGHT = 60;
 
@@ -56,7 +57,7 @@ function NavItem({ item }: { item: SiteNavItem }) {
             to={item.url}
             className={({ isActive }) =>
               classNames(
-                'inline-flex items-center justify-center w-full mx-2 py-1 text-md font-medium text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75',
+                'inline-flex items-center justify-center w-full mx-2 py-1 text-md font-medium text-black dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75',
                 {
                   'border-b border-stone-200': isActive,
                 }
@@ -74,7 +75,7 @@ function NavItem({ item }: { item: SiteNavItem }) {
   return (
     <Menu as="div" className="relative grow-0 inline-block mx-2">
       <div className="inline-block">
-        <Menu.Button className="inline-flex items-center justify-center w-full mx-2 py-1 text-md font-medium text-black rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+        <Menu.Button className="inline-flex items-center justify-center w-full mx-2 py-1 text-md font-medium text-black dark:text-white rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
           <span>{item.title}</span>
           <ChevronDownIcon
             className="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
@@ -145,7 +146,18 @@ function HomeLink() {
       to="/"
       prefetch="intent"
     >
-      <img src={HeaderLogo} className="h-9 mr-3" alt="MyST Markdown Tools" height="2.25rem"></img>
+      <img
+        src={HeaderLogo}
+        className="h-9 mr-3 dark:hidden"
+        alt="MyST Markdown Tools"
+        height="2.25rem"
+      ></img>
+      <img
+        src={HeaderLogoDark}
+        className="h-9 mr-3 hidden dark:block"
+        alt="MyST Markdown Tools"
+        height="2.25rem"
+      ></img>
     </Link>
   );
 }
@@ -159,24 +171,27 @@ function ThemeTag() {
         target="_blank"
         className="p-1.5 hover:opacity-80"
         rel="noreferrer"
+        title="Follow us on Twitter"
       >
-        <TwitterIcon className="h-5 w-5" title="Follow us on Twitter" />
+        <TwitterIcon className="h-5 w-5" />
       </a>
       <a
         href="https://fosstodon.org/@myst_tools"
         target="_blank"
         className="p-1.5 hover:opacity-80"
         rel="me noreferrer"
+        title="Follow us on Mastodon"
       >
-        <MastadonIcon className="h-5 w-5" title="Follow us on Mastodon" />
+        <MastadonIcon className="h-5 w-5" />
       </a>
       <a
         href="https://github.com/executablebooks"
         target="_blank"
         className="p-1.5 hover:opacity-80"
         rel="noreferrer"
+        title="Fork us on GitHub"
       >
-        <GithubIcon className="h-5 w-5" title="Fork us on GitHub" />
+        <GithubIcon className="h-5 w-5" />
       </a>
     </div>
   );
@@ -187,7 +202,7 @@ export function TopNav({ hide_toc }: { hide_toc?: boolean }) {
   const config = useSiteManifest();
   const { nav } = config ?? {};
   return (
-    <div className="bg-gray-50 md:px-8 w-screen top-0 z-30 h-[60px] fixed">
+    <div className="bg-white/80 backdrop-blur dark:bg-stone-900/80 shadow dark:shadow-stone-700 md:px-8 w-screen top-0 z-30 h-[60px] fixed">
       <div className=" max-w-[1440px] relative mx-auto p-3">
         <nav className="flex items-center justify-between flex-wrap">
           <div className="flex flex-row mr-2 sm:mr-7 justify-start items-center">

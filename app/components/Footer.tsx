@@ -68,24 +68,27 @@ export function Footer({ tight }: { tight?: boolean }) {
               target="_blank"
               className="p-1"
               rel="noreferrer"
+              title="Follow us on Twitter"
             >
-              <TwitterIcon className="h-5 w-5" title="Follow us on Twitter" />
+              <TwitterIcon className="h-5 w-5" />
             </a>
             <a
               href="https://fosstodon.org/@myst_tools"
               target="_blank"
               className="p-1"
               rel="me noreferrer"
+              title="Follow us on Mastodon"
             >
-              <MastadonIcon className="h-5 w-5" title="Follow us on Mastodon" />
+              <MastadonIcon className="h-5 w-5" />
             </a>
             <a
               href="https://github.com/executablebooks"
               target="_blank"
               className="p-1"
               rel="noreferrer"
+              title="Fork us on GitHub"
             >
-              <GithubIcon className="h-5 w-5" title="Fork us on GitHub" />
+              <GithubIcon className="h-5 w-5" />
             </a>
           </div>
         </div>

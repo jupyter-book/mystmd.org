@@ -1,4 +1,6 @@
 {
+  "trailingSlash": false,
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./",
   "redirects": [
     {
       "source": "/",

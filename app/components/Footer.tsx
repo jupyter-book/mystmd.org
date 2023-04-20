@@ -1,4 +1,4 @@
-import { MastadonIcon, TwitterIcon, GithubIcon } from '@scienceicons/react/24/solid';
+import { MastodonIcon, TwitterIcon, GithubIcon } from '@scienceicons/react/24/solid';
 import { Link } from '@remix-run/react';
 import Logo from './logo-wide.svg';
 import LogoDark from './logo-wide-dark.svg';
@@ -25,7 +25,7 @@ function SocialIcons() {
         rel="me noreferrer"
         title="Follow us on Mastodon"
       >
-        <MastadonIcon className="h-5 w-5" />
+        <MastodonIcon className="h-5 w-5" />
       </a>
       <a
         href="https://github.com/executablebooks"

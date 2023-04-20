@@ -1,6 +1,6 @@
 import { FrontmatterBlock } from '@myst-theme/frontmatter';
 import { getMetaTagsForArticle } from '@myst-theme/site';
-import { ProjectPageCatchBoundary, useNavigationHeight } from '@myst-theme/site';
+import { ProjectPageCatchBoundary } from '@myst-theme/site';
 import { ArticleAndNavigation, NavigationAndFooter } from '../components/Page';
 import { TabStateProvider, UiStateProvider } from '@myst-theme/providers';
 import { MySTRenderer } from 'myst-demo';
@@ -130,7 +130,6 @@ This is initially hidden, and can be clicked to be opened when you are viewing t
 
 export default function ContentPage() {
   const [copied, setCopied] = useState(false);
-  const { ref, height } = useNavigationHeight();
   const { data, tab } = useLoaderData();
 
   const copy = () => {
@@ -161,7 +160,7 @@ export default function ContentPage() {
     <NavigationAndFooter tightFooter hide_toc>
       <TabStateProvider>
         <UiStateProvider>
-          <main ref={ref} className="article p-0 relative">
+          <main className="article p-0 relative">
             <MySTRenderer
               value={data ?? value}
               column

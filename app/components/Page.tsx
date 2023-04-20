@@ -1,4 +1,4 @@
-import { DEFAULT_NAV_HEIGHT, Navigation, useNavigationHeight } from '@myst-theme/site';
+import { DEFAULT_NAV_HEIGHT, Navigation, useTocHeight } from '@myst-theme/site';
 import { TabStateProvider, UiStateProvider } from '@myst-theme/providers';
 import LogoWhite from './logo-icon-white.svg';
 import { Footer } from './Footer';
@@ -30,14 +30,14 @@ export function NavigationAndFooter({
   tightFooter?: boolean;
   hide_toc?: boolean;
 }) {
-  const { ref, height } = useNavigationHeight<HTMLDivElement>();
+  const { container, toc } = useTocHeight<HTMLDivElement>();
   return (
     <UiStateProvider>
-      <Navigation top={top} height={height} hide_toc={hide_toc}>
+      <Navigation top={top} tocRef={toc} hide_toc={hide_toc}>
         <TopNav hide_toc={hide_toc} />
       </Navigation>
       <div
-        ref={ref}
+        ref={container}
         style={{ minHeight: `calc(100vh - ${top + 200}px)`, marginTop: DEFAULT_NAV_HEIGHT }}
       >
         {children}

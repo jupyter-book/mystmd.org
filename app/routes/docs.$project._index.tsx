@@ -1,6 +1,6 @@
 import { ProjectPageCatchBoundary } from '@myst-theme/site';
-import Page from './$slug';
-export { loader } from './$slug';
+import Page from './docs.$project.$slug';
+export { loader } from './docs.$project.$slug';
 export default Page;
 
 export function CatchBoundary() {

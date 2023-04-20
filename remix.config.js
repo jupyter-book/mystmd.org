@@ -1,6 +1,11 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
-  serverBuildTarget: 'vercel',
+  publicPath: '/build/',
+  serverBuildPath: 'api/index.js',
+  serverMainFields: ['main', 'module'],
+  serverModuleFormat: 'cjs',
+  serverPlatform: 'node',
+  serverMinify: false,
   // When running locally in development mode, we use the built in remix
   // server. This does not understand the vercel lambda module format,
   // so we default back to the standard build output.
@@ -8,8 +13,6 @@ module.exports = {
   ignoredRouteFiles: ['**/.*'],
   appDirectory: 'app',
   assetsBuildDirectory: 'public/build',
-  serverBuildPath: 'api/index.js',
-  publicPath: '/build/',
   serverDependenciesToBundle: [
     /^rehype.*/,
     /^remark.*/,
@@ -20,6 +23,7 @@ module.exports = {
     'trough',
     'zwitch',
     'nanoid',
+    'node-fetch',
     /^vfile.*/,
     'myst-to-react',
     '@curvenote/icons',
@@ -35,4 +39,8 @@ module.exports = {
     '@jupyterlab/rendermime-interfaces',
   ],
   watchPaths: [],
+  future: {
+    v2_routeConvention: true,
+    v2_normalizeFormMethod: true,
+  },
 };

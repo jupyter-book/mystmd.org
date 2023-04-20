@@ -6,7 +6,7 @@ import type { SiteManifest, SiteNavItem } from 'myst-config';
 import { LoadingBar, ThemeButton } from '@myst-theme/site';
 import { useNavOpen, useSiteManifest } from '@myst-theme/providers';
 import { Bars3Icon as MenuIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
-import { TwitterIcon, MastadonIcon, GithubIcon } from '@scienceicons/react/24/solid';
+import { TwitterIcon, MastodonIcon, GithubIcon } from '@scienceicons/react/24/solid';
 import HeaderLogo from './logo-wide.svg';
 import HeaderLogoDark from './logo-wide-dark.svg';
 
@@ -165,7 +165,7 @@ function HomeLink() {
 function ThemeTag() {
   return (
     <div className="bg-[#2B2A2D] absolute top-0 right-4 sm:right-0 flex flex-row p-1 text-white">
-      <ThemeButton className="inline-block mx-1 h-5 w-5 self-center" />
+      <ThemeButton className="inline-block mx-1 h-5 w-5 self-center text-white border-white" />
       <a
         href="https://twitter.com/myst_tools"
         target="_blank"
@@ -182,7 +182,7 @@ function ThemeTag() {
         rel="me noreferrer"
         title="Follow us on Mastodon"
       >
-        <MastadonIcon className="h-5 w-5" />
+        <MastodonIcon className="h-5 w-5" />
       </a>
       <a
         href="https://github.com/executablebooks"

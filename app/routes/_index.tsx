@@ -1,11 +1,6 @@
 import type { LinksFunction, LoaderFunction, MetaFunction } from '@remix-run/node';
 import type { PageLoader } from '@myst-theme/site';
-import {
-  getMetaTagsForArticle,
-  KatexCSS,
-  ArticlePage,
-  useNavigationHeight,
-} from '@myst-theme/site';
+import { getMetaTagsForArticle, KatexCSS, ArticlePage } from '@myst-theme/site';
 import { getPage } from '~/utils/loaders.server';
 import { useLoaderData } from '@remix-run/react';
 import type { SiteManifest } from 'myst-config';
@@ -32,14 +27,13 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export default function LandingPage() {
-  const { ref, height } = useNavigationHeight();
   const article = useLoaderData<PageLoader>() as PageLoader;
   // Big of a hack...
   const design = { hide_title_block: true, hide_footer_links: true };
   (article.frontmatter as any).design = design;
   return (
     <ArticleAndNavigation header={<HeaderSection />} hide_toc>
-      <main ref={ref} className="article content article-grid article-grid-gap mt-[60px]">
+      <main className="article content article-grid article-grid-gap mt-[60px]">
         <ArticlePage article={article} />
       </main>
     </ArticleAndNavigation>

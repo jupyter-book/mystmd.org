@@ -1,12 +1,12 @@
 import type { LoaderFunction, MetaFunction } from '@remix-run/node';
 import type { PageLoader } from '@myst-theme/site';
+import { useOutlineHeight, useTocHeight } from '@myst-theme/site';
 import { FrontmatterBlock } from '@myst-theme/frontmatter';
 import {
   FooterLinksBlock,
   DEFAULT_NAV_HEIGHT,
   TableOfContents,
   getMetaTagsForArticle,
-  useNavigationHeight,
   DocumentOutline,
   ContentBlocks,
   Bibliography,
@@ -16,7 +16,7 @@ import { useLoaderData, useTransition } from '@remix-run/react';
 import type { SiteManifest } from 'myst-config';
 import { ReferencesProvider } from '@myst-theme/providers';
 import { getArticlePage } from '~/utils/loaders.server';
-import { ArticleWithProviders } from '../../components/Page';
+import { ArticleWithProviders } from '../components/Page';
 import { useEffect, useRef, useState } from 'react';
 
 export const meta: MetaFunction = (args) => {
@@ -69,7 +69,11 @@ function ArticlePage({ article }: { article: PageLoader }) {
 }
 
 export default function Page() {
-  const { ref, height } = useNavigationHeight();
+  const { container, outline } = useOutlineHeight();
+  const { container: tocContainer, toc } = useTocHeight();
+  useEffect(() => {
+    (tocContainer as any).current = container.current;
+  }, [container, tocContainer]);
   const article = useLoaderData<PageLoader>() as PageLoader;
   return (
     <ReferencesProvider
@@ -77,14 +81,14 @@ export default function Page() {
       frontmatter={article.frontmatter}
       urlbase="/docs"
     >
-      <TableOfContents top={DEFAULT_NAV_HEIGHT} height={height + DEFAULT_NAV_HEIGHT - 12} />
-      <main ref={ref}>
+      <TableOfContents top={DEFAULT_NAV_HEIGHT} tocRef={toc} />
+      <main ref={container}>
         <ArticleWithProviders>
           <FrontmatterBlock kind={article.kind} frontmatter={article.frontmatter} />
           {/* <FloatingOutline height={height} /> */}
           <ArticlePage article={article} />
         </ArticleWithProviders>
-        <DocumentOutline top={DEFAULT_NAV_HEIGHT + 50} height={height + DEFAULT_NAV_HEIGHT - 12} />
+        <DocumentOutline top={DEFAULT_NAV_HEIGHT + 50} outlineRef={outline} />
       </main>
     </ReferencesProvider>
   );

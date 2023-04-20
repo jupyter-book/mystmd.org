@@ -1,6 +1,6 @@
 import type { LoaderFunction } from '@remix-run/node';
 import type { PageLoader } from '@myst-theme/site';
-import { ArticlePage, ProjectPageCatchBoundary, useNavigationHeight } from '@myst-theme/site';
+import { ArticlePage, ProjectPageCatchBoundary } from '@myst-theme/site';
 import { getPage } from '../utils/loaders.server';
 import { NavLink, useLoaderData } from '@remix-run/react';
 import { ArticleAndNavigation } from '../components/Page';
@@ -14,13 +14,12 @@ export const loader: LoaderFunction = async ({ params, request }) => {
 };
 
 export default function ContentPage() {
-  const { ref, height } = useNavigationHeight();
   const site = useSiteManifest();
   const article = useLoaderData<PageLoader>() as PageLoader;
   (article as any).frontmatter.design = { hide_title_block: true, hide_footer_links: true };
   return (
     <ArticleAndNavigation>
-      <main ref={ref} className="article article-grid article-grid-gap py-[100px]">
+      <main className="article article-grid article-grid-gap py-[100px]">
         <h1 className="text-center">{article.frontmatter.title}</h1>
         <div className="col-body-outset">
           <div className="border-y border-gray-200 py-3 my-[100px] flex flex-row justify-around">

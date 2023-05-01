@@ -6,39 +6,7 @@ thumbnail: thumbnails/index.png
 
 +++ { "class": "col-body-outset" }
 
-# Community-driven tools for the future of technical communication and publication
-
-## MyST extends Markdown for technical and scientific communication
-
-+++ { "class": "col-page" }
-
-```{myst}
-MyST makes Markdown more _extensible_ & **powerful** to support an
-ecosystem of tools for computational narratives, technical documentation,
-and open scientific communication.
-
-:::{important}
-# Our Values
-We believe in a community-driven approach of open-source tools that are
-composable and extensible.
-:::
-```
-
-+++ { "class": "col-body-outset" }
-
-### The MyST Ecosystem
-
-```{list-table}
-* - Jupyter
-  - VSCode
-  - Python
-  - Javascript
-  - Sphinx
-  - LaTeX
-  - Microsoft Word
-```
-
-### Create Scientific Publications
+## Create Scientific Publications
 
 Create interactive scientific publications for the web or export to PDF, LaTeX and Microsoft Word.
 
@@ -75,7 +43,7 @@ Contribute a Template »
 
 ::::
 
-### An ecosystem for the next generation of technical communication
+## An ecosystem for the next generation of technical communication
 
 MyST is a powerful authoring framework that supports blogs, books, articles and journals.
 
@@ -145,7 +113,7 @@ MyST Spec »
 
 ::::
 
-### Open Community
+## Open Community
 
 The MyST ecosystem is an open community supported by The Executable Book Project.
 

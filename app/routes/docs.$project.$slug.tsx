@@ -20,7 +20,8 @@ import { ArticleWithProviders } from '../components/Page';
 import { useEffect, useRef, useState } from 'react';
 
 export const meta: MetaFunction = (args) => {
-  const config = args.parentsData?.root?.config as SiteManifest | undefined;
+  const config = (args.parentsData?.['routes/docs.$project']?.config ??
+    args.parentsData?.root?.config) as SiteManifest | undefined;
   const data = args.data as PageLoader | undefined;
   if (!config || !data || !data.frontmatter) return {};
   return getMetaTagsForArticle({

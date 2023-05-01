@@ -33,7 +33,7 @@ export default function LandingPage() {
   (article.frontmatter as any).design = design;
   return (
     <ArticleAndNavigation header={<HeaderSection />} hide_toc>
-      <main className="article content article-grid article-grid-gap mt-[60px]">
+      <main className="article content article-grid article-grid-gap">
         <ArticlePage article={article} />
       </main>
     </ArticleAndNavigation>

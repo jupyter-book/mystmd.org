@@ -1,6 +1,6 @@
 ---
 title: MyST Markdown - Tools for the future of technical communication
-description: Community-driven tools for the future of technical communication and publication. MyST makes markdown more extensible and powerful to support an ecosystem of tools for computational narratives, technical documentation, and open scientific communication.
+description: Community-driven tools for the future of technical communication and publication. MyST makes Markdown more extensible and powerful to support an ecosystem of tools for computational narratives, technical documentation, and open scientific communication.
 thumbnail: thumbnails/index.png
 ---
 

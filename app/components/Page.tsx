@@ -104,7 +104,7 @@ export function NavigationAndFooter({
   tightFooter?: boolean;
   hide_toc?: boolean;
 }) {
-  const { container, toc } = useTocHeight<HTMLDivElement>();
+  const { container, toc } = useTocHeight<HTMLDivElement>(top);
   return (
     <UiStateProvider>
       <Navigation top={top} tocRef={toc} hide_toc={hide_toc}>

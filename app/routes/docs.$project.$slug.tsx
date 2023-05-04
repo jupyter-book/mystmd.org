@@ -71,7 +71,7 @@ function ArticlePage({ article }: { article: PageLoader }) {
 
 export default function Page() {
   const { container, outline } = useOutlineHeight();
-  const { container: tocContainer, toc } = useTocHeight();
+  const { container: tocContainer, toc } = useTocHeight(DEFAULT_NAV_HEIGHT);
   useEffect(() => {
     (tocContainer as any).current = container.current;
   }, [container, tocContainer]);

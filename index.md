@@ -16,7 +16,7 @@ Create interactive scientific publications for the web or export to PDF, LaTeX a
 :link: /docs/mystjs/quickstart-myst-documents
 **Create Scientific PDFs** 📄
 ^^^
-Create PDF print-ready scientific papers over 400 $\LaTeX$ journal templates.
+Create print-ready scientific PDFs from over 400 $\LaTeX$ journal templates.
 
 +++
 Create a PDF »

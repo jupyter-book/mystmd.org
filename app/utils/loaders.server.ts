@@ -6,7 +6,9 @@ import type { SiteManifest } from 'myst-config';
 // const CONTENT_CDN = `http://localhost:${CONTENT_CDN_PORT}`;
 
 // const INDEX_SITE = 'rowanc1-myst_tools.curve.space';
+// const getDocsSites = (name: string) => `rowanc1-${name}.curve.space`;
 const INDEX_SITE = 'www.myst.tools';
+const getDocsSites = (name: string) => `${name}.myst.tools`;
 
 export async function getConfig(): Promise<SiteManifest> {
   return cdn.getConfig(INDEX_SITE);
@@ -20,7 +22,7 @@ export async function getConfig(): Promise<SiteManifest> {
 }
 
 export async function getArticleConfig(name: string): Promise<SiteManifest> {
-  const config = await cdn.getConfig(`${name}.myst.tools`);
+  const config = await cdn.getConfig(getDocsSites(name));
   return config;
 }
 
@@ -40,9 +42,9 @@ export async function getArticleConfig(name: string): Promise<SiteManifest> {
 
 export async function getArticlePage(
   name: string,
-  opts: { project: string; slug?: string }
+  opts: { project?: string; slug?: string }
 ): Promise<PageLoader | Response | null> {
-  const data = await cdn.getPage(`${name}.myst.tools`, opts);
+  const data = await cdn.getPage(getDocsSites(name), opts);
   return data;
 }
 

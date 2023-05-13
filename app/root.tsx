@@ -9,10 +9,7 @@ import {
   getThemeSession,
   KatexCSS,
 } from '@myst-theme/site';
-export {
-  AppCatchBoundary as CatchBoundary,
-  AppDebugErrorBoundary as ErrorBoundary,
-} from '@myst-theme/site';
+export { AppCatchBoundary as CatchBoundary } from '@myst-theme/site';
 
 export const meta: MetaFunction = ({ data }) => {
   return getMetaTagsForSite({

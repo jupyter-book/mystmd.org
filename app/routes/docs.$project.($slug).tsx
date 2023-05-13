@@ -12,12 +12,13 @@ import {
   Bibliography,
   ArticlePageCatchBoundary,
 } from '@myst-theme/site';
-import { useLoaderData, useTransition } from '@remix-run/react';
+import { useLoaderData } from '@remix-run/react';
 import type { SiteManifest } from 'myst-config';
-import { ReferencesProvider } from '@myst-theme/providers';
+import { BaseUrlProvider, ReferencesProvider } from '@myst-theme/providers';
 import { getArticlePage } from '~/utils/loaders.server';
 import { ArticleWithProviders } from '../components/Page';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
+import type { GenericParent } from 'myst-common';
 
 export const meta: MetaFunction = (args) => {
   const config = (args.parentsData?.['routes/docs.$project']?.config ??
@@ -35,34 +36,14 @@ export const meta: MetaFunction = (args) => {
 
 export const loader: LoaderFunction = async ({ params, request }) => {
   const { project, slug } = params;
-  return getArticlePage(project as string, { project: project as string, slug });
+  const page = await getArticlePage(project as string, { project: project as string, slug });
+  return page;
 };
-
-export function useSticky<T extends HTMLElement = HTMLDivElement>() {
-  const ref = useRef<T>(null);
-  const [sticky, setStickyState] = useState(false);
-  const transitionState = useTransition().state;
-  const setSticky = () => {
-    if (ref.current) {
-      setStickyState(window.scrollY > ref.current.offsetTop);
-    }
-  };
-  useEffect(() => {
-    setSticky();
-    setTimeout(setSticky, 100); // Some lag sometimes
-    const handleScroll = () => setSticky();
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [ref, transitionState]);
-  return { ref, sticky };
-}
 
 function ArticlePage({ article }: { article: PageLoader }) {
   return (
     <>
-      <ContentBlocks mdast={article.mdast} />
+      <ContentBlocks mdast={article.mdast as GenericParent} />
       <Bibliography />
       <FooterLinksBlock links={article.footer} />
     </>
@@ -77,21 +58,22 @@ export default function Page() {
   }, [container, tocContainer]);
   const article = useLoaderData<PageLoader>() as PageLoader;
   return (
-    <ReferencesProvider
-      references={{ ...article.references, article: article.mdast }}
-      frontmatter={article.frontmatter}
-      urlbase="/docs"
-    >
-      <TableOfContents top={DEFAULT_NAV_HEIGHT} tocRef={toc} />
-      <main ref={container}>
-        <ArticleWithProviders>
-          <FrontmatterBlock kind={article.kind} frontmatter={article.frontmatter} />
-          {/* <FloatingOutline height={height} /> */}
-          <ArticlePage article={article} />
-        </ArticleWithProviders>
-        <DocumentOutline top={DEFAULT_NAV_HEIGHT + 50} outlineRef={outline} />
-      </main>
-    </ReferencesProvider>
+    <BaseUrlProvider baseurl="/docs">
+      <ReferencesProvider
+        references={{ ...article.references, article: article.mdast }}
+        frontmatter={article.frontmatter}
+      >
+        <TableOfContents top={DEFAULT_NAV_HEIGHT} tocRef={toc} projectSlug={article.project} />
+        <main ref={container}>
+          <ArticleWithProviders>
+            <FrontmatterBlock kind={article.kind} frontmatter={article.frontmatter} />
+            {/* <FloatingOutline height={height} /> */}
+            <ArticlePage article={article} />
+          </ArticleWithProviders>
+          <DocumentOutline top={DEFAULT_NAV_HEIGHT + 50} outlineRef={outline} />
+        </main>
+      </ReferencesProvider>
+    </BaseUrlProvider>
   );
 }
 

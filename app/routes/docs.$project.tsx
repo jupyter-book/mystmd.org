@@ -5,7 +5,7 @@ import { Outlet, useLoaderData } from '@remix-run/react';
 import { ArticlePageCatchBoundary } from '@myst-theme/site';
 import { NavigationAndFooter } from '../components/Page';
 import { getArticleConfig } from '../utils/loaders.server';
-import { SiteProvider } from '@myst-theme/providers';
+import { BaseUrlProvider, SiteProvider, useSiteManifest } from '@myst-theme/providers';
 
 type ArticleConfig = Omit<SiteLoader, 'theme'>;
 
@@ -21,13 +21,19 @@ export const loader: LoaderFunction = async ({ params, request }): Promise<Artic
 export const links: LinksFunction = () => [KatexCSS];
 
 export default function LandingPage() {
+  const siteConfig = useSiteManifest();
   const { config } = useLoaderData<ArticleConfig>();
   return (
-    <NavigationAndFooter>
+    <BaseUrlProvider baseurl="/docs">
       <SiteProvider config={config}>
-        <Outlet />
+        <NavigationAndFooter
+          projectSlug={config?.projects?.[0].slug}
+          siteConfig={siteConfig as any}
+        >
+          <Outlet />
+        </NavigationAndFooter>
       </SiteProvider>
-    </NavigationAndFooter>
+    </BaseUrlProvider>
   );
 }
 

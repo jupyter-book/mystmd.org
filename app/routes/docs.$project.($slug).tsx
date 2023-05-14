@@ -52,28 +52,21 @@ function ArticlePage({ article }: { article: PageLoader }) {
 
 export default function Page() {
   const { container, outline } = useOutlineHeight();
-  const { container: tocContainer, toc } = useTocHeight(DEFAULT_NAV_HEIGHT);
-  useEffect(() => {
-    (tocContainer as any).current = container.current;
-  }, [container, tocContainer]);
   const article = useLoaderData<PageLoader>() as PageLoader;
   return (
-    <BaseUrlProvider baseurl="/docs">
-      <ReferencesProvider
-        references={{ ...article.references, article: article.mdast }}
-        frontmatter={article.frontmatter}
-      >
-        <TableOfContents top={DEFAULT_NAV_HEIGHT} tocRef={toc} projectSlug={article.project} />
-        <main ref={container}>
-          <ArticleWithProviders>
-            <FrontmatterBlock kind={article.kind} frontmatter={article.frontmatter} />
-            {/* <FloatingOutline height={height} /> */}
-            <ArticlePage article={article} />
-          </ArticleWithProviders>
-          <DocumentOutline top={DEFAULT_NAV_HEIGHT + 50} outlineRef={outline} />
-        </main>
-      </ReferencesProvider>
-    </BaseUrlProvider>
+    <ReferencesProvider
+      references={{ ...article.references, article: article.mdast }}
+      frontmatter={article.frontmatter}
+    >
+      <main ref={container}>
+        <ArticleWithProviders>
+          <FrontmatterBlock kind={article.kind} frontmatter={article.frontmatter} />
+          {/* <FloatingOutline height={height} /> */}
+          <ArticlePage article={article} />
+        </ArticleWithProviders>
+        <DocumentOutline top={DEFAULT_NAV_HEIGHT + 50} outlineRef={outline} />
+      </main>
+    </ReferencesProvider>
   );
 }
 

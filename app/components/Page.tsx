@@ -1,5 +1,10 @@
 import { DEFAULT_NAV_HEIGHT, Navigation, useTocHeight } from '@myst-theme/site';
-import { TabStateProvider, UiStateProvider } from '@myst-theme/providers';
+import {
+  SiteProvider,
+  TabStateProvider,
+  UiStateProvider,
+  useSiteManifest,
+} from '@myst-theme/providers';
 import Logo from './logo-icon.svg';
 import JupyterLogo from './jupyter.svg';
 import VSCodeLogo from './vscode.svg';
@@ -12,6 +17,7 @@ import HeaderImage from './hero.svg';
 import { Footer } from './Footer';
 import { TopNav } from './TopNav';
 import { MySTRenderer } from 'myst-demo';
+import type { SiteManifest } from 'myst-config';
 
 const value = `MyST makes Markdown more _extensible_ & **powerful** to support an
 ecosystem of tools for computational narratives, technical documentation,
@@ -98,24 +104,31 @@ export function NavigationAndFooter({
   top = DEFAULT_NAV_HEIGHT,
   tightFooter,
   hide_toc,
+  projectSlug,
+  siteConfig,
 }: {
   top?: number;
   children: React.ReactNode;
   tightFooter?: boolean;
   hide_toc?: boolean;
+  projectSlug?: string;
+  siteConfig?: SiteManifest;
 }) {
+  const siteConfigDefault = useSiteManifest();
   const { container, toc } = useTocHeight<HTMLDivElement>(top);
   return (
     <UiStateProvider>
-      <Navigation top={top} tocRef={toc} hide_toc={hide_toc}>
-        <TopNav hide_toc={hide_toc} />
+      <Navigation top={top} tocRef={toc} hide_toc={hide_toc} projectSlug={projectSlug}>
+        <SiteProvider config={siteConfig ?? siteConfigDefault}>
+          <TopNav hide_toc={hide_toc} />
+        </SiteProvider>
+        <div
+          ref={container}
+          style={{ minHeight: `calc(100vh - ${top + 200}px)`, marginTop: DEFAULT_NAV_HEIGHT }}
+        >
+          {children}
+        </div>
       </Navigation>
-      <div
-        ref={container}
-        style={{ minHeight: `calc(100vh - ${top + 200}px)`, marginTop: DEFAULT_NAV_HEIGHT }}
-      >
-        {children}
-      </div>
       <Footer tight={tightFooter} />
     </UiStateProvider>
   );

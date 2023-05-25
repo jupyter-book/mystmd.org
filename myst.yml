@@ -23,6 +23,10 @@ site:
           url: /docs/myst-transforms
         - title: MyST Spec
           url: /docs/spec
+        - title: Thebe
+          url: /docs/thebe
+        - title: MyST in Jupyter Lab
+          url: /docs/jupyterlab
     - title: Community
       url: https://github.com/orgs/executablebooks/discussions
     - title: Try MyST

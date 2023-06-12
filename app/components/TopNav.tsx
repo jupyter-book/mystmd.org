@@ -9,6 +9,7 @@ import { Bars3Icon as MenuIcon, ChevronDownIcon } from '@heroicons/react/24/soli
 import { TwitterIcon, MastodonIcon, GithubIcon } from '@scienceicons/react/24/solid';
 import HeaderLogo from './logo-wide.svg';
 import HeaderLogoDark from './logo-wide-dark.svg';
+import { DocSearch } from '@docsearch/react';
 
 export const DEFAULT_NAV_HEIGHT = 60;
 
@@ -221,9 +222,14 @@ export function TopNav({ hide_toc }: { hide_toc?: boolean }) {
             )}
             <HomeLink />
           </div>
-          <div className="flex-grow flex items-center w-auto">
+          <div className="flex-grow flex items-center w-auto mr-[150px]">
             <NavItems nav={nav} />
             <div className="block flex-grow"></div>
+            <DocSearch
+              appId="ABKEHB192J"
+              indexName="myst-tools"
+              apiKey="b265e0eb7d7c7c1d1abca0cef4df258d"
+            />
           </div>
         </nav>
         <ThemeTag />

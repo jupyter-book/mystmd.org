@@ -19,7 +19,11 @@ export const meta: MetaFunction = ({ data }) => {
 };
 
 export const links: LinksFunction = () => {
-  return [{ rel: 'stylesheet', href: tailwind }, KatexCSS];
+  return [
+    { rel: 'stylesheet', href: tailwind },
+    KatexCSS,
+    { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@docsearch/css@3' },
+  ];
 };
 
 export const loader: LoaderFunction = async ({ request }): Promise<SiteLoader> => {

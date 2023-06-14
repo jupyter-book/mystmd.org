@@ -16,3 +16,5 @@ build
 .output
 
 /app/styles/app.css
+/public/*thebe*
+/public/service-worker-*.js

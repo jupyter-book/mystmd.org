@@ -3,6 +3,17 @@
   "ignoreCommand": "git diff --quiet HEAD^ HEAD ./",
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "myst-tools.org"
+        }
+      ],
+      "destination": "https://mystmd.org",
+      "permanent": false
+    },
+    {
       "source": "/:path*",
       "has": [
         {

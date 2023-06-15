@@ -177,7 +177,7 @@ function ThemeTag() {
         <TwitterIcon className="h-5 w-5" />
       </a>
       <a
-        href="https://fosstodon.org/@mystmarkdown"
+        href="https://fosstodon.org/@myst_tools"
         target="_blank"
         className="p-1.5 hover:opacity-80"
         rel="me noreferrer"

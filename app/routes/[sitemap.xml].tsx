@@ -8,10 +8,11 @@ const projects = [
   'guide',
   'jtex',
   'spec',
-  'myst-cli',
-  'myst-to-tex',
+  // 'cli',
+  // 'myst-to-tex',
   'myst-transforms',
-  'jupyterlab',
+  // 'jupyterlab',
+  // 'thebe',
 ];
 
 export const loader: LoaderFunction = async ({ request }): Promise<Response> => {

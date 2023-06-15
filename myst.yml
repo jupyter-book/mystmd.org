@@ -3,37 +3,31 @@ project:
   title: MyST Markdown
 site:
   title: MyST Markdown
-  projects:
-    - path: .
-      slug: overview
   nav:
     - title: Guide
-      url: /docs/mystjs
+      url: /guide
     - title: Overview
-      url: /ecosystem
+      url: /overview/ecosystem
     - title: Projects
       children:
-        - title: MyST CLI
-          url: /docs/mystjs
+        - title: MyST Markdown Guide
+          url: /guide
         - title: LaTeX Templates (jtex)
-          url: /docs/jtex
+          url: /jtex
         - title: JATS XML
-          url: /docs/mystjs/creating-jats-xml
+          url: /guide/creating-jats-xml
         - title: MyST Transforms
-          url: /docs/myst-transforms
+          url: /myst-transforms
         - title: MyST Spec
-          url: /docs/spec
-        - title: Thebe
-          url: /docs/thebe
-        - title: MyST in Jupyter Lab
-          url: /docs/jupyterlab
-    - title: Community
-      url: https://github.com/orgs/executablebooks/discussions
+          url: /spec
+        # - title: Thebe
+        #   url: /thebe
+        # - title: MyST in Jupyter Lab
+        #   url: /jupyterlab
     - title: Try MyST
       url: /sandbox
   domains:
-    # - rowanc1-myst_tools.curve.space
-    - www.myst.tools
-  twitter: myst_tools
+    - mystmd-overview.curve.space
+  twitter: mystmarkdown
   logo: public/logo.svg
   logo_text: MyST Markdown

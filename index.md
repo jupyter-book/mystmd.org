@@ -13,7 +13,7 @@ Create interactive scientific publications for the web or export to PDF, LaTeX a
 ::::{grid} 1 1 2 3
 
 :::{card}
-:link: /docs/mystjs/quickstart-myst-documents
+:link: /guide/quickstart-myst-documents
 **Create Scientific PDFs** 📄
 ^^^
 Create PDF print-ready scientific papers over 400 $\LaTeX$ journal templates.
@@ -23,7 +23,7 @@ Create a PDF »
 :::
 
 :::{card}
-:link: /docs/mystjs/creating-word-documents
+:link: /guide/creating-word-documents
 **Create Word Docs** 📃
 ^^^
 
@@ -33,7 +33,7 @@ Export to Word »
 :::
 
 :::{card}
-:link: /docs/jtex
+:link: /jtex
 **Flexible Templating** 🧱
 ^^^
 Easily create and contribute data-driven templates using $\LaTeX$.
@@ -50,7 +50,7 @@ MyST is a powerful authoring framework that supports blogs, books, articles and 
 ::::{grid} 1 1 2 3
 
 :::{card}
-:link: /docs/mystjs/citations
+:link: /guide/citations
 
 **Built for Science** 👩‍🔬
 ^^^
@@ -61,7 +61,7 @@ MyST for Science »
 :::
 
 :::{card}
-:link: /docs/mystjs/interactive-notebooks
+:link: /guide/interactive-notebooks
 
 **Dynamic Documents** 📈
 ^^^
@@ -72,7 +72,7 @@ Bring your pages to life »
 :::
 
 :::{card}
-:link: /docs/mystjs/accessibility-and-performance
+:link: /guide/accessibility-and-performance
 
 **Fast & Accessible** ⚡️
 ^^^
@@ -92,7 +92,7 @@ Our Goals & Values »
 :::
 
 :::{card}
-:link: /docs/mystjs/interactive-notebooks
+:link: /guide/interactive-notebooks
 
 **Reproducible** 💎
 ^^^
@@ -102,7 +102,7 @@ Make Science Reproducible »
 :::
 
 :::{card}
-:link: /docs/spec
+:link: /spec
 
 **Community Driven** 🤝
 ^^^

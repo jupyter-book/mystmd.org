@@ -10,9 +10,9 @@ thumbnail: thumbnails/index.png
 The MyST ecosystem is evolving, with mature tools for Python and Sphinx, which support projects
 like [JupyterBook](https://jupyterbook.org).
 
-The [ExecutableBooks](https://executablebooks.org/) team is creating a [specification for MyST](/docs/spec),
+The [ExecutableBooks](https://executablebooks.org/) team is creating a [specification for MyST](/spec),
 to allow parsers and renderers in many different tools and ecosystems, including in Javascript.
-The [mystjs project](/docs/mystjs) is in beta and explores a MyST implementation in JavaScript
+The [mystjs project](/guide) is in beta and explores a MyST implementation in JavaScript
 and will change significantly and rapidly.
 ```
 
@@ -41,7 +41,7 @@ Go to Project »
 :::
 
 :::{card}
-:link: /docs/mystjs
+:link: /guide
 **Javascript Parser**
 ^^^
 Use the Javascript parser to create interactive online articles, export to LaTeX, PDF or Word documents.
@@ -133,15 +133,8 @@ Go to Project »
 
 ## Javascript
 
-```{warning}
-# `mystjs` is in Beta
-
-The [mystjs project](/docs/mystjs) is in beta and explores a MyST implementation in JavaScript
-and will change significantly and rapidly.
-```
-
 :::{card}
-:link: /docs/mystjs
+:link: /guide
 `mystjs` **MyST Javascript Tools**
 ^^^
 
@@ -151,7 +144,7 @@ See Project »
 :::
 
 :::{card}
-:link: /docs/jtex
+:link: /jtex
 `jtex` **LaTeX Templates**
 ^^^
 Easily create and contribute data-driven templates using $\LaTeX$.
@@ -162,7 +155,7 @@ Contribute a Template »
 ## MyST Specification
 
 :::{card}
-:link: /docs/spec
+:link: /spec
 `myst-spec` **MyST Specification**
 ^^^
 

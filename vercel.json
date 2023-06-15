@@ -3,6 +3,17 @@
   "ignoreCommand": "git diff --quiet HEAD^ HEAD ./",
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "myst-tools.org"
+        }
+      ],
+      "destination": "https://mystmd.org/:path*",
+      "permanent": false
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -10,8 +21,19 @@
           "value": "js.myst.tools"
         }
       ],
-      "destination": "https://myst-tools.org/docs/mystjs",
-      "permanent": true
+      "destination": "https://mystmd.org/guide",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "js.myst-tools.org"
+        }
+      ],
+      "destination": "https://mystmd.org/guide",
+      "permanent": false
     },
     {
       "source": "/",
@@ -21,8 +43,19 @@
           "value": "spec.myst.tools"
         }
       ],
-      "destination": "https://myst-tools.org/docs/spec",
-      "permanent": true
+      "destination": "https://mystmd.org/spec",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "spec.myst-tools.org"
+        }
+      ],
+      "destination": "https://mystmd.org/spec",
+      "permanent": false
     },
     {
       "source": "/guide/:path*",
@@ -32,7 +65,7 @@
           "value": "js.myst.tools"
         }
       ],
-      "destination": "https://myst-tools.org/docs/mystjs/:path*",
+      "destination": "https://mystmd.org/guide/:path*",
       "permanent": true
     },
     {
@@ -43,7 +76,7 @@
           "value": "js.myst.tools"
         }
       ],
-      "destination": "https://myst-tools.org/docs/jtex/:path*",
+      "destination": "https://mystmd.org/jtex/:path*",
       "permanent": true
     },
     {
@@ -54,7 +87,7 @@
           "value": "js.myst.tools"
         }
       ],
-      "destination": "https://myst-tools.org/docs/mystjs",
+      "destination": "https://mystmd.org/guide",
       "permanent": true
     },
     {
@@ -65,7 +98,7 @@
           "value": "spec.myst.tools"
         }
       ],
-      "destination": "https://myst-tools.org/docs/spec/:path*",
+      "destination": "https://mystmd.org/spec/:path*",
       "permanent": true
     },
     {
@@ -76,7 +109,7 @@
           "value": "spec.myst.tools"
         }
       ],
-      "destination": "https://myst-tools.org/docs/spec",
+      "destination": "https://mystmd.org/spec",
       "permanent": true
     },
     {
@@ -87,7 +120,7 @@
           "value": "myst.tools"
         }
       ],
-      "destination": "https://myst-tools.org/:path*",
+      "destination": "https://mystmd.org/:path*",
       "permanent": true
     },
     {
@@ -98,12 +131,27 @@
           "value": "myst.tools"
         }
       ],
-      "destination": "https://myst-tools.org",
+      "destination": "https://mystmd.org",
       "permanent": true
     },
     {
       "source": "/made-with-myst",
-      "destination": "https://myst-tools.org/docs/mystjs/quickstart-myst-websites",
+      "destination": "https://mystmd.org/guide/quickstart-myst-websites",
+      "permanent": false
+    },
+    {
+      "source": "/docs/mystjs",
+      "destination": "https://mystmd.org/guide",
+      "permanent": false
+    },
+    {
+      "source": "/docs/mystjs/:path*",
+      "destination": "https://mystmd.org/guide/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/docs/:path*",
+      "destination": "https://mystmd.org/:path*",
       "permanent": false
     }
   ]

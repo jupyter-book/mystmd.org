@@ -13,8 +13,8 @@ function api404(message = 'No API route found at this URL') {
 }
 
 export const loader: LoaderFunction = async ({ request, params }) => {
-  const { info } = params;
-  const data = await getPage(request, { project: 'journal', slug: info }).catch(() => null);
+  const { slug } = params;
+  const data = await getPage({ name: 'overview', slug }).catch(() => null);
   if (!data) return api404('No page found at this URL.');
   return json(data);
 };

@@ -28,7 +28,7 @@ export const links: LinksFunction = () => {
 
 export const loader: LoaderFunction = async ({ request }): Promise<SiteLoader> => {
   const [config, themeSession] = await Promise.all([
-    getConfig().catch(() => null),
+    getConfig('overview').catch(() => null),
     getThemeSession(request),
   ]);
   if (!config) throw responseNoSite();

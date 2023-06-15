@@ -3,11 +3,20 @@ import { getDomainFromRequest } from '@myst-theme/site';
 import type { LoaderFunction } from '@remix-run/node';
 
 // TODO: get these from the config!
-const projects = ['mystjs', 'jtex', 'spec', 'myst-cli', 'myst-to-tex', 'myst-transforms'];
+const projects = [
+  'overview',
+  'guide',
+  'jtex',
+  'spec',
+  'myst-cli',
+  'myst-to-tex',
+  'myst-transforms',
+  'jupyterlab',
+];
 
 export const loader: LoaderFunction = async ({ request }): Promise<Response> => {
   return createSitemapIndexResponse(getDomainFromRequest(request), [
-    '/sitemap_index.xml',
-    ...projects.map((p) => `/docs/${p}/sitemap.xml`),
+    '/sandbox',
+    ...projects.map((p) => `/${p}/sitemap.xml`),
   ]);
 };

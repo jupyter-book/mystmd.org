@@ -168,7 +168,7 @@ function ThemeTag() {
     <div className="bg-[#2B2A2D] absolute top-0 right-4 sm:right-0 flex flex-row p-1 text-white">
       <ThemeButton className="inline-block mx-1 h-5 w-5 self-center text-white border-white" />
       <a
-        href="https://twitter.com/myst_tools"
+        href="https://twitter.com/mystmarkdown"
         target="_blank"
         className="p-1.5 hover:opacity-80"
         rel="noreferrer"
@@ -177,7 +177,7 @@ function ThemeTag() {
         <TwitterIcon className="h-5 w-5" />
       </a>
       <a
-        href="https://fosstodon.org/@myst_tools"
+        href="https://fosstodon.org/@mystmarkdown"
         target="_blank"
         className="p-1.5 hover:opacity-80"
         rel="me noreferrer"

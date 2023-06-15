@@ -10,7 +10,7 @@ function SocialIcons() {
   return (
     <div className="grid grid-flow-col gap-2 my-2 text-slate-600 dark:text-white w-fit">
       <a
-        href="https://twitter.com/myst_tools"
+        href="https://twitter.com/mystmarkdown"
         target="_blank"
         className="p-1"
         rel="noreferrer"
@@ -19,7 +19,7 @@ function SocialIcons() {
         <TwitterIcon className="h-5 w-5" />
       </a>
       <a
-        href="https://fosstodon.org/@myst_tools"
+        href="https://fosstodon.org/@mystmarkdown"
         target="_blank"
         className="p-1"
         rel="me noreferrer"
@@ -114,9 +114,9 @@ export function Footer({ tight }: { tight?: boolean }) {
           <div className="w-full p-2 my-4 sm:p-5 flex flex-col lg:flex-row lg:flex-wrap items-center">
             <div>
               <a href="/" className="inline-block">
-                <img src={Logo} className="w-[200px] dark:hidden" alt="MyST Tools" />
-                <img src={LogoDark} className="w-[200px] hidden dark:block" alt="MyST Tools" />
-                <span className="sr-only">MyST Tools</span>
+                <img src={Logo} className="w-[200px] dark:hidden" alt="MyST Markdown" />
+                <img src={LogoDark} className="w-[200px] hidden dark:block" alt="MyST Markdown" />
+                <span className="sr-only">MyST Markdown</span>
               </a>
               <div className="prose font-light max-w-sm dark:text-white">
                 Community-driven tools for the future of technical communication and publication
@@ -133,7 +133,7 @@ export function Footer({ tight }: { tight?: boolean }) {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/docs/mystjs" prefetch="intent">
+                    <Link to="/guide" prefetch="intent">
                       Quickstart Guide
                     </Link>
                   </li>
@@ -147,7 +147,7 @@ export function Footer({ tight }: { tight?: boolean }) {
                     </a>
                   </li>
                   <li>
-                    <Link to="/ecosystem" prefetch="intent">
+                    <Link to="/overview/ecosystem" prefetch="intent">
                       Ecosystem
                     </Link>
                   </li>
@@ -163,12 +163,12 @@ export function Footer({ tight }: { tight?: boolean }) {
                     </a>
                   </li>
                   <li>
-                    <Link to="/docs/spec" prefetch="intent">
+                    <Link to="/spec" prefetch="intent">
                       Specification
                     </Link>
                   </li>
                   <li>
-                    <a href="https://mep.myst-tools.org" target="_blank" rel="noopener noreferrer">
+                    <a href="https://mep.mystmd.org" target="_blank" rel="noopener noreferrer">
                       Enhancement Proposals
                     </a>
                   </li>

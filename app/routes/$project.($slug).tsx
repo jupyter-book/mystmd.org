@@ -1,11 +1,10 @@
 import type { LoaderFunction, MetaFunction } from '@remix-run/node';
 import type { PageLoader } from '@myst-theme/site';
-import { useOutlineHeight, useTocHeight } from '@myst-theme/site';
+import { useOutlineHeight } from '@myst-theme/site';
 import { FrontmatterBlock } from '@myst-theme/frontmatter';
 import {
   FooterLinksBlock,
   DEFAULT_NAV_HEIGHT,
-  TableOfContents,
   getMetaTagsForArticle,
   DocumentOutline,
   ContentBlocks,
@@ -14,14 +13,13 @@ import {
 } from '@myst-theme/site';
 import { useLoaderData } from '@remix-run/react';
 import type { SiteManifest } from 'myst-config';
-import { BaseUrlProvider, ReferencesProvider } from '@myst-theme/providers';
-import { getArticlePage } from '~/utils/loaders.server';
+import { ReferencesProvider } from '@myst-theme/providers';
+import { getPage } from '~/utils/loaders.server';
 import { ArticleWithProviders } from '../components/Page';
-import { useEffect } from 'react';
 import type { GenericParent } from 'myst-common';
 
 export const meta: MetaFunction = (args) => {
-  const config = (args.parentsData?.['routes/docs.$project']?.config ??
+  const config = (args.parentsData?.['routes/$project']?.config ??
     args.parentsData?.root?.config) as SiteManifest | undefined;
   const data = args.data as PageLoader | undefined;
   if (!config || !data || !data.frontmatter) return {};
@@ -36,7 +34,7 @@ export const meta: MetaFunction = (args) => {
 
 export const loader: LoaderFunction = async ({ params, request }) => {
   const { project, slug } = params;
-  const page = await getArticlePage(project as string, { project: project as string, slug });
+  const page = await getPage({ name: project as string, slug });
   return page;
 };
 
@@ -67,15 +65,5 @@ export default function Page() {
         <DocumentOutline top={DEFAULT_NAV_HEIGHT + 50} outlineRef={outline} />
       </main>
     </ReferencesProvider>
-  );
-}
-
-export function CatchBoundary() {
-  return (
-    <ArticleWithProviders>
-      <main className="article-content">
-        <ArticlePageCatchBoundary />
-      </main>
-    </ArticleWithProviders>
   );
 }

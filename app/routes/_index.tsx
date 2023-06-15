@@ -4,8 +4,8 @@ import { getMetaTagsForArticle, KatexCSS, ArticlePage } from '@myst-theme/site';
 import { getPage } from '~/utils/loaders.server';
 import { useLoaderData } from '@remix-run/react';
 import type { SiteManifest } from 'myst-config';
-import { ArticlePageCatchBoundary } from '@myst-theme/site';
-import { ArticleAndNavigation, HeaderSection } from '../components/Page';
+import { ArticleAndNavigation, HeaderSection, NavigationAndFooter } from '../components/Page';
+import { Error404 } from '../components/Error404';
 
 export const meta: MetaFunction = (args) => {
   const config = args.parentsData?.root?.config as SiteManifest | undefined;
@@ -23,7 +23,7 @@ export const meta: MetaFunction = (args) => {
 export const links: LinksFunction = () => [KatexCSS];
 
 export const loader: LoaderFunction = async ({ request }) => {
-  return getPage(request, { project: 'overview' });
+  return getPage({ name: 'overview' });
 };
 
 export default function LandingPage() {
@@ -42,10 +42,8 @@ export default function LandingPage() {
 
 export function CatchBoundary() {
   return (
-    <ArticleAndNavigation>
-      <main className="article content article-grid article-grid-gap">
-        <ArticlePageCatchBoundary />
-      </main>
-    </ArticleAndNavigation>
+    <NavigationAndFooter hide_toc>
+      <Error404 />
+    </NavigationAndFooter>
   );
 }

@@ -1,15 +1,15 @@
 import { createSitemapResponse, getSiteSlugs } from '@myst-theme/site';
 import { getDomainFromRequest } from '@myst-theme/site';
 import type { LoaderFunction } from '@remix-run/node';
-import { getArticleConfig } from '~/utils/loaders.server';
+import { getConfig } from '~/utils/loaders.server';
 
 export const loader: LoaderFunction = async ({ params, request }): Promise<Response> => {
-  const { project } = params;
+  const project = 'overview';
   if (!project) return new Response('Project not found', { status: 404 });
-  const config = await getArticleConfig(project).catch(() => null);
+  const config = await getConfig(project).catch(() => null);
   if (!config) return new Response('Project not found', { status: 404 });
   return createSitemapResponse(
     getDomainFromRequest(request),
-    getSiteSlugs(config).map((s) => `/docs${s}`)
+    getSiteSlugs(config, undefined, { excludeIndex: true })
   );
 };

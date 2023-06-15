@@ -19,13 +19,10 @@ import { TopNav } from './TopNav';
 import { MySTRenderer } from 'myst-demo';
 import type { SiteManifest } from 'myst-config';
 
-const value = `MyST makes Markdown more _extensible_ & **powerful** to support an
-ecosystem of tools for computational narratives, technical documentation,
-and open scientific communication.
+const value = `MyST makes Markdown more _extensible_ & **powerful** to support an ecosystem of tools for computational narratives, technical documentation, and open scientific communication.
 
 :::{important} Our Values
-We believe in a community-driven approach of open-source tools that are
-composable and extensible.
+We believe in a community-driven approach of open-source tools that are composable and extensible.
 :::
 `;
 
@@ -48,7 +45,7 @@ export function HeaderSection() {
 
           <a
             className="inline-block align-middle px-3 py-2 shadow text-white bg-blue-800 hover:bg-blue-900 mt-4 font-medium text-[12px] no-underline"
-            href="/docs/mystjs"
+            href="/guide"
           >
             Get Started
           </a>

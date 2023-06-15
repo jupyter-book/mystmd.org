@@ -8,8 +8,8 @@ export const loader: LoaderFunction = async ({ params, request }): Promise<Respo
   if (!project) return new Response('Project not found', { status: 404 });
   const config = await getConfig(project).catch(() => null);
   if (!config) return new Response('Project not found', { status: 404 });
-  return createSitemapResponse(
-    getDomainFromRequest(request),
-    getSiteSlugs(config, undefined, { excludeIndex: true })
-  );
+  return createSitemapResponse(getDomainFromRequest(request), [
+    '/sandbox',
+    ...getSiteSlugs(config, undefined, { excludeIndex: true }),
+  ]);
 };

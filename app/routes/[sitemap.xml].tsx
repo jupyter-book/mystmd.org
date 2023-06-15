@@ -17,7 +17,6 @@ const projects = [
 
 export const loader: LoaderFunction = async ({ request }): Promise<Response> => {
   return createSitemapIndexResponse(getDomainFromRequest(request), [
-    '/sandbox',
     ...projects.map((p) => `/${p}/sitemap.xml`),
   ]);
 };

@@ -1,4 +1,4 @@
-import { Link, NavLink } from '@remix-run/react';
+import { Link, NavLink, useParams } from '@remix-run/react';
 import { Fragment } from 'react';
 import classNames from 'classnames';
 import { Menu, Transition } from '@headlessui/react';
@@ -10,6 +10,7 @@ import { TwitterIcon, MastodonIcon, GithubIcon } from '@scienceicons/react/24/so
 import HeaderLogo from './logo-wide.svg';
 import HeaderLogoDark from './logo-wide-dark.svg';
 import { DocSearch } from '@docsearch/react';
+import type { DocSearchProps } from '@docsearch/react';
 
 export const DEFAULT_NAV_HEIGHT = 60;
 
@@ -198,10 +199,15 @@ function ThemeTag() {
   );
 }
 
+const knownProjects = new Set(['guide', 'spec', 'jtex', 'thebe']);
+
 export function TopNav({ hide_toc }: { hide_toc?: boolean }) {
   const [open, setOpen] = useNavOpen();
   const config = useSiteManifest();
   const { nav } = config ?? {};
+  const { project } = useParams();
+  const searchParameters: DocSearchProps['searchParameters'] =
+    project && knownProjects.has(project) ? { facetFilters: `project:${project}` } : undefined;
   return (
     <div className="bg-white/80 backdrop-blur dark:bg-stone-900/80 shadow dark:shadow-stone-700 md:px-8 w-screen top-0 z-30 h-[60px] fixed">
       <div className=" max-w-[1440px] relative mx-auto p-3">
@@ -226,9 +232,10 @@ export function TopNav({ hide_toc }: { hide_toc?: boolean }) {
             <NavItems nav={nav} />
             <div className="block flex-grow"></div>
             <DocSearch
-              appId="ABKEHB192J"
-              indexName="myst-tools"
-              apiKey="b265e0eb7d7c7c1d1abca0cef4df258d"
+              appId="5QB8OZB769"
+              indexName="mystmd"
+              apiKey="f593d2fe5c18acd9410edd482a49bcbe"
+              searchParameters={searchParameters}
             />
           </div>
         </nav>

@@ -1,3 +1,4 @@
+import type { PageLoader } from '@myst-theme/site';
 import { DEFAULT_NAV_HEIGHT, Navigation, useTocHeight } from '@myst-theme/site';
 import {
   SiteProvider,
@@ -5,6 +6,7 @@ import {
   UiStateProvider,
   useSiteManifest,
 } from '@myst-theme/providers';
+import { BusyScopeProvider, ExecuteScopeProvider } from '@myst-theme/jupyter';
 import Logo from './logo-icon.svg';
 import JupyterLogo from './jupyter.svg';
 import VSCodeLogo from './vscode.svg';
@@ -29,8 +31,8 @@ We believe in a community-driven approach of open-source tools that are composab
 export function HeaderSection() {
   return (
     <>
-      <div className="article article-grid article-subgrid-gap pt-6 bg-slate-100">
-        <div className="col-page-inset text-center">
+      <div className="pt-6 article article-grid article-subgrid-gap bg-slate-100">
+        <div className="text-center col-page-inset">
           <div className="inline-block px-2">
             <img src={Logo} width={50} alt="MyST Logo" className="mt-2 mb-0" />
           </div>
@@ -65,7 +67,7 @@ export function HeaderSection() {
           className="hidden md:grid md:h-[400px] xl:h-[375px] col-screen-inset lg:mx-10 bg-white/80 backdrop-blur shadow"
         />
         {/* This is mobile */}
-        <MySTRenderer value={value} fullscreen captureTab className="block md:hidden mt-5 shadow" />
+        <MySTRenderer value={value} fullscreen captureTab className="block mt-5 shadow md:hidden" />
         <a
           className="hidden md:block col-screen-inset lg:mx-10 px-2 py-1 bg-blue-800 hover:bg-blue-900 text-white absolute top-[10px] left-2 border dark:border-slate-600 text-sm no-underline"
           // onClick={copy}
@@ -73,8 +75,8 @@ export function HeaderSection() {
         >
           Open Sandbox
         </a>
-        <div className="col-page-inset text-center">
-          <div className="rounded-lg font-normal text-sm inline-block py-1 px-2 my-3 w-fit">
+        <div className="text-center col-page-inset">
+          <div className="inline-block px-2 py-1 my-3 text-sm font-normal rounded-lg w-fit">
             MyST Ecosystem
           </div>
           <div className="flex flex-wrap gap-x-5 text-center lg:mx-[100px]">
@@ -133,17 +135,23 @@ export function NavigationAndFooter({
 
 export function ArticleWithProviders({
   children,
+  article,
   top = DEFAULT_NAV_HEIGHT,
 }: {
   top?: number;
   children: React.ReactNode;
+  article: PageLoader;
 }) {
   return (
-    <TabStateProvider>
-      <article className="article content article-grid article-grid-gap min-h-screen">
-        {children}
-      </article>
-    </TabStateProvider>
+    <BusyScopeProvider>
+      <ExecuteScopeProvider contents={article}>
+        <TabStateProvider>
+          <article className="min-h-screen article content article-grid article-grid-gap">
+            {children}
+          </article>
+        </TabStateProvider>
+      </ExecuteScopeProvider>
+    </BusyScopeProvider>
   );
 }
 

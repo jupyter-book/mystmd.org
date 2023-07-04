@@ -9,7 +9,6 @@ import {
   DocumentOutline,
   ContentBlocks,
   Bibliography,
-  ArticlePageCatchBoundary,
 } from '@myst-theme/site';
 import { useLoaderData } from '@remix-run/react';
 import type { SiteManifest } from 'myst-config';
@@ -57,7 +56,7 @@ export default function Page() {
       frontmatter={article.frontmatter}
     >
       <main ref={container}>
-        <ArticleWithProviders>
+        <ArticleWithProviders article={article}>
           <FrontmatterBlock kind={article.kind} frontmatter={article.frontmatter} />
           {/* <FloatingOutline height={height} /> */}
           <ArticlePage article={article} />

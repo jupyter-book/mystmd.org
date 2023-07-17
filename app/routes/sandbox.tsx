@@ -69,7 +69,7 @@ MyST makes Markdown more _extensible_ & **powerful** to support an
 ecosystem of tools for computational narratives, technical documentation,
 and open scientific communication. You can **edit this demo** including the [frontmatter][myst-frontmatter] to change the title!!
 
-:::{admonition} Our Values
+:::{important} Our Values
 We believe in a community-driven approach of open-source tools that are
 composable and extensible. You can find out how to be involved in developing MyST Markdown by getting involved in the [ExecutableBooks][executable-books] project.
 :::
@@ -160,7 +160,7 @@ export default function ContentPage() {
     <NavigationAndFooter tightFooter hide_toc>
       <TabStateProvider>
         <UiStateProvider>
-          <main className="article p-0 relative">
+          <main className="relative p-0 article">
             <MySTRenderer
               value={data ?? value}
               column

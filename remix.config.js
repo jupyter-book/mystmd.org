@@ -31,6 +31,7 @@ module.exports = {
     /^vfile.*/,
     /^myst.*/,
     /^@myst-theme.*/,
+    'tex-to-typst',
     'jats-tags',
     'doi-utils',
     'simple-validators',

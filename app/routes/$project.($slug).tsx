@@ -48,7 +48,7 @@ function ArticlePage({ article }: { article: PageLoader }) {
 }
 
 export default function Page() {
-  const { container, outline } = useOutlineHeight();
+  const { container } = useOutlineHeight();
   const article = useLoaderData<PageLoader>() as PageLoader;
   return (
     <ReferencesProvider

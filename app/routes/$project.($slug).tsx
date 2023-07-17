@@ -58,11 +58,9 @@ export default function Page() {
       <main ref={container}>
         <ArticleWithProviders article={article}>
           <FrontmatterBlock kind={article.kind} frontmatter={article.frontmatter} />
-          <DocumentOutline
-            className="sticky hidden ml-10 col-margin-right lg:block h-fit"
-            top={DEFAULT_NAV_HEIGHT + 50}
-            outlineRef={outline}
-          />
+          <div className="sticky top-0 z-10 hidden h-0 pt-2 ml-10 col-margin-right lg:block">
+            <DocumentOutline top={DEFAULT_NAV_HEIGHT + 10} className="relative lg:block" />
+          </div>
           <ArticlePage article={article} />
         </ArticleWithProviders>
       </main>

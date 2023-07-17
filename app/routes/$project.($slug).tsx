@@ -58,10 +58,13 @@ export default function Page() {
       <main ref={container}>
         <ArticleWithProviders article={article}>
           <FrontmatterBlock kind={article.kind} frontmatter={article.frontmatter} />
-          {/* <FloatingOutline height={height} /> */}
+          <DocumentOutline
+            className="sticky hidden ml-10 col-margin-right lg:block h-fit"
+            top={DEFAULT_NAV_HEIGHT + 50}
+            outlineRef={outline}
+          />
           <ArticlePage article={article} />
         </ArticleWithProviders>
-        <DocumentOutline top={DEFAULT_NAV_HEIGHT + 50} outlineRef={outline} />
       </main>
     </ReferencesProvider>
   );

@@ -1,5 +1,5 @@
-import type { PageLoader } from '@myst-theme/site';
-import { cdn } from '@myst-theme/site';
+import type { PageLoader } from '@myst-theme/common';
+import * as cdn from '@curvenote/cdn';
 import type { SiteManifest } from 'myst-config';
 
 // const getDocsSites = (name: string) => `mystmdstaging-${name.replace(/-/g, '_')}.curve.space`;
@@ -19,6 +19,6 @@ export async function getPage(opts: {
   return data;
 }
 
-export async function getObjectsInv(project: string): Promise<Buffer | undefined> {
+export async function getObjectsInv(project: string): Promise<ArrayBuffer | undefined> {
   return cdn.getObjectsInv(getDocsSites(project));
 }

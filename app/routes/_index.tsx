@@ -1,5 +1,5 @@
 import type { LinksFunction, LoaderFunction, MetaFunction } from '@remix-run/node';
-import type { PageLoader } from '@myst-theme/site';
+import type { PageLoader } from '@myst-theme/common';
 import { getMetaTagsForArticle, KatexCSS, ArticlePage } from '@myst-theme/site';
 import { getPage } from '~/utils/loaders.server';
 import { useLoaderData } from '@remix-run/react';

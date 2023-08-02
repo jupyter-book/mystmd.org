@@ -1,4 +1,4 @@
-import type { PageLoader } from '@myst-theme/site';
+import type { PageLoader } from '@myst-theme/common';
 import { DEFAULT_NAV_HEIGHT, Navigation, useTocHeight } from '@myst-theme/site';
 import {
   SiteProvider,

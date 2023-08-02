@@ -1,5 +1,5 @@
 import type { LoaderFunction, MetaFunction } from '@remix-run/node';
-import type { PageLoader } from '@myst-theme/site';
+import type { PageLoader } from '@myst-theme/common';
 import { useOutlineHeight } from '@myst-theme/site';
 import { FrontmatterBlock } from '@myst-theme/frontmatter';
 import {

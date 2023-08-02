@@ -1,6 +1,6 @@
 import type { LoaderFunction } from '@remix-run/node';
-import type { PageLoader } from '@myst-theme/site';
-import { ArticlePage, ProjectPageCatchBoundary } from '@myst-theme/site';
+import type { PageLoader } from '@myst-theme/common';
+import { ArticlePage } from '@myst-theme/site';
 import { getPage } from '../utils/loaders.server';
 import { NavLink, useLoaderData } from '@remix-run/react';
 import { ArticleAndNavigation, NavigationAndFooter } from '../components/Page';

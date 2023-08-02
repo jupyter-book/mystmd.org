@@ -31,6 +31,8 @@ module.exports = {
     /^vfile.*/,
     /^myst.*/,
     /^@myst-theme.*/,
+    '@curvenote/common',
+    '@curvenote/cdn',
     'tex-to-typst',
     'jats-tags',
     'doi-utils',

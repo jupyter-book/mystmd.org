@@ -1,6 +1,6 @@
 ---
 title: Projects & Ecosystem Overview
-description: The MyST markdown ecosystem is evolving, with mature tools for Python and Sphinx, which support projects like Jupyter Book. You can also use MyST directly in the browser or Jupyter Lab using mystjs.
+description: The MyST markdown ecosystem is evolving, with mature tools for Python and Sphinx, which support projects like Jupyter Book. You can also use MyST directly in the browser or Jupyter Lab using mystmd.
 thumbnail: thumbnails/index.png
 ---
 
@@ -10,9 +10,9 @@ thumbnail: thumbnails/index.png
 The MyST ecosystem is evolving, with mature tools for Python and Sphinx, which support projects
 like [JupyterBook](https://jupyterbook.org).
 
-The [ExecutableBooks](https://executablebooks.org/) team is creating a [specification for MyST](/spec),
+The [ExecutableBooks](https://executablebooks.org/) team is creating a [specification for MyST](https://mystmd.org/spec),
 to allow parsers and renderers in many different tools and ecosystems, including in Javascript.
-The [mystjs project](/guide) is in beta and explores a MyST implementation in JavaScript
+The [mystmd project](https://mystmd.org/guide) is in beta and explores a command line interface for MyST in JavaScript
 and will change significantly and rapidly.
 ```
 
@@ -134,8 +134,8 @@ Go to Project »
 ## Javascript
 
 :::{card}
-:link: /guide
-`mystjs` **MyST Javascript Tools**
+:link: https://mystmd.org/guide
+`mystmd` **Command Line Interface**
 ^^^
 
 Render your MyST documents as Scientific PDFs, Microsoft Word documents or websites.
@@ -144,7 +144,7 @@ See Project »
 :::
 
 :::{card}
-:link: /jtex
+:link: https://mystmd.org/jtex
 `jtex` **LaTeX Templates**
 ^^^
 Easily create and contribute data-driven templates using $\LaTeX$.
@@ -155,7 +155,7 @@ Contribute a Template »
 ## MyST Specification
 
 :::{card}
-:link: /spec
+:link: https://mystmd.org/spec
 `myst-spec` **MyST Specification**
 ^^^
 

@@ -1,4 +1,4 @@
-import { MastodonIcon, TwitterIcon, GithubIcon } from '@scienceicons/react/24/solid';
+import { MastodonIcon, TwitterIcon, GithubIcon, DiscordIcon } from '@scienceicons/react/24/solid';
 import { Link } from '@remix-run/react';
 import Logo from './logo-wide.svg';
 import LogoDark from './logo-wide-dark.svg';
@@ -16,7 +16,7 @@ function SocialIcons() {
         rel="noreferrer"
         title="Follow us on Twitter"
       >
-        <TwitterIcon className="h-5 w-5" />
+        <TwitterIcon className="w-5 h-5" />
       </a>
       <a
         href="https://fosstodon.org/@myst_tools"
@@ -25,7 +25,7 @@ function SocialIcons() {
         rel="me noreferrer"
         title="Follow us on Mastodon"
       >
-        <MastodonIcon className="h-5 w-5" />
+        <MastodonIcon className="w-5 h-5" />
       </a>
       <a
         href="https://github.com/executablebooks"
@@ -34,7 +34,16 @@ function SocialIcons() {
         rel="noreferrer"
         title="Fork us on GitHub"
       >
-        <GithubIcon className="h-5 w-5" />
+        <GithubIcon className="w-5 h-5" />
+      </a>
+      <a
+        href="https://discord.mystmd.org"
+        target="_blank"
+        className="p-1"
+        rel="noreferrer"
+        title="Talk on Discord"
+      >
+        <DiscordIcon className="w-5 h-5" />
       </a>
     </div>
   );
@@ -42,25 +51,25 @@ function SocialIcons() {
 
 export function ExecutableBooksFooter() {
   return (
-    <div className="article-grid col-screen bg-slate-100 dark:bg-zinc-900 py-3 px-6">
-      <div className="col-screen grid grid-cols-1 md:grid-cols-12 gap-2 text-neutral-800 dark:text-gray-100">
+    <div className="px-6 py-3 article-grid col-screen bg-slate-100 dark:bg-zinc-900">
+      <div className="grid grid-cols-1 gap-2 col-screen md:grid-cols-12 text-neutral-800 dark:text-gray-100">
         <div className="text-center md:text-left md:col-span-4">
           <a
             href="https://executablebooks.org"
             target="_blank"
             rel="noreferrer"
-            className="block w-fit mx-auto md:mx-0"
+            className="block mx-auto w-fit md:mx-0"
           >
             <img src={EBPLogo} className="h-9 dark:hidden" alt="Executable Books Project" />
             <img
               src={EBPLogoDark}
-              className="h-9 hidden dark:block"
+              className="hidden h-9 dark:block"
               alt="Executable Books Project"
             />
             <span className="sr-only">Executable Books Project</span>
           </a>
         </div>
-        <div className="m-auto md:col-span-4 text-center">
+        <div className="m-auto text-center md:col-span-4">
           <a
             href="https://compass.executablebooks.org/en/latest/team/index.html"
             target="_blank"
@@ -86,7 +95,7 @@ export function ExecutableBooksFooter() {
             Blog
           </a>
         </div>
-        <div className="m-auto md:mx-0 md:col-span-4 text-right">
+        <div className="m-auto text-right md:mx-0 md:col-span-4">
           <a
             href="https://compass.executablebooks.org/en/latest/code-of-conduct.html"
             target="_blank"
@@ -110,23 +119,23 @@ export function Footer({ tight }: { tight?: boolean }) {
           'border-t border-slate-100 dark:border-slate-800': tight,
         })}
       >
-        <div className="col-page my-10">
-          <div className="w-full p-2 my-4 sm:p-5 flex flex-col lg:flex-row lg:flex-wrap items-center">
+        <div className="my-10 col-page">
+          <div className="flex flex-col items-center w-full p-2 my-4 sm:p-5 lg:flex-row lg:flex-wrap">
             <div>
               <a href="/" className="inline-block">
                 <img src={Logo} className="w-[200px] dark:hidden" alt="MyST Markdown" />
                 <img src={LogoDark} className="w-[200px] hidden dark:block" alt="MyST Markdown" />
                 <span className="sr-only">MyST Markdown</span>
               </a>
-              <div className="prose font-light max-w-sm dark:text-white">
+              <div className="max-w-sm font-light prose dark:text-white">
                 Community-driven tools for the future of technical communication and publication
               </div>
               <SocialIcons />
             </div>
-            <div className="mt-6 lg:mt-0 lg:pl-12 grow text-md font-light dark:text-white">
+            <div className="mt-6 font-light lg:mt-0 lg:pl-12 grow text-md dark:text-white">
               <div className="flex flex-row">
-                <div className="grow hidden lg:block"></div>
-                <ul className="lg:px-4 mr-10 leading-loose">
+                <div className="hidden grow lg:block"></div>
+                <ul className="mr-10 leading-loose lg:px-4">
                   <li>
                     <Link to="/sandbox" prefetch="intent">
                       Try MyST

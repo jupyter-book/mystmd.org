@@ -5,6 +5,7 @@ import {
   TabStateProvider,
   UiStateProvider,
   useSiteManifest,
+  useThemeTop,
 } from '@myst-theme/providers';
 import { BusyScopeProvider, ExecuteScopeProvider } from '@myst-theme/jupyter';
 import Logo from './logo-icon.svg';
@@ -31,7 +32,7 @@ We believe in a community-driven approach of open-source tools that are composab
 export function HeaderSection() {
   return (
     <>
-      <div className="pt-6 article article-grid article-subgrid-gap bg-slate-100">
+      <div className="pt-6 article article-grid subgrid-gap bg-slate-100">
         <div className="text-center col-page-inset">
           <div className="inline-block px-2">
             <img src={Logo} width={50} alt="MyST Logo" className="mt-2 mb-0" />
@@ -57,7 +58,7 @@ export function HeaderSection() {
         className="col-screen h-[30vw] -mb-[27vw] w-full bg-no-repeat bg-contain bg-top pointer-events-none"
         style={{ backgroundImage: `url(${HeaderImage})` }}
       ></div>
-      <div className="article article-grid article-grid-gap relative mb-[25px]">
+      <div className="article article-grid grid-gap relative mb-[25px]">
         {/* This is desktop */}
         <MySTRenderer
           value={value}
@@ -100,13 +101,11 @@ export function HeaderSection() {
 
 export function NavigationAndFooter({
   children,
-  top = DEFAULT_NAV_HEIGHT,
   tightFooter,
   hide_toc,
   projectSlug,
   siteConfig,
 }: {
-  top?: number;
   children: React.ReactNode;
   tightFooter?: boolean;
   hide_toc?: boolean;
@@ -114,10 +113,11 @@ export function NavigationAndFooter({
   siteConfig?: SiteManifest;
 }) {
   const siteConfigDefault = useSiteManifest();
+  const top = useThemeTop();
   const { container, toc } = useTocHeight<HTMLDivElement>(top);
   return (
     <UiStateProvider>
-      <Navigation top={top} tocRef={toc} hide_toc={hide_toc} projectSlug={projectSlug}>
+      <Navigation tocRef={toc} hide_toc={hide_toc} projectSlug={projectSlug}>
         <SiteProvider config={siteConfig ?? siteConfigDefault}>
           <TopNav hide_toc={hide_toc} />
         </SiteProvider>
@@ -146,7 +146,7 @@ export function ArticleWithProviders({
     <BusyScopeProvider>
       <ExecuteScopeProvider contents={article}>
         <TabStateProvider>
-          <article className="min-h-screen article content article-grid article-grid-gap">
+          <article className="min-h-screen article content article-grid grid-gap">
             {children}
           </article>
         </TabStateProvider>
@@ -158,16 +158,15 @@ export function ArticleWithProviders({
 export function ArticleAndNavigation({
   children,
   header,
-  top = header ? 500 : DEFAULT_NAV_HEIGHT,
   hide_toc,
 }: {
-  top?: number;
   header?: React.ReactNode;
   children: React.ReactNode;
   hide_toc?: boolean;
 }) {
+  const top = useThemeTop();
   return (
-    <NavigationAndFooter top={top} hide_toc={hide_toc}>
+    <NavigationAndFooter hide_toc={hide_toc}>
       {header}
       <TabStateProvider>
         <article style={{ minHeight: `calc(100vh - ${top}px)` }}>{children}</article>

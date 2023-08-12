@@ -1,6 +1,5 @@
 import { FrontmatterBlock } from '@myst-theme/frontmatter';
-import { getMetaTagsForArticle } from '@myst-theme/site';
-import { ProjectPageCatchBoundary } from '@myst-theme/site';
+import { getMetaTagsForArticle , ProjectPageCatchBoundary } from '@myst-theme/site';
 import { ArticleAndNavigation, NavigationAndFooter } from '../components/Page';
 import { TabStateProvider, UiStateProvider } from '@myst-theme/providers';
 import { MySTRenderer } from 'myst-demo';

@@ -23,7 +23,7 @@ export default function ContentPage() {
   return (
     <ArticleAndNavigation hide_toc>
       <BaseUrlProvider baseurl={`/${baseurl}`}>
-        <main className="article article-grid article-grid-gap py-[100px]">
+        <main className="article article-grid grid-gap py-[100px]">
           <h1 className="text-center">{article.frontmatter.title}</h1>
           <div className="col-body-outset">
             <div className="border-y border-gray-200 py-3 my-[100px] flex flex-row justify-around">

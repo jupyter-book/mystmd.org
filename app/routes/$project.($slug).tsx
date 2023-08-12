@@ -1,18 +1,16 @@
 import type { LoaderFunction, MetaFunction } from '@remix-run/node';
 import type { PageLoader } from '@myst-theme/common';
-import { useOutlineHeight } from '@myst-theme/site';
-import { FrontmatterBlock } from '@myst-theme/frontmatter';
-import {
+import { useOutlineHeight ,
   FooterLinksBlock,
-  DEFAULT_NAV_HEIGHT,
   getMetaTagsForArticle,
   DocumentOutline,
   ContentBlocks,
   Bibliography,
 } from '@myst-theme/site';
+import { FrontmatterBlock } from '@myst-theme/frontmatter';
 import { useLoaderData } from '@remix-run/react';
 import type { SiteManifest } from 'myst-config';
-import { ReferencesProvider } from '@myst-theme/providers';
+import { ReferencesProvider, useThemeTop } from '@myst-theme/providers';
 import { getPage } from '~/utils/loaders.server';
 import { ArticleWithProviders } from '../components/Page';
 import type { GenericParent } from 'myst-common';
@@ -48,8 +46,9 @@ function ArticlePage({ article }: { article: PageLoader }) {
 }
 
 export default function Page() {
-  const { container } = useOutlineHeight();
+  const { container, outline } = useOutlineHeight();
   const article = useLoaderData<PageLoader>() as PageLoader;
+  const top = useThemeTop();
   return (
     <ReferencesProvider
       references={{ ...article.references, article: article.mdast }}
@@ -57,9 +56,9 @@ export default function Page() {
     >
       <main ref={container}>
         <ArticleWithProviders article={article}>
-          <FrontmatterBlock kind={article.kind} frontmatter={article.frontmatter} />
-          <div className="sticky top-0 z-10 hidden h-0 pt-2 ml-10 col-margin-right lg:block">
-            <DocumentOutline top={DEFAULT_NAV_HEIGHT + 10} className="relative lg:block" />
+          <FrontmatterBlock kind={article.kind} frontmatter={article.frontmatter} className='pt-5' />
+          <div className="sticky z-10 hidden h-0 pt-2 ml-10 col-margin-right lg:block" style={{ top }}>
+            <DocumentOutline top={16} className="relative lg:block" outlineRef={outline} />
           </div>
           <ArticlePage article={article} />
         </ArticleWithProviders>

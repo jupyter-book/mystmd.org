@@ -1,7 +1,7 @@
 import type { LinksFunction, MetaFunction, LoaderFunction } from '@remix-run/node';
 import tailwind from '~/styles/app.css';
 import { getConfig } from '~/utils/loaders.server';
-import type { SiteLoader } from '@myst-theme/site';
+import type { SiteLoader } from '@myst-theme/common';
 import {
   App,
   responseNoSite,

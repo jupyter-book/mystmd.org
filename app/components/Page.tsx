@@ -1,5 +1,5 @@
 import type { PageLoader } from '@myst-theme/common';
-import { DEFAULT_NAV_HEIGHT, Navigation, useTocHeight } from '@myst-theme/site';
+import { DEFAULT_NAV_HEIGHT, Navigation, SkipToArticle, useTocHeight } from '@myst-theme/site';
 import {
   SiteProvider,
   TabStateProvider,
@@ -64,11 +64,10 @@ export function HeaderSection() {
           value={value}
           column
           fullscreen
-          captureTab
           className="hidden md:grid md:h-[400px] xl:h-[375px] col-screen-inset lg:mx-10 bg-white/80 backdrop-blur shadow"
         />
         {/* This is mobile */}
-        <MySTRenderer value={value} fullscreen captureTab className="block mt-5 shadow md:hidden" />
+        <MySTRenderer value={value} fullscreen className="block mt-5 shadow md:hidden" />
         <a
           className="hidden md:block col-screen-inset lg:mx-10 px-2 py-1 bg-blue-800 hover:bg-blue-900 text-white absolute top-[10px] left-2 border dark:border-slate-600 text-sm no-underline"
           // onClick={copy}
@@ -117,17 +116,17 @@ export function NavigationAndFooter({
   const { container, toc } = useTocHeight<HTMLDivElement>(top);
   return (
     <UiStateProvider>
-      <Navigation tocRef={toc} hide_toc={hide_toc} projectSlug={projectSlug}>
-        <SiteProvider config={siteConfig ?? siteConfigDefault}>
-          <TopNav hide_toc={hide_toc} />
-        </SiteProvider>
-        <div
-          ref={container}
-          style={{ minHeight: `calc(100vh - ${top + 200}px)`, marginTop: DEFAULT_NAV_HEIGHT }}
-        >
-          {children}
-        </div>
-      </Navigation>
+      <SkipToArticle frontmatter={false} />
+      <SiteProvider config={siteConfig ?? siteConfigDefault}>
+        <TopNav hide_toc={hide_toc} />
+      </SiteProvider>
+      <Navigation tocRef={toc} hide_toc={hide_toc} projectSlug={projectSlug} />
+      <div
+        ref={container}
+        style={{ minHeight: `calc(100vh - ${top + 200}px)`, marginTop: DEFAULT_NAV_HEIGHT }}
+      >
+        {children}
+      </div>
       <Footer tight={tightFooter} />
     </UiStateProvider>
   );

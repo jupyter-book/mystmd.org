@@ -1,5 +1,4 @@
-import { createRobotsTxtResponse } from '@myst-theme/site';
-import { getDomainFromRequest } from '@myst-theme/site';
+import { createRobotsTxtResponse, getDomainFromRequest } from '@myst-theme/site';
 import type { LoaderFunction } from '@remix-run/node';
 
 export const loader: LoaderFunction = async ({ request }): Promise<Response | null> => {

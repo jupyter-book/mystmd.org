@@ -55,6 +55,10 @@ module.exports = {
     'trim-lines',
     '@curvenote/icons',
     'react-syntax-highlighter',
+    'markdown-it-myst-extras',
+    'markdown-it-dollarmath',
+    'markdown-it-amsmath',
+    'devlop',
   ],
   watchPaths: [],
   future: {

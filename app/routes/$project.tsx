@@ -1,8 +1,7 @@
 import type { LinksFunction, LoaderFunction } from '@remix-run/node';
-import type { SiteLoader } from '@myst-theme/site';
+import type { SiteLoader } from '@myst-theme/common';
 import { KatexCSS, responseNoSite } from '@myst-theme/site';
 import { Outlet, useLoaderData, useParams } from '@remix-run/react';
-import { ArticlePageCatchBoundary } from '@myst-theme/site';
 import { NavigationAndFooter } from '../components/Page';
 import { getConfig } from '../utils/loaders.server';
 import { BaseUrlProvider, SiteProvider, useSiteManifest } from '@myst-theme/providers';

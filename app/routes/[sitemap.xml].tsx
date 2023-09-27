@@ -1,5 +1,4 @@
-import { createSitemapIndexResponse } from '@myst-theme/site';
-import { getDomainFromRequest } from '@myst-theme/site';
+import { createSitemapIndexResponse, getDomainFromRequest } from '@myst-theme/site';
 import type { LoaderFunction } from '@remix-run/node';
 
 // TODO: get these from the config!

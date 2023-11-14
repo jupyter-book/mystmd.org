@@ -28,9 +28,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function LandingPage() {
   const article = useLoaderData<PageLoader>() as PageLoader;
-  // Big of a hack...
-  const design = { hide_title_block: true, hide_footer_links: true };
-  (article.frontmatter as any).design = design;
+  (article.frontmatter as any).options = { hide_title_block: true, hide_footer_links: true };
   return (
     <ArticleAndNavigation header={<HeaderSection />} hide_toc>
       <main className="article content article-grid grid-gap">

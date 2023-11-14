@@ -19,7 +19,7 @@ export const loader: LoaderFunction = async ({ params, request }) => {
 export default function ContentPage() {
   const site = useSiteManifest();
   const article = useLoaderData<PageLoader>() as PageLoader;
-  (article as any).frontmatter.design = { hide_title_block: true, hide_footer_links: true };
+  (article as any).frontmatter.options = { hide_title_block: true, hide_footer_links: true };
   return (
     <ArticleAndNavigation hide_toc>
       <BaseUrlProvider baseurl={`/${baseurl}`}>

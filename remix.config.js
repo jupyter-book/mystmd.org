@@ -62,6 +62,8 @@ module.exports = {
     'markdown-it-amsmath',
     'devlop',
     'jats-utils',
+    'swr',
+    'swr/immutable',
   ],
   watchPaths: [],
   future: {

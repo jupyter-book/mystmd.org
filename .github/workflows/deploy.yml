@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy Theme to Vercel
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -14,9 +14,13 @@ jobs:
         with:
           submodules: true
       - run: npm install
+        working-directory: theme
       - run: npx vercel pull --yes --token=${{ secrets.VERCEL_TOKEN }}
+        working-directory: theme
       # This one for build in github actions:
       - run: npx vercel build --prod
+        working-directory: theme
       - run: npx vercel deploy --prod --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+        working-directory: theme
       # This one for build on vercel:
       # - run: npx vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}

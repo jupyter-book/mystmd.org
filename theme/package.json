@@ -1,0 +1,60 @@
+{
+  "name": "@myst-tools/theme",
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "postinstall": "patch-package",
+    "build:thebe": "node copy-thebe-assets.cjs ./public",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+    "build": "npm run build:css && npm run build:thebe && remix build",
+    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
+    "dev": "npm run build:thebe && concurrently \"npm run dev:css\" \"remix dev\"",
+    "start": "npm run build:thebe && npm run build:css && remix dev"
+  },
+  "dependencies": {
+    "@curvenote/cdn": "^0.0.13",
+    "@docsearch/react": "^3.5.1",
+    "@headlessui/react": "^1.7.16",
+    "@heroicons/react": "^2.0.18",
+    "@myst-theme/providers": "^0.5.16",
+    "@myst-theme/site": "^0.5.16",
+    "@myst-theme/styles": "^0.5.16",
+    "@remix-run/node": "^1.19.3",
+    "@remix-run/react": "^1.19.3",
+    "@remix-run/vercel": "^1.19.3",
+    "@scienceicons/react": "^0.0.6",
+    "classnames": "^2.3.2",
+    "myst-common": "^1.1.16",
+    "myst-config": "^1.1.16",
+    "myst-demo": "0.5.16",
+    "node-fetch": "^3.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.19.3",
+    "@remix-run/eslint-config": "^1.19.3",
+    "@remix-run/serve": "^1.19.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/node-fetch": "^2.6.4",
+    "@types/react": "^18.2.23",
+    "@types/react-dom": "^18.2.8",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.42.0",
+    "patch-package": "^7.0.0",
+    "prettier": "latest",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.1.6",
+    "vercel": "~28.18.5"
+  },
+  "packageManager": "npm@8.10.0",
+  "engines": {
+    "node": ">=16"
+  },
+  "overrides": {
+    "ansi-to-react": {
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0"
+    }
+  }
+}

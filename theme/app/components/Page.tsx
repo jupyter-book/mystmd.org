@@ -7,7 +7,7 @@ import {
   useSiteManifest,
   useThemeTop,
 } from '@myst-theme/providers';
-import { BusyScopeProvider, ExecuteScopeProvider } from '@myst-theme/jupyter';
+import { BusyScopeProvider, ExecuteScopeProvider, useComputeOptions } from '@myst-theme/jupyter';
 import Logo from './logo-icon.svg';
 import JupyterLogo from './jupyter.svg';
 import VSCodeLogo from './vscode.svg';
@@ -141,9 +141,11 @@ export function ArticleWithProviders({
   children: React.ReactNode;
   article: PageLoader;
 }) {
+  const compute = useComputeOptions();
+
   return (
     <BusyScopeProvider>
-      <ExecuteScopeProvider contents={article}>
+      <ExecuteScopeProvider enable={compute?.enabled ?? false} contents={article}>
         <TabStateProvider>
           <article className="min-h-screen article content article-grid grid-gap">
             {children}

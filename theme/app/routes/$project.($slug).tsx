@@ -9,9 +9,15 @@ import {
   Bibliography,
 } from '@myst-theme/site';
 import { FrontmatterBlock } from '@myst-theme/frontmatter';
+import { ComputeOptionsProvider, ThebeLoaderAndServer } from '@myst-theme/jupyter';
 import { useLoaderData } from '@remix-run/react';
 import type { SiteManifest } from 'myst-config';
-import { ReferencesProvider, useThemeTop } from '@myst-theme/providers';
+import {
+  ProjectProvider,
+  ReferencesProvider,
+  useBaseurl,
+  useThemeTop,
+} from '@myst-theme/providers';
 import { getPage } from '~/utils/loaders.server';
 import { ArticleWithProviders } from '../components/Page';
 import type { GenericParent } from 'myst-common';
@@ -51,27 +57,37 @@ export default function Page() {
   const { container, outline } = useOutlineHeight();
   const article = useLoaderData<PageLoader>() as PageLoader;
   const top = useThemeTop();
+  const baseurl = useBaseurl();
+
   return (
     <ReferencesProvider
       references={{ ...article.references, article: article.mdast }}
       frontmatter={article.frontmatter}
     >
-      <main ref={container}>
-        <ArticleWithProviders article={article}>
-          <FrontmatterBlock
-            kind={article.kind}
-            frontmatter={article.frontmatter}
-            className="pt-5"
-          />
-          <div
-            className="sticky z-10 hidden h-0 pt-2 ml-10 col-margin-right lg:block"
-            style={{ top }}
-          >
-            <DocumentOutline top={16} className="relative lg:block" outlineRef={outline} />
-          </div>
-          <ArticlePage article={article} />
-        </ArticleWithProviders>
-      </main>
+      <ProjectProvider>
+        <ComputeOptionsProvider
+          features={{ notebookCompute: true, figureCompute: true, launchBinder: false }}
+        >
+          <ThebeLoaderAndServer baseurl={baseurl}>
+            <main ref={container}>
+              <ArticleWithProviders article={article}>
+                <FrontmatterBlock
+                  kind={article.kind}
+                  frontmatter={article.frontmatter}
+                  className="pt-5"
+                />
+                <div
+                  className="sticky z-10 hidden h-0 pt-2 ml-10 col-margin-right lg:block"
+                  style={{ top }}
+                >
+                  <DocumentOutline top={16} className="relative lg:block" outlineRef={outline} />
+                </div>
+                <ArticlePage article={article} />
+              </ArticleWithProviders>
+            </main>
+          </ThebeLoaderAndServer>
+        </ComputeOptionsProvider>
+      </ProjectProvider>
     </ReferencesProvider>
   );
 }

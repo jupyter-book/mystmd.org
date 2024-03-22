@@ -12,12 +12,7 @@ import { FrontmatterBlock } from '@myst-theme/frontmatter';
 import { ComputeOptionsProvider, ThebeLoaderAndServer } from '@myst-theme/jupyter';
 import { useLoaderData } from '@remix-run/react';
 import type { SiteManifest } from 'myst-config';
-import {
-  ProjectProvider,
-  ReferencesProvider,
-  useBaseurl,
-  useThemeTop,
-} from '@myst-theme/providers';
+import { ProjectProvider, ReferencesProvider, useThemeTop } from '@myst-theme/providers';
 import { getPage } from '~/utils/loaders.server';
 import { ArticleWithProviders } from '../components/Page';
 import type { GenericParent } from 'myst-common';
@@ -57,7 +52,6 @@ export default function Page() {
   const { container, outline } = useOutlineHeight();
   const article = useLoaderData<PageLoader>() as PageLoader;
   const top = useThemeTop();
-  const baseurl = useBaseurl();
 
   return (
     <ReferencesProvider
@@ -68,7 +62,7 @@ export default function Page() {
         <ComputeOptionsProvider
           features={{ notebookCompute: true, figureCompute: true, launchBinder: false }}
         >
-          <ThebeLoaderAndServer baseurl={baseurl}>
+          <ThebeLoaderAndServer baseurl={''}>
             <main ref={container}>
               <ArticleWithProviders article={article}>
                 <FrontmatterBlock

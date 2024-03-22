@@ -28,7 +28,7 @@ export default function ContentPage() {
           <ComputeOptionsProvider
             features={{ notebookCompute: true, figureCompute: true, launchBinder: false }}
           >
-            <ThebeLoaderAndServer baseurl={`/${baseurl}`}>
+            <ThebeLoaderAndServer baseurl={''}>
               <main className="article article-grid grid-gap py-[100px]">
                 <h1 className="text-center">{article.frontmatter.title}</h1>
                 <div className="col-body-outset">

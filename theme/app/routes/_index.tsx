@@ -37,7 +37,7 @@ export default function LandingPage() {
         <ComputeOptionsProvider
           features={{ notebookCompute: true, figureCompute: true, launchBinder: false }}
         >
-          <ThebeLoaderAndServer baseurl={'/'}>
+          <ThebeLoaderAndServer baseurl={''}>
             <main className="article content article-grid grid-gap">
               <ArticlePage article={article} />
             </main>

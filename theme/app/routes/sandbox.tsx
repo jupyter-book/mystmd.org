@@ -48,8 +48,15 @@ export const loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
   const myst = url.searchParams.get('myst');
   const tab = url.searchParams.get('tab');
-
-  const data = myst ? fromBinary(atob(myst)) : undefined;
+  const srcURL = url.searchParams.get("url");
+  
+  let data;
+  if (srcURL) {
+    const response = await fetch(srcURL);
+    data = await response.text();
+  } else {
+    data = myst ? fromBinary(atob(myst)) : undefined;
+  }
   return json({ data, tab });
 };
 

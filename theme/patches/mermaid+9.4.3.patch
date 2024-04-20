@@ -1,0 +1,12 @@
+diff --git a/node_modules/mermaid/dist/mindmap-definition-44684416.js b/node_modules/mermaid/dist/mindmap-definition-44684416.js
+index bfdb9db..751a7f6 100644
+--- a/node_modules/mermaid/dist/mindmap-definition-44684416.js
++++ b/node_modules/mermaid/dist/mindmap-definition-44684416.js
+@@ -1,6 +1,6 @@
+ import { n as sanitizeText$1, g as getConfig, l as log, s as setupGraphViewbox } from "./mermaid-ae477ddf.js";
+ import { select } from "d3";
+-import cytoscape from "cytoscape/dist/cytoscape.umd.js";
++import cytoscape from "cytoscape";
+ import coseBilkent from "cytoscape-cose-bilkent";
+ import { isDark, lighten, darken } from "khroma";
+ import "ts-dedent";

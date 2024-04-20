@@ -1,6 +1,6 @@
-import type { LoaderFunction } from '@remix-run/node';
+import type { LoaderFunction, V2_MetaFunction } from '@remix-run/node';
 import type { PageLoader } from '@myst-theme/common';
-import { ArticlePage } from '@myst-theme/site';
+import { ArticlePage, getMetaTagsForArticle } from '@myst-theme/site';
 import { ComputeOptionsProvider, ThebeLoaderAndServer } from '@myst-theme/jupyter';
 import { getPage } from '../utils/loaders.server';
 import { NavLink, useLoaderData } from '@remix-run/react';
@@ -10,6 +10,21 @@ import classNames from 'classnames';
 import { Error404 } from '../components/Error404';
 
 const baseurl = 'overview';
+
+export const meta: V2_MetaFunction = ({ data, location }) => {
+  if (!data) return [];
+  const siteTitle = 'MyST Markdown';
+  const page = data.frontmatter;
+  return getMetaTagsForArticle({
+    origin: '',
+    url: location.pathname,
+    title: page?.title ? `${page.title}${siteTitle ? ` - ${siteTitle}` : ''}` : siteTitle,
+    description: page?.description ?? undefined,
+    image: page?.thumbnailOptimized || page?.thumbnail,
+    twitter: 'mystmarkdown',
+    keywords: page?.keywords ?? [],
+  });
+};
 
 export const loader: LoaderFunction = async ({ params, request }) => {
   const { slug } = params;

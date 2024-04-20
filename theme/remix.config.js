@@ -23,7 +23,6 @@ module.exports = {
     /^micromark-.*/,
     /^character-.*/,
     /^csv-parse.*/,
-    'cytoscape',
     'bail',
     'is-plain-obj',
     'trough',

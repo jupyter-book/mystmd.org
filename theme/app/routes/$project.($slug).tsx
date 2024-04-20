@@ -1,4 +1,4 @@
-import type { LoaderFunction, MetaFunction } from '@remix-run/node';
+import type { LoaderFunction, V2_MetaFunction } from '@remix-run/node';
 import type { PageLoader } from '@myst-theme/common';
 import {
   useOutlineHeight,
@@ -11,23 +11,23 @@ import {
 import { FrontmatterBlock } from '@myst-theme/frontmatter';
 import { ComputeOptionsProvider, ThebeLoaderAndServer } from '@myst-theme/jupyter';
 import { useLoaderData } from '@remix-run/react';
-import type { SiteManifest } from 'myst-config';
 import { ProjectProvider, ReferencesProvider, useThemeTop } from '@myst-theme/providers';
 import { getPage } from '~/utils/loaders.server';
 import { ArticleWithProviders } from '../components/Page';
 import type { GenericParent } from 'myst-common';
 
-export const meta: MetaFunction = (args) => {
-  const config = (args.parentsData?.['routes/$project']?.config ??
-    args.parentsData?.root?.config) as SiteManifest | undefined;
-  const data = args.data as PageLoader | undefined;
-  if (!config || !data || !data.frontmatter) return {};
+export const meta: V2_MetaFunction = ({ data, location }) => {
+  if (!data) return [];
+  const siteTitle = 'MyST Markdown';
+  const page = data.frontmatter;
   return getMetaTagsForArticle({
     origin: '',
-    url: args.location.pathname,
-    title: `${data.frontmatter.title} - ${config?.title}`,
-    description: data.frontmatter.description,
-    image: (data.frontmatter.thumbnailOptimized || data.frontmatter.thumbnail) ?? undefined,
+    url: location.pathname,
+    title: page?.title ? `${page.title}${siteTitle ? ` - ${siteTitle}` : ''}` : siteTitle,
+    description: page?.description ?? undefined,
+    image: page?.thumbnailOptimized || page?.thumbnail,
+    twitter: 'mystmarkdown',
+    keywords: page?.keywords ?? [],
   });
 };
 

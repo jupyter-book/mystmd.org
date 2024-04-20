@@ -1,4 +1,4 @@
-import type { LinksFunction, MetaFunction, LoaderFunction } from '@remix-run/node';
+import type { LinksFunction, V2_MetaFunction, LoaderFunction } from '@remix-run/node';
 import tailwind from '~/styles/app.css';
 import { getConfig } from '~/utils/loaders.server';
 import type { SiteLoader } from '@myst-theme/common';
@@ -11,7 +11,7 @@ import {
 } from '@myst-theme/site';
 export { AppCatchBoundary as CatchBoundary } from '@myst-theme/site';
 
-export const meta: MetaFunction = ({ data }) => {
+export const meta: V2_MetaFunction = ({ data }) => {
   return getMetaTagsForSite({
     title: data?.config?.title,
     twitter: data?.config?.twitter,

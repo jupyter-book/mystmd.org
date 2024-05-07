@@ -22,3 +22,7 @@ export async function getPage(opts: {
 export async function getObjectsInv(project: string): Promise<ArrayBuffer | undefined> {
   return cdn.getObjectsInv(getDocsSites(project));
 }
+
+export async function getMystXrefJson(project: string): Promise<Record<string, any> | null> {
+  return cdn.getMystXrefJson(getDocsSites(project));
+}

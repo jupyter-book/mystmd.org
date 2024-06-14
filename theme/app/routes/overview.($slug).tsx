@@ -1,6 +1,6 @@
 import type { LoaderFunction, V2_MetaFunction } from '@remix-run/node';
 import type { PageLoader } from '@myst-theme/common';
-import { ArticlePage, getMetaTagsForArticle } from '@myst-theme/site';
+import { getMetaTagsForArticle } from '@myst-theme/site';
 import { ComputeOptionsProvider, ThebeLoaderAndServer } from '@myst-theme/jupyter';
 import { getPage } from '../utils/loaders.server';
 import { NavLink, useLoaderData } from '@remix-run/react';
@@ -8,6 +8,7 @@ import { ArticleAndNavigation, NavigationAndFooter } from '../components/Page';
 import { BaseUrlProvider, ProjectProvider, useSiteManifest } from '@myst-theme/providers';
 import classNames from 'classnames';
 import { Error404 } from '../components/Error404';
+import { ArticlePage } from '~/components/ArticlePage';
 
 const baseurl = 'overview';
 

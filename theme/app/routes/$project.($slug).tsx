@@ -7,6 +7,7 @@ import {
   DocumentOutline,
   ContentBlocks,
   Bibliography,
+  Footnotes,
 } from '@myst-theme/site';
 import { FrontmatterBlock } from '@myst-theme/frontmatter';
 import { ComputeOptionsProvider, ThebeLoaderAndServer } from '@myst-theme/jupyter';
@@ -42,6 +43,7 @@ function ArticlePage({ article }: { article: PageLoader }) {
     <>
       <div id="skip-to-article" />
       <ContentBlocks mdast={article.mdast as GenericParent} />
+      <Footnotes />
       <Bibliography />
       <FooterLinksBlock links={article.footer} />
     </>

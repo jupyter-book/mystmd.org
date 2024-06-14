@@ -1,12 +1,13 @@
 import type { LinksFunction, LoaderFunction, V2_MetaFunction } from '@remix-run/node';
 import type { PageLoader } from '@myst-theme/common';
-import { getMetaTagsForArticle, KatexCSS, ArticlePage } from '@myst-theme/site';
+import { getMetaTagsForArticle, KatexCSS } from '@myst-theme/site';
 import { ComputeOptionsProvider, ThebeLoaderAndServer } from '@myst-theme/jupyter';
 import { getPage } from '~/utils/loaders.server';
 import { useLoaderData } from '@remix-run/react';
 import { ArticleAndNavigation, HeaderSection, NavigationAndFooter } from '../components/Page';
 import { Error404 } from '../components/Error404';
 import { ProjectProvider } from '@myst-theme/providers';
+import { ArticlePage } from '~/components/ArticlePage';
 
 export const meta: V2_MetaFunction = ({ data, location }) => {
   if (!data) return [];

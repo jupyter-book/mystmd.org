@@ -2,8 +2,8 @@ import { MastodonIcon, TwitterIcon, GithubIcon, DiscordIcon } from '@scienceicon
 import { Link } from '@remix-run/react';
 import Logo from './logo-wide.svg';
 import LogoDark from './logo-wide-dark.svg';
-import EBPLogo from './ebp-logo-wide.svg';
-import EBPLogoDark from './ebp-logo-wide-dark.svg';
+import JupyterLogo from './jupyter-logo-wide.svg';
+import JupyterLogoDark from './jupyter-logo-wide-dark.svg';
 import classNames from 'classnames';
 
 function SocialIcons() {
@@ -49,29 +49,25 @@ function SocialIcons() {
   );
 }
 
-export function ExecutableBooksFooter() {
+export function JupyterFooter() {
   return (
     <div className="px-6 py-3 article-grid col-screen bg-slate-100 dark:bg-zinc-900">
       <div className="grid grid-cols-1 gap-2 col-screen md:grid-cols-12 text-neutral-800 dark:text-gray-100">
         <div className="text-center md:text-left md:col-span-4">
           <a
-            href="https://executablebooks.org"
+            href="https://jupyter.org"
             target="_blank"
             rel="noreferrer"
             className="block mx-auto w-fit md:mx-0"
           >
-            <img src={EBPLogo} className="h-9 dark:hidden" alt="Executable Books Project" />
-            <img
-              src={EBPLogoDark}
-              className="hidden h-9 dark:block"
-              alt="Executable Books Project"
-            />
-            <span className="sr-only">Executable Books Project</span>
+            <img src={JupyterLogo} className="h-9 dark:hidden" alt="Jupyter Project" />
+            <img src={JupyterLogoDark} className="hidden h-9 dark:block" alt="Jupyter Project" />
+            <span className="sr-only">Jupyter Project</span>
           </a>
         </div>
         <div className="m-auto text-center md:col-span-4">
           <a
-            href="https://compass.executablebooks.org/en/latest/team/index.html"
+            href="https://compass.jupyterbook.org/team"
             target="_blank"
             rel="noreferrer"
             className="text-sm after:content-['\a0\2219\a0']"
@@ -79,7 +75,7 @@ export function ExecutableBooksFooter() {
             Our Team
           </a>
           <a
-            href="https://compass.executablebooks.org"
+            href="https://compass.jupyterbook.org"
             target="_blank"
             rel="noreferrer"
             className="text-sm after:content-['\a0\2219\a0']"
@@ -97,7 +93,7 @@ export function ExecutableBooksFooter() {
         </div>
         <div className="m-auto text-right md:mx-0 md:col-span-4">
           <a
-            href="https://compass.executablebooks.org/en/latest/code-of-conduct.html"
+            href="https://compass.jupyterbook.org/code-of-conduct"
             target="_blank"
             rel="noreferrer"
             className="text-sm"
@@ -128,7 +124,12 @@ export function Footer({ tight }: { tight?: boolean }) {
                 <span className="sr-only">MyST Markdown</span>
               </a>
               <div className="max-w-sm font-light prose dark:text-white">
-                Community-driven tools for the future of technical communication and publication
+                Community-driven tools for the future of technical communication and publication,
+                part of{' '}
+                <a href="https://jupyter.org" target="_blank">
+                  Jupyter
+                </a>
+                .
               </div>
               <SocialIcons />
             </div>
@@ -196,7 +197,7 @@ export function Footer({ tight }: { tight?: boolean }) {
           </div>
         </div>
       </div>
-      <ExecutableBooksFooter />
+      <JupyterFooter />
     </section>
   );
 }

@@ -126,7 +126,7 @@ export function Footer({ tight }: { tight?: boolean }) {
               <div className="max-w-sm font-light prose dark:text-white">
                 Community-driven tools for the future of technical communication and publication,
                 part of{' '}
-                <a href="https://jupyter.org" target="_blank">
+                <a href="https://jupyter.org" target="_blank" className="dark:text-white">
                   Jupyter
                 </a>
                 .

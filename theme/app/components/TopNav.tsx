@@ -178,7 +178,7 @@ function ThemeTag() {
         <TwitterIcon className="w-5 h-5" />
       </a>
       <a
-        href="https://fosstodon.org/@myst_tools"
+        href="https://fosstodon.org/@mystmarkdown"
         target="_blank"
         className="p-1.5 hover:opacity-80"
         rel="me noreferrer"
@@ -187,7 +187,7 @@ function ThemeTag() {
         <MastodonIcon className="w-5 h-5" />
       </a>
       <a
-        href="https://github.com/executablebooks"
+        href="https://github.com/jupyter-book"
         target="_blank"
         className="p-1.5 hover:opacity-80"
         rel="noreferrer"

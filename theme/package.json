@@ -12,12 +12,12 @@
     "start": "npm run build:thebe && npm run build:css && remix dev"
   },
   "dependencies": {
-    "@curvenote/cdn": "^0.1.41",
+    "@curvenote/cdn": "^0.1.43",
     "@docsearch/react": "^3.5.1",
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
     "@myst-theme/providers": "^0.9.10",
-    "@myst-theme/site": "^0.9.10",
+    "@myst-theme/site": "file:.yalc/@myst-theme/site",
     "@myst-theme/styles": "^0.9.10",
     "@remix-run/node": "^1.19.3",
     "@remix-run/react": "^1.19.3",

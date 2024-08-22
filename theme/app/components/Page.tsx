@@ -1,5 +1,5 @@
 import type { PageLoader } from '@myst-theme/common';
-import { DEFAULT_NAV_HEIGHT, Navigation, SkipToArticle, useTocHeight } from '@myst-theme/site';
+import { DEFAULT_NAV_HEIGHT, PrimaryNavigation, SkipTo, useSidebarHeight } from '@myst-theme/site';
 import {
   SiteProvider,
   TabStateProvider,
@@ -102,25 +102,32 @@ export function NavigationAndFooter({
   children,
   tightFooter,
   hide_toc,
+  mobileOnly,
   projectSlug,
   siteConfig,
 }: {
   children: React.ReactNode;
   tightFooter?: boolean;
   hide_toc?: boolean;
+  mobileOnly?: boolean;
   projectSlug?: string;
   siteConfig?: SiteManifest;
 }) {
   const siteConfigDefault = useSiteManifest();
   const top = useThemeTop();
-  const { container, toc } = useTocHeight<HTMLDivElement>(top);
+  const { container, toc: sidebar } = useSidebarHeight<HTMLDivElement>(top);
   return (
     <UiStateProvider>
-      <SkipToArticle frontmatter={false} />
+      <SkipTo targets={[{ id: 'skip-to-article', title: 'Skip To Article' }]} />
       <SiteProvider config={siteConfig ?? siteConfigDefault}>
         <TopNav hide_toc={hide_toc} />
       </SiteProvider>
-      <Navigation tocRef={toc} hide_toc={hide_toc} projectSlug={projectSlug} />
+      <PrimaryNavigation
+        sidebarRef={sidebar}
+        hide_toc={hide_toc}
+        projectSlug={projectSlug}
+        mobileOnly={mobileOnly}
+      />
       <div
         ref={container}
         style={{ minHeight: `calc(100vh - ${top + 200}px)`, marginTop: DEFAULT_NAV_HEIGHT }}
@@ -160,14 +167,16 @@ export function ArticleAndNavigation({
   children,
   header,
   hide_toc,
+  mobileOnly,
 }: {
   header?: React.ReactNode;
   children: React.ReactNode;
   hide_toc?: boolean;
+  mobileOnly?: boolean;
 }) {
   const top = useThemeTop();
   return (
-    <NavigationAndFooter hide_toc={hide_toc}>
+    <NavigationAndFooter hide_toc={hide_toc} mobileOnly={mobileOnly}>
       {header}
       <TabStateProvider>
         <article style={{ minHeight: `calc(100vh - ${top}px)` }}>{children}</article>

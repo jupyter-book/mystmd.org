@@ -27,10 +27,7 @@ export default function LandingPage() {
   return (
     <BaseUrlProvider baseurl={`/${project}`}>
       <SiteProvider config={config}>
-        <NavigationAndFooter
-          projectSlug={config?.projects?.[0].slug}
-          siteConfig={siteConfig as any}
-        >
+        <NavigationAndFooter projectSlug={project} mainSiteConfig={siteConfig as any}>
           <Outlet />
         </NavigationAndFooter>
       </SiteProvider>
@@ -40,7 +37,7 @@ export default function LandingPage() {
 
 export function CatchBoundary() {
   return (
-    <NavigationAndFooter hide_toc>
+    <NavigationAndFooter mobileOnly>
       <Error404 />
     </NavigationAndFooter>
   );

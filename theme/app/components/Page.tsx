@@ -1,12 +1,20 @@
 import type { PageLoader } from '@myst-theme/common';
-import { DEFAULT_NAV_HEIGHT, PrimaryNavigation, SkipTo, useSidebarHeight } from '@myst-theme/site';
+import {
+  ConfigurablePrimaryNavigation,
+  DEFAULT_NAV_HEIGHT,
+  SkipTo,
+  useSidebarHeight,
+} from '@myst-theme/site';
 import {
   SiteProvider,
   TabStateProvider,
   UiStateProvider,
+  useBaseurl,
   useSiteManifest,
   useThemeTop,
 } from '@myst-theme/providers';
+import { getProjectHeadings } from '@myst-theme/common';
+import { MadeWithMyst } from '@myst-theme/icons';
 import { BusyScopeProvider, ExecuteScopeProvider, useComputeOptions } from '@myst-theme/jupyter';
 import Logo from './logo-icon.svg';
 import JupyterLogo from './jupyter.svg';
@@ -104,28 +112,41 @@ export function NavigationAndFooter({
   hide_toc,
   mobileOnly,
   projectSlug,
-  siteConfig,
+  mainSiteConfig,
 }: {
   children: React.ReactNode;
   tightFooter?: boolean;
   hide_toc?: boolean;
   mobileOnly?: boolean;
   projectSlug?: string;
-  siteConfig?: SiteManifest;
+  mainSiteConfig?: SiteManifest;
 }) {
-  const siteConfigDefault = useSiteManifest();
   const top = useThemeTop();
   const { container, toc: sidebar } = useSidebarHeight<HTMLDivElement>(top);
+
+  const localSiteConfig = useSiteManifest();
+  if (!localSiteConfig && !mainSiteConfig) return null;
+  const { nav } = mainSiteConfig ?? localSiteConfig ?? {};
+
+  let headings = undefined;
+  if (projectSlug && localSiteConfig) {
+    headings = getProjectHeadings(localSiteConfig, projectSlug, {
+      addGroups: false,
+    });
+  }
+
   return (
     <UiStateProvider>
       <SkipTo targets={[{ id: 'skip-to-article', title: 'Skip To Article' }]} />
-      <SiteProvider config={siteConfig ?? siteConfigDefault}>
+      <SiteProvider config={mainSiteConfig ?? localSiteConfig}>
         <TopNav hide_toc={hide_toc} />
       </SiteProvider>
-      <PrimaryNavigation
+      <ConfigurablePrimaryNavigation
         sidebarRef={sidebar}
         hide_toc={hide_toc}
-        projectSlug={projectSlug}
+        nav={nav}
+        headings={headings}
+        footer={<MadeWithMyst />}
         mobileOnly={mobileOnly}
       />
       <div
@@ -168,15 +189,17 @@ export function ArticleAndNavigation({
   header,
   hide_toc,
   mobileOnly,
+  projectSlug,
 }: {
   header?: React.ReactNode;
   children: React.ReactNode;
   hide_toc?: boolean;
   mobileOnly?: boolean;
+  projectSlug?: string;
 }) {
   const top = useThemeTop();
   return (
-    <NavigationAndFooter hide_toc={hide_toc} mobileOnly={mobileOnly}>
+    <NavigationAndFooter hide_toc={hide_toc} mobileOnly={mobileOnly} projectSlug={projectSlug}>
       {header}
       <TabStateProvider>
         <article style={{ minHeight: `calc(100vh - ${top}px)` }}>{children}</article>

@@ -111,13 +111,15 @@ export function NavigationAndFooter({
   tightFooter,
   hide_toc,
   mobileOnly,
+  mobileNavOnly,
   projectSlug,
   mainSiteConfig,
 }: {
   children: React.ReactNode;
   tightFooter?: boolean;
   hide_toc?: boolean;
-  mobileOnly?: boolean;
+  mobileOnly?: boolean; // do not show the TOC/Headings inline on the page
+  mobileNavOnly?: boolean; // only show the hamburger menu at `lg` and below
   projectSlug?: string;
   mainSiteConfig?: SiteManifest;
 }) {
@@ -139,7 +141,7 @@ export function NavigationAndFooter({
     <UiStateProvider>
       <SkipTo targets={[{ id: 'skip-to-article', title: 'Skip To Article' }]} />
       <SiteProvider config={mainSiteConfig ?? localSiteConfig}>
-        <TopNav hide_toc={hide_toc} />
+        <TopNav hide_toc={hide_toc} mobileNavOnly={mobileNavOnly} />
       </SiteProvider>
       <ConfigurablePrimaryNavigation
         sidebarRef={sidebar}
@@ -147,7 +149,7 @@ export function NavigationAndFooter({
         nav={nav}
         headings={headings}
         footer={<MadeWithMyst />}
-        mobileOnly={mobileOnly}
+        mobileOnly={mobileNavOnly || mobileOnly}
       />
       <div
         ref={container}
@@ -189,17 +191,24 @@ export function ArticleAndNavigation({
   header,
   hide_toc,
   mobileOnly,
+  mobileNavOnly,
   projectSlug,
 }: {
   header?: React.ReactNode;
   children: React.ReactNode;
   hide_toc?: boolean;
-  mobileOnly?: boolean;
+  mobileOnly?: boolean; // do not show the TOC/Headings inline on the page
+  mobileNavOnly?: boolean; // only show the hamburger menu at `lg` and below
   projectSlug?: string;
 }) {
   const top = useThemeTop();
   return (
-    <NavigationAndFooter hide_toc={hide_toc} mobileOnly={mobileOnly} projectSlug={projectSlug}>
+    <NavigationAndFooter
+      hide_toc={hide_toc}
+      mobileOnly={mobileOnly}
+      mobileNavOnly={mobileNavOnly}
+      projectSlug={projectSlug}
+    >
       {header}
       <TabStateProvider>
         <article style={{ minHeight: `calc(100vh - ${top}px)` }}>{children}</article>

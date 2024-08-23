@@ -210,7 +210,13 @@ function ThemeTag() {
 
 const knownProjects = new Set(['guide', 'spec', 'jtex', 'thebe']);
 
-export function TopNav({ hide_toc }: { hide_toc?: boolean }) {
+export function TopNav({
+  hide_toc,
+  mobileNavOnly,
+}: {
+  hide_toc?: boolean;
+  mobileNavOnly?: boolean;
+}) {
   const [open, setOpen] = useNavOpen();
   const config = useSiteManifest();
   const { nav } = config ?? {};
@@ -223,7 +229,12 @@ export function TopNav({ hide_toc }: { hide_toc?: boolean }) {
         <nav className="flex flex-wrap items-center justify-between">
           <div className="flex flex-row items-center justify-start mr-2 sm:mr-7">
             {!hide_toc && (
-              <div className="block xl:hidden">
+              <div
+                className={classNames('block', {
+                  'xl:hidden': !mobileNavOnly,
+                  'lg:hidden': mobileNavOnly,
+                })}
+              >
                 <button
                   className="flex items-center text-stone-600 hover:text-black"
                   onClick={() => {

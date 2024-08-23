@@ -34,7 +34,7 @@ export default function LandingPage() {
   const article = useLoaderData<PageLoader>() as PageLoader;
   (article.frontmatter as any).options = { hide_title_block: true, hide_footer_links: true };
   return (
-    <ArticleAndNavigation header={<HeaderSection />} mobileOnly>
+    <ArticleAndNavigation header={<HeaderSection />} mobileNavOnly>
       <ProjectProvider>
         <ComputeOptionsProvider
           features={{ notebookCompute: true, figureCompute: true, launchBinder: false }}

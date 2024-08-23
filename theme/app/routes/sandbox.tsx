@@ -163,7 +163,7 @@ export default function ContentPage() {
   }, [tab]);
 
   return (
-    <NavigationAndFooter tightFooter mobileOnly>
+    <NavigationAndFooter tightFooter mobileNavOnly>
       <TabStateProvider>
         <UiStateProvider>
           <main className="relative p-0 article">

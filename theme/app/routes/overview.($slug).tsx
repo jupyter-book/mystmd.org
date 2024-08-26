@@ -6,9 +6,9 @@ import { getPage } from '../utils/loaders.server';
 import { NavLink, useLoaderData } from '@remix-run/react';
 import { ArticleAndNavigation, NavigationAndFooter } from '../components/Page';
 import { BaseUrlProvider, ProjectProvider, useSiteManifest } from '@myst-theme/providers';
-import classNames from 'classnames';
 import { Error404 } from '../components/Error404';
 import { ArticlePage } from '~/components/ArticlePage';
+import classNames from 'classnames';
 
 const baseurl = 'overview';
 
@@ -38,8 +38,8 @@ export default function ContentPage() {
   const article = useLoaderData<PageLoader>() as PageLoader;
   (article as any).frontmatter.options = { hide_title_block: true, hide_footer_links: true };
   return (
-    <ArticleAndNavigation hide_toc>
-      <BaseUrlProvider baseurl={`/${baseurl}`}>
+    <BaseUrlProvider baseurl={`/${baseurl}`}>
+      <ArticleAndNavigation mobileNavOnly>
         <ProjectProvider>
           <ComputeOptionsProvider
             features={{ notebookCompute: true, figureCompute: true, launchBinder: false }}
@@ -48,7 +48,7 @@ export default function ContentPage() {
               <main className="article article-grid grid-gap py-[100px]">
                 <h1 className="text-center">{article.frontmatter.title}</h1>
                 <div className="col-body-outset">
-                  <div className="border-y border-gray-200 py-3 my-[100px] flex flex-row justify-around">
+                  <div className="flex flex-row justify-around py-3 mt-12 mb-20 border-gray-200 border-y">
                     {site?.projects?.[0].pages
                       .filter((p) => 'slug' in p)
                       .map((p) => {
@@ -74,8 +74,8 @@ export default function ContentPage() {
             </ThebeLoaderAndServer>
           </ComputeOptionsProvider>
         </ProjectProvider>
-      </BaseUrlProvider>
-    </ArticleAndNavigation>
+      </ArticleAndNavigation>
+    </BaseUrlProvider>
   );
 }
 

@@ -1,12 +1,20 @@
 import type { PageLoader } from '@myst-theme/common';
-import { DEFAULT_NAV_HEIGHT, Navigation, SkipToArticle, useTocHeight } from '@myst-theme/site';
+import {
+  ConfigurablePrimaryNavigation,
+  DEFAULT_NAV_HEIGHT,
+  SkipTo,
+  useSidebarHeight,
+} from '@myst-theme/site';
 import {
   SiteProvider,
   TabStateProvider,
   UiStateProvider,
+  useBaseurl,
   useSiteManifest,
   useThemeTop,
 } from '@myst-theme/providers';
+import { getProjectHeadings } from '@myst-theme/common';
+import { MadeWithMyst } from '@myst-theme/icons';
 import { BusyScopeProvider, ExecuteScopeProvider, useComputeOptions } from '@myst-theme/jupyter';
 import Logo from './logo-icon.svg';
 import JupyterLogo from './jupyter.svg';
@@ -102,25 +110,47 @@ export function NavigationAndFooter({
   children,
   tightFooter,
   hide_toc,
+  mobileOnly,
+  mobileNavOnly,
   projectSlug,
-  siteConfig,
+  mainSiteConfig,
 }: {
   children: React.ReactNode;
   tightFooter?: boolean;
   hide_toc?: boolean;
+  mobileOnly?: boolean; // do not show the TOC/Headings inline on the page
+  mobileNavOnly?: boolean; // only show the hamburger menu at `lg` and below
   projectSlug?: string;
-  siteConfig?: SiteManifest;
+  mainSiteConfig?: SiteManifest;
 }) {
-  const siteConfigDefault = useSiteManifest();
   const top = useThemeTop();
-  const { container, toc } = useTocHeight<HTMLDivElement>(top);
+  const { container, toc: sidebar } = useSidebarHeight<HTMLDivElement>(top);
+
+  const localSiteConfig = useSiteManifest();
+  if (!localSiteConfig && !mainSiteConfig) return null;
+  const { nav } = mainSiteConfig ?? localSiteConfig ?? {};
+
+  let headings = undefined;
+  if (projectSlug && localSiteConfig) {
+    headings = getProjectHeadings(localSiteConfig, projectSlug, {
+      addGroups: false,
+    });
+  }
+
   return (
     <UiStateProvider>
-      <SkipToArticle frontmatter={false} />
-      <SiteProvider config={siteConfig ?? siteConfigDefault}>
-        <TopNav hide_toc={hide_toc} />
+      <SkipTo targets={[{ id: 'skip-to-article', title: 'Skip To Article' }]} />
+      <SiteProvider config={mainSiteConfig ?? localSiteConfig}>
+        <TopNav hide_toc={hide_toc} mobileNavOnly={mobileNavOnly} />
       </SiteProvider>
-      <Navigation tocRef={toc} hide_toc={hide_toc} projectSlug={projectSlug} />
+      <ConfigurablePrimaryNavigation
+        sidebarRef={sidebar}
+        hide_toc={hide_toc}
+        nav={nav}
+        headings={headings}
+        footer={<MadeWithMyst />}
+        mobileOnly={mobileNavOnly || mobileOnly}
+      />
       <div
         ref={container}
         style={{ minHeight: `calc(100vh - ${top + 200}px)`, marginTop: DEFAULT_NAV_HEIGHT }}
@@ -160,14 +190,25 @@ export function ArticleAndNavigation({
   children,
   header,
   hide_toc,
+  mobileOnly,
+  mobileNavOnly,
+  projectSlug,
 }: {
   header?: React.ReactNode;
   children: React.ReactNode;
   hide_toc?: boolean;
+  mobileOnly?: boolean; // do not show the TOC/Headings inline on the page
+  mobileNavOnly?: boolean; // only show the hamburger menu at `lg` and below
+  projectSlug?: string;
 }) {
   const top = useThemeTop();
   return (
-    <NavigationAndFooter hide_toc={hide_toc}>
+    <NavigationAndFooter
+      hide_toc={hide_toc}
+      mobileOnly={mobileOnly}
+      mobileNavOnly={mobileNavOnly}
+      projectSlug={projectSlug}
+    >
       {header}
       <TabStateProvider>
         <article style={{ minHeight: `calc(100vh - ${top}px)` }}>{children}</article>

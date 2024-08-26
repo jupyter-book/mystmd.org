@@ -70,10 +70,10 @@ export default function Page() {
                 <FrontmatterBlock
                   kind={article.kind}
                   frontmatter={article.frontmatter}
-                  className="pt-5"
+                  className="pt-9"
                 />
                 <div
-                  className="sticky z-10 hidden h-0 pt-2 ml-10 col-margin-right lg:block"
+                  className="sticky z-10 hidden h-0 pt-5 ml-10 col-margin-right lg:block"
                   style={{ top }}
                 >
                   <DocumentOutline top={16} className="relative lg:block" outlineRef={outline} />

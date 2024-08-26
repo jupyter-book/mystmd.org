@@ -1,5 +1,5 @@
 import { FrontmatterBlock } from '@myst-theme/frontmatter';
-import { getMetaTagsForArticle , ProjectPageCatchBoundary } from '@myst-theme/site';
+import { getMetaTagsForArticle, ProjectPageCatchBoundary } from '@myst-theme/site';
 import { ArticleAndNavigation, NavigationAndFooter } from '../components/Page';
 import { TabStateProvider, UiStateProvider } from '@myst-theme/providers';
 import { MySTRenderer } from 'myst-demo';
@@ -48,8 +48,8 @@ export const loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
   const myst = url.searchParams.get('myst');
   const tab = url.searchParams.get('tab');
-  const srcURL = url.searchParams.get("url");
-  
+  const srcURL = url.searchParams.get('url');
+
   let data;
   if (srcURL) {
     const response = await fetch(srcURL);
@@ -163,7 +163,7 @@ export default function ContentPage() {
   }, [tab]);
 
   return (
-    <NavigationAndFooter tightFooter hide_toc>
+    <NavigationAndFooter tightFooter mobileNavOnly>
       <TabStateProvider>
         <UiStateProvider>
           <main className="relative p-0 article">

@@ -1,14 +1,14 @@
 import { FrontmatterBlock } from '@myst-theme/frontmatter';
-import { getMetaTagsForArticle, ProjectPageCatchBoundary } from '@myst-theme/site';
+import { ErrorDocumentNotFound, ErrorUnhandled, getMetaTagsForArticle } from '@myst-theme/site';
 import { ArticleAndNavigation, NavigationAndFooter } from '../components/Page';
 import { TabStateProvider, UiStateProvider } from '@myst-theme/providers';
 import { MySTRenderer } from 'myst-demo';
-import type { LoaderFunction, MetaFunction } from '@remix-run/node';
+import type { LoaderFunction, V2_MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
+import { isRouteErrorResponse, useLoaderData, useRouteError } from '@remix-run/react';
 import { useEffect, useState } from 'react';
 
-export const meta: MetaFunction = (args) => {
+export const meta: V2_MetaFunction<typeof loader> = (args) => {
   return getMetaTagsForArticle({
     origin: '',
     url: args.location.pathname,
@@ -188,11 +188,18 @@ export default function ContentPage() {
   );
 }
 
-export function CatchBoundary() {
+export function ErrorBoundary() {
+  const error = useRouteError();
   return (
     <ArticleAndNavigation>
       <main className="article-content">
-        <ProjectPageCatchBoundary />
+        <main className="article">
+          {isRouteErrorResponse(error) ? (
+            <ErrorDocumentNotFound />
+          ) : (
+            <ErrorUnhandled error={error as any} />
+          )}
+        </main>
       </main>
     </ArticleAndNavigation>
   );

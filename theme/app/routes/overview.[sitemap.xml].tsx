@@ -2,7 +2,7 @@ import { createSitemapResponse, getSiteSlugs, getDomainFromRequest } from '@myst
 import type { LoaderFunction } from '@remix-run/node';
 import { getConfig } from '~/utils/loaders.server';
 
-export const loader: LoaderFunction = async ({ params, request }): Promise<Response> => {
+export const loader: LoaderFunction = async ({ request }) => {
   const project = 'overview';
   if (!project) return new Response('Project not found', { status: 404 });
   const config = await getConfig(project).catch(() => null);

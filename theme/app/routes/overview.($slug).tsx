@@ -27,7 +27,7 @@ export const meta: V2_MetaFunction = ({ data, location }) => {
   });
 };
 
-export const loader: LoaderFunction = async ({ params, request }) => {
+export const loader: LoaderFunction = async ({ params }) => {
   const { slug } = params;
   const page = await getPage({ name: 'overview', slug });
   return page;

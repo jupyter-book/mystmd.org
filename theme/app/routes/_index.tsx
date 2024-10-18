@@ -26,7 +26,7 @@ export const meta: V2_MetaFunction = ({ data, location }) => {
 
 export const links: LinksFunction = () => [KatexCSS];
 
-export const loader: LoaderFunction = async ({ request }) => {
+export const loader: LoaderFunction = async () => {
   return getPage({ name: 'overview' });
 };
 

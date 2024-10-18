@@ -27,7 +27,7 @@ import type { SiteAction } from 'myst-config';
  */
 function combineDownloads(
   siteDownloads: SiteAction[] | undefined,
-  pageFrontmatter: PageLoader['frontmatter']
+  pageFrontmatter: PageLoader['frontmatter'],
 ) {
   if (pageFrontmatter.downloads) {
     return pageFrontmatter.downloads;

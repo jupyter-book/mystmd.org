@@ -62,7 +62,7 @@ function NavItem({ item }: { item: SiteNavItem }) {
                 'inline-flex items-center justify-center w-full mx-2 py-1 text-md font-medium text-black dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75',
                 {
                   'border-b border-stone-200': isActive,
-                }
+                },
               )
             }
           >
@@ -115,7 +115,7 @@ function NavItem({ item }: { item: SiteNavItem }) {
                       ' block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black ',
                       {
                         'text-black font-bold': isActive,
-                      }
+                      },
                     )
                   }
                 >

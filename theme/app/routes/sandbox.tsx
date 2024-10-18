@@ -8,7 +8,7 @@ import { json } from '@remix-run/node';
 import { isRouteErrorResponse, useLoaderData, useRouteError } from '@remix-run/react';
 import { useEffect, useState } from 'react';
 
-export const meta: V2_MetaFunction<typeof loader> = (args) => {
+export const meta: V2_MetaFunction = (args) => {
   return getMetaTagsForArticle({
     origin: '',
     url: args.location.pathname,
@@ -20,7 +20,7 @@ export const meta: V2_MetaFunction<typeof loader> = (args) => {
 // https://developer.mozilla.org/en-US/docs/Web/API/btoa#unicode_strings
 function fromBinary(binary: string) {
   const bytes = Uint8Array.from({ length: binary.length }, (element, index) =>
-    binary.charCodeAt(index)
+    binary.charCodeAt(index),
   );
   const charCodes = new Uint16Array(bytes.buffer);
 
@@ -33,7 +33,7 @@ function fromBinary(binary: string) {
 
 function toBinary(string: string) {
   const codeUnits = Uint16Array.from({ length: string.length }, (element, index) =>
-    string.charCodeAt(index)
+    string.charCodeAt(index),
   );
   const charCodes = new Uint8Array(codeUnits.buffer);
 
@@ -139,12 +139,12 @@ export default function ContentPage() {
   const { data, tab } = useLoaderData();
 
   const copy = () => {
-    const tab = Array(...document.getElementsByTagName('button'))
+    const whichTab = Array(...document.getElementsByTagName('button'))
       .filter((el) => el.ariaPressed === 'true')[0]
       .innerText.toLowerCase();
     const encoded = btoa(toBinary(document.getElementsByTagName('textarea')[0].value));
     const params = new URLSearchParams(location.search);
-    params.set('tab', tab);
+    params.set('tab', whichTab);
     params.set('myst', encoded);
     window.history.replaceState({}, '', `${location.pathname}?${params}`);
     navigator.clipboard.writeText(window.location.href).then(() => {
@@ -158,7 +158,7 @@ export default function ContentPage() {
     setTimeout(() =>
       Array(...document.getElementsByTagName('button'))
         .find((el) => el.innerText.toLowerCase() === tab)
-        ?.click()
+        ?.click(),
     );
   }, [tab]);
 

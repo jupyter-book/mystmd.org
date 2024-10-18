@@ -9,7 +9,6 @@ import {
   SiteProvider,
   TabStateProvider,
   UiStateProvider,
-  useBaseurl,
   useSiteManifest,
   useThemeTop,
 } from '@myst-theme/providers';
@@ -165,7 +164,6 @@ export function NavigationAndFooter({
 export function ArticleWithProviders({
   children,
   article,
-  top = DEFAULT_NAV_HEIGHT,
 }: {
   top?: number;
   children: React.ReactNode;

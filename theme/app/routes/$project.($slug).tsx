@@ -32,7 +32,7 @@ export const meta: V2_MetaFunction = ({ data, location }) => {
   });
 };
 
-export const loader: LoaderFunction = async ({ params, request }) => {
+export const loader: LoaderFunction = async ({ params }) => {
   const { project, slug } = params;
   const page = await getPage({ name: project as string, slug });
   return page;
@@ -76,7 +76,12 @@ export default function Page() {
                   className="sticky z-10 hidden h-0 pt-5 ml-10 col-margin-right lg:block"
                   style={{ top }}
                 >
-                  <DocumentOutline top={16} className="relative lg:block" outlineRef={outline} />
+                  <DocumentOutline
+                    top={16}
+                    className="relative lg:block"
+                    outlineRef={outline}
+                    isMargin={false}
+                  />
                 </div>
                 <ArticlePage article={article} />
               </ArticleWithProviders>

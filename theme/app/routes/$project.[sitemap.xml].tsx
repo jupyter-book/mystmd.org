@@ -9,6 +9,6 @@ export const loader: LoaderFunction = async ({ params, request }): Promise<Respo
   if (!config) return new Response('Project not found', { status: 404 });
   return createSitemapResponse(
     getDomainFromRequest(request),
-    getSiteSlugs(config).map((s) => `/${project}${s}`)
+    getSiteSlugs(config).map((s) => `/${project}${s}`),
   );
 };

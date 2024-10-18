@@ -1,7 +1,6 @@
 import type { LinksFunction, V2_MetaFunction, LoaderFunction } from '@remix-run/node';
 import tailwind from '~/styles/app.css';
 import { getConfig } from '~/utils/loaders.server';
-import type { SiteLoader } from '@myst-theme/common';
 import {
   App,
   responseNoSite,
@@ -9,7 +8,6 @@ import {
   getThemeSession,
   KatexCSS,
 } from '@myst-theme/site';
-export { AppCatchBoundary as CatchBoundary } from '@myst-theme/site';
 
 export const meta: V2_MetaFunction = ({ data }) => {
   return getMetaTagsForSite({
@@ -26,7 +24,7 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export const loader: LoaderFunction = async ({ request }): Promise<SiteLoader> => {
+export const loader: LoaderFunction = async ({ request }) => {
   const [config, themeSession] = await Promise.all([
     getConfig('overview').catch(() => null),
     getThemeSession(request),

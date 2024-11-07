@@ -28,6 +28,7 @@ site:
       url: /sandbox
   domains:
     - mystmd-overview.curve.space
-  twitter: mystmarkdown
-  logo: public/logo.svg
-  logo_text: MyST Markdown
+  options:
+    twitter: mystmarkdown
+    logo: public/logo.svg
+    logo_text: MyST Markdown

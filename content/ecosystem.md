@@ -41,7 +41,7 @@ Go to Project »
 :::
 
 :::{card}
-:link: /guide
+:link: https://mystmd.org/guide
 **Javascript Parser**
 ^^^
 Use the Javascript parser to create interactive online articles, export to LaTeX, PDF or Word documents.

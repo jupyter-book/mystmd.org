@@ -16,7 +16,10 @@ export const loader: LoaderFunction = async ({ params }) => {
   return data;
 };
 
-export const links: LinksFunction = () => [KatexCSS];
+export const links: LinksFunction = () => [
+  KatexCSS,
+  { rel: 'stylesheet', href: './myst-theme.css' },
+];
 
 export default function LandingPage() {
   const siteConfig = useSiteManifest();

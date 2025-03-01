@@ -26,3 +26,16 @@ export async function getObjectsInv(project: string): Promise<ArrayBuffer | unde
 export async function getMystXrefJson(project: string): Promise<Record<string, any> | null> {
   return cdn.getMystXrefJson(getDocsSites(project));
 }
+
+export async function getCustomStyleSheet(project: string): Promise<string | undefined> {
+  // We are always fetching this at run time, so we don't want the rewritten links
+  const config = await getConfig(project);
+  const url = config.options?.style;
+  if (!url) {
+    return;
+  }
+  const response = await fetch(url).catch(() => null);
+  if (!response || response.status === 404) return;
+  const css = await response.text();
+  return css;
+}

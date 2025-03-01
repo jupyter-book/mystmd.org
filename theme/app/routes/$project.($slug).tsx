@@ -5,14 +5,14 @@ import {
   FooterLinksBlock,
   getMetaTagsForArticle,
   DocumentOutline,
-  ContentBlocks,
   Bibliography,
   Footnotes,
 } from '@myst-theme/site';
+import { MyST } from 'myst-to-react';
 import { FrontmatterBlock } from '@myst-theme/frontmatter';
 import { ComputeOptionsProvider, ThebeLoaderAndServer } from '@myst-theme/jupyter';
 import { useLoaderData } from '@remix-run/react';
-import { ProjectProvider, ReferencesProvider, useThemeTop } from '@myst-theme/providers';
+import { ProjectProvider, ArticleProvider, useThemeTop } from '@myst-theme/providers';
 import { getPage } from '~/utils/loaders.server';
 import { ArticleWithProviders } from '../components/Page';
 import type { GenericParent } from 'myst-common';
@@ -42,7 +42,7 @@ function ArticlePage({ article }: { article: PageLoader }) {
   return (
     <>
       <div id="skip-to-article" />
-      <ContentBlocks mdast={article.mdast as GenericParent} />
+      <MyST ast={article.mdast as GenericParent} className="col-screen" />
       <Footnotes />
       <Bibliography />
       <FooterLinksBlock links={article.footer} />
@@ -56,9 +56,10 @@ export default function Page() {
   const top = useThemeTop();
 
   return (
-    <ReferencesProvider
+    <ArticleProvider
       references={{ ...article.references, article: article.mdast }}
       frontmatter={article.frontmatter}
+      kind={article.kind}
     >
       <ProjectProvider>
         <ComputeOptionsProvider
@@ -89,6 +90,6 @@ export default function Page() {
           </ThebeLoaderAndServer>
         </ComputeOptionsProvider>
       </ProjectProvider>
-    </ReferencesProvider>
+    </ArticleProvider>
   );
 }

@@ -1,7 +1,6 @@
-import { ReferencesProvider, useProjectManifest } from '@myst-theme/providers';
+import { ArticleProvider, useProjectManifest } from '@myst-theme/providers';
 import {
   Bibliography,
-  ContentBlocks,
   FooterLinksBlock,
   FrontmatterParts,
   BackmatterParts,
@@ -10,6 +9,7 @@ import {
 } from '@myst-theme/site';
 import type { PageLoader } from '@myst-theme/common';
 import { copyNode, type GenericParent } from 'myst-common';
+import { MyST } from 'myst-to-react';
 import { SourceFileKind } from 'myst-spec-ext';
 import {
   ExecuteScopeProvider,
@@ -58,9 +58,10 @@ export function ArticlePage({
   const parts = extractKnownParts(tree);
 
   return (
-    <ReferencesProvider
+    <ArticleProvider
       references={{ ...article.references, article: article.mdast }}
       frontmatter={article.frontmatter}
+      kind={article.kind}
     >
       <BusyScopeProvider>
         <ExecuteScopeProvider enable={compute?.enabled ?? false} contents={article}>
@@ -79,7 +80,7 @@ export function ArticlePage({
           )}
           <div id="skip-to-article" />
           <FrontmatterParts parts={parts} keywords={keywords} hideKeywords={hideKeywords} />
-          <ContentBlocks pageKind={article.kind} mdast={tree as GenericParent} />
+          <MyST ast={tree as GenericParent} className="col-screen" />
           <BackmatterParts parts={parts} />
           <Footnotes />
           <Bibliography />
@@ -89,6 +90,6 @@ export function ArticlePage({
           )}
         </ExecuteScopeProvider>
       </BusyScopeProvider>
-    </ReferencesProvider>
+    </ArticleProvider>
   );
 }

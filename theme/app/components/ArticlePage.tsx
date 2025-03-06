@@ -80,7 +80,7 @@ export function ArticlePage({
           )}
           <div id="skip-to-article" />
           <FrontmatterParts parts={parts} keywords={keywords} hideKeywords={hideKeywords} />
-          <MyST ast={tree} />
+          <MyST ast={tree.children} />
           <BackmatterParts parts={parts} />
           <Footnotes />
           <Bibliography />

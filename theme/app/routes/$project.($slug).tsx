@@ -92,7 +92,7 @@ export default function Page() {
                   </div>
                 )}
                 <div id="skip-to-article" />
-                <MyST ast={article.mdast} />
+                <MyST ast={article.mdast.children} />
                 <Footnotes />
                 <Bibliography />
                 {!hide_footer_links && <FooterLinksBlock links={article.footer} />}

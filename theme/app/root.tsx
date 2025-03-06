@@ -2,12 +2,25 @@ import type { LinksFunction, V2_MetaFunction, LoaderFunction } from '@remix-run/
 import tailwind from '~/styles/app.css';
 import { getConfig } from '~/utils/loaders.server';
 import {
-  App,
+  Document,
   responseNoSite,
   getMetaTagsForSite,
   getThemeSession,
   KatexCSS,
+  renderers as defaultRenderers,
 } from '@myst-theme/site';
+import { Outlet, useLoaderData } from '@remix-run/react';
+import type { SiteLoader } from '@myst-theme/common';
+import type { NodeRenderers } from '@myst-theme/providers';
+import { mergeRenderers } from '@myst-theme/providers';
+import { JUPYTER_RENDERERS } from '@myst-theme/jupyter';
+import { LANDING_PAGE_RENDERERS } from '@myst-theme/landing-pages';
+
+const RENDERERS: NodeRenderers = mergeRenderers([
+  defaultRenderers,
+  JUPYTER_RENDERERS,
+  LANDING_PAGE_RENDERERS,
+]);
 
 export const meta: V2_MetaFunction = ({ data }) => {
   return getMetaTagsForSite({
@@ -37,5 +50,14 @@ export const loader: LoaderFunction = async ({ request }) => {
   };
   return data;
 };
+
+function App() {
+  const { theme, config } = useLoaderData<SiteLoader>();
+  return (
+    <Document theme={theme} config={config} renderers={RENDERERS}>
+      <Outlet />
+    </Document>
+  );
+}
 
 export default App;

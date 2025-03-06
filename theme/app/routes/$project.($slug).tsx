@@ -15,7 +15,6 @@ import { useLoaderData } from '@remix-run/react';
 import { ProjectProvider, ArticleProvider, useThemeTop } from '@myst-theme/providers';
 import { getPage } from '~/utils/loaders.server';
 import { ArticleWithProviders } from '../components/Page';
-import type { GenericParent } from 'myst-common';
 
 export const meta: V2_MetaFunction = ({ data, location }) => {
   if (!data) return [];
@@ -42,7 +41,7 @@ function ArticlePage({ article }: { article: PageLoader }) {
   return (
     <>
       <div id="skip-to-article" />
-      <MyST ast={article.mdast as GenericParent} className="col-screen" />
+      <MyST ast={article.mdast} />
       <Footnotes />
       <Bibliography />
       <FooterLinksBlock links={article.footer} />

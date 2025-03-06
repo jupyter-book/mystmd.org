@@ -8,7 +8,7 @@ import {
   extractKnownParts,
 } from '@myst-theme/site';
 import type { PageLoader } from '@myst-theme/common';
-import { copyNode, type GenericParent } from 'myst-common';
+import { copyNode } from 'myst-common';
 import { MyST } from 'myst-to-react';
 import { SourceFileKind } from 'myst-spec-ext';
 import {
@@ -80,7 +80,7 @@ export function ArticlePage({
           )}
           <div id="skip-to-article" />
           <FrontmatterParts parts={parts} keywords={keywords} hideKeywords={hideKeywords} />
-          <MyST ast={tree as GenericParent} className="col-screen" />
+          <MyST ast={tree} />
           <BackmatterParts parts={parts} />
           <Footnotes />
           <Bibliography />

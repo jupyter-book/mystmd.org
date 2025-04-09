@@ -87,7 +87,7 @@ You can click on these and see the preview of the reference immediately.
 
 ## Including Figures and Images
 
-:::{figure} https://source.unsplash.com/random/400x200?beach,ocean
+:::{figure} https://picsum.photos/id/640/400/200
 :name: my-fig
 :alt: Random image of the beach or ocean!
 

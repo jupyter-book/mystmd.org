@@ -6,7 +6,7 @@ The theme is a custom [Remix](https://remix.run) application that depends on [my
 
 ## How to update the content at mystmd.org
 
-This repository does not control the deployment to mystmd.org . For instructions on how to update the live deployment at mystmd.org, see the [MyST documentation contributing guide](https://mystmd.org/guide/contribute-docs).
+This repository does not control the deployment of content on <mystmd.org>. For instructions on how to update the live deployment at mystmd.org, see the [MyST documentation contributing guide](https://mystmd.org/guide/contribute-docs).
 
 ## Local Development
 

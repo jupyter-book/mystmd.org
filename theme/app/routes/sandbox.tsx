@@ -143,7 +143,7 @@ export default function ContentPage() {
       .filter((el) => el.ariaPressed === 'true')[0]
       .innerText.toLowerCase();
     const encoded = btoa(toBinary(document.getElementsByTagName('textarea')[0].value));
-    const params = new URLSearchParams(location.search);
+    const params = new URLSearchParams();
     params.set('tab', whichTab);
     params.set('myst', encoded);
     window.history.replaceState({}, '', `${location.pathname}?${params}`);

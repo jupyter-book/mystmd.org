@@ -82,7 +82,7 @@ Read about performance »
 :::
 
 :::{card}
-:link: https://compass.executablebooks.org/en/latest/strategy.html
+:link: https://mystmd.org/guide/guiding-principles
 
 **Composable Tools** 🧱
 ^^^
@@ -120,7 +120,7 @@ The MyST ecosystem is an open community supported by The Executable Book Project
 ::::{grid} 1 1 2 3
 
 :::{card}
-:link: https://executablebooks.org/en/latest/contribute/
+:link: https://mystmd.org/guide/contributing
 
 **Contribute** ⏭
 ^^^
@@ -136,7 +136,7 @@ Our gallery of Jupyter Books has contributions from across the community: from d
 :::
 
 :::{card}
-:link: https://compass.executablebooks.org/en/latest/strategy.html
+:link: https://compass.jupyterbook.org/
 
 **About Executable Books** ✨
 ^^^

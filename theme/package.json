@@ -15,7 +15,7 @@
     "start": "npm run build:thebe && npm run build:css && remix dev"
   },
   "dependencies": {
-    "@curvenote/cdn": "^0.2.8",
+    "@curvenote/cdn": "^0.2.18",
     "@docsearch/react": "^3.5.1",
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.1.5",

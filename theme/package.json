@@ -57,9 +57,9 @@
     "typescript": "^5.1.6",
     "vercel": "~28.18.5"
   },
-  "packageManager": "npm@8.10.0",
+  "packageManager": "npm@11.7.0",
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "overrides": {
     "ansi-to-react": {

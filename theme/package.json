@@ -55,7 +55,7 @@
     "prettier": "latest",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.1.6",
-    "vercel": "~28.18.5"
+    "vercel": "~50.1.3"
   },
   "packageManager": "npm@11.7.0",
   "engines": {

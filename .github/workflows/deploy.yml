@@ -28,3 +28,4 @@ jobs:
       #   working-directory: theme
       # This one for build on vercel:
       - run: npx vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
+        working-directory: theme

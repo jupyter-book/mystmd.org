@@ -22,9 +22,9 @@ jobs:
       - run: npx vercel pull --yes --token=${{ secrets.VERCEL_TOKEN }}
         working-directory: theme
       # This one for build in github actions:
-      - run: npx vercel build --prod
-        working-directory: theme
-      - run: npx vercel deploy --prod --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
-        working-directory: theme
+      # - run: npx vercel build --prod
+      #   working-directory: theme
+      # - run: npx vercel deploy --prod --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+      #   working-directory: theme
       # This one for build on vercel:
-      # - run: npx vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - run: npx vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}

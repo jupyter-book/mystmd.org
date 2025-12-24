@@ -59,7 +59,7 @@
   },
   "packageManager": "npm@8.10.0",
   "engines": {
-    "node": ">=16"
+    "node": ">=22"
   },
   "overrides": {
     "ansi-to-react": {

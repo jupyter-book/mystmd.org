@@ -12,7 +12,7 @@ import {
 import { Outlet, useLoaderData } from '@remix-run/react';
 import type { SiteLoader } from '@myst-theme/common';
 import type { NodeRenderers } from '@myst-theme/providers';
-import { mergeRenderers } from '@myst-theme/providers';
+import { BannerStateProvider, mergeRenderers } from '@myst-theme/providers';
 import { JUPYTER_RENDERERS } from '@myst-theme/jupyter';
 import { LANDING_PAGE_RENDERERS } from '@myst-theme/landing-pages';
 
@@ -54,9 +54,11 @@ export const loader: LoaderFunction = async ({ request }) => {
 function App() {
   const { theme, config } = useLoaderData<SiteLoader>();
   return (
-    <Document theme={theme} config={config} renderers={RENDERERS}>
-      <Outlet />
-    </Document>
+    <BannerStateProvider>
+      <Document theme={theme} config={config} renderers={RENDERERS}>
+        <Outlet />
+      </Document>
+    </BannerStateProvider>
   );
 }
 

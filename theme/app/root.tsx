@@ -14,12 +14,14 @@ import type { SiteLoader } from '@myst-theme/common';
 import type { NodeRenderers } from '@myst-theme/providers';
 import { BannerStateProvider, mergeRenderers } from '@myst-theme/providers';
 import { JUPYTER_RENDERERS } from '@myst-theme/jupyter';
+import { ANY_RENDERERS } from '@myst-theme/anywidget';
 import { LANDING_PAGE_RENDERERS } from '@myst-theme/landing-pages';
 
 const RENDERERS: NodeRenderers = mergeRenderers([
   defaultRenderers,
   JUPYTER_RENDERERS,
   LANDING_PAGE_RENDERERS,
+  ANY_RENDERERS,
 ]);
 
 export const meta: V2_MetaFunction = ({ data }) => {

@@ -8,7 +8,6 @@ import {
 import {
   SiteProvider,
   TabStateProvider,
-  UiStateProvider,
   useSiteManifest,
   useThemeTop,
 } from '@myst-theme/providers';
@@ -137,7 +136,7 @@ export function NavigationAndFooter({
   }
 
   return (
-    <UiStateProvider>
+    <>
       <SkipTo targets={[{ id: 'skip-to-article', title: 'Skip To Article' }]} />
       <SiteProvider config={mainSiteConfig ?? localSiteConfig}>
         <TopNav hide_toc={hide_toc} mobileNavOnly={mobileNavOnly} />
@@ -157,7 +156,7 @@ export function NavigationAndFooter({
         {children}
       </div>
       <Footer tight={tightFooter} />
-    </UiStateProvider>
+    </>
   );
 }
 

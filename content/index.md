@@ -128,7 +128,7 @@ Read our Contributing Guide to learn about the conventions we follow, and see ou
 :::
 
 :::{card}
-:link: https://jupyterbook.org/latest/gallery/
+:link: https://jupyterbook.org/gallery/
 
 **Be inspired** 🚀
 ^^^

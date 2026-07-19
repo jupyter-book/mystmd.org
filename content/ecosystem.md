@@ -10,7 +10,7 @@ thumbnail: thumbnails/index.png
 The MyST ecosystem is evolving, with mature tools for Python and Sphinx, which support projects
 like [JupyterBook](https://jupyterbook.org).
 
-The [ExecutableBooks](https://executablebooks.org/) team is creating a [specification for MyST](https://mystmd.org/spec),
+The [Jupyter Book team](https://jupyterbook.org/compass) is creating a [specification for MyST](https://mystmd.org/spec),
 to allow parsers and renderers in many different tools and ecosystems, including in Javascript.
 The [mystmd project](https://mystmd.org/guide) is in beta and explores a command line interface for MyST in JavaScript
 and will change significantly and rapidly.
@@ -50,7 +50,7 @@ Go to Project »
 :::
 
 :::{card}
-:link: https://github.com/executablebooks/jupyterlab-myst
+:link: https://github.com/jupyter-book/jupyterlab-myst
 **JupyterLab**
 ^^^
 Write and render MyST markup directly in Jupyter Lab.

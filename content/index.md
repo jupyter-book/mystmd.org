@@ -115,7 +115,7 @@ MyST Spec »
 
 ## Open Community
 
-The MyST ecosystem is an open community supported by The Executable Book Project.
+The MyST ecosystem is an open community supported by The Jupyter Book Project.
 
 ::::{grid} 1 1 2 3
 
@@ -138,7 +138,7 @@ Our gallery of Jupyter Books has contributions from across the community: from d
 :::{card}
 :link: https://compass.jupyterbook.org/
 
-**About Executable Books** ✨
+**About Jupyter Book** ✨
 ^^^
 Learn more about our project’s goals and strategy, list of core team members, and meeting notes and team calendar.
 :::

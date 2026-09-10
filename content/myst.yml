@@ -32,3 +32,4 @@ site:
     twitter: mystmarkdown
     logo: public/logo.svg
     logo_text: MyST Markdown
+    analytics_plausible: jupyterbook.org

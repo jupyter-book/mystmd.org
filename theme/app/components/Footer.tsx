@@ -19,7 +19,7 @@ function SocialIcons() {
         <TwitterIcon className="w-5 h-5" />
       </a>
       <a
-        href="https://fosstodon.org/@myst_tools"
+        href="https://fosstodon.org/@mystmarkdown"
         target="_blank"
         className="p-1"
         rel="me noreferrer"
@@ -28,7 +28,7 @@ function SocialIcons() {
         <MastodonIcon className="w-5 h-5" />
       </a>
       <a
-        href="https://github.com/executablebooks"
+        href="https://github.com/jupyter-book/mystmd"
         target="_blank"
         className="p-1"
         rel="noreferrer"
@@ -83,7 +83,7 @@ export function JupyterFooter() {
             Compass
           </a>
           <a
-            href="https://executablebooks.org/en/latest/blog"
+            href="https://jupyterbook.org/blog"
             target="_blank"
             rel="noreferrer"
             className="text-sm"

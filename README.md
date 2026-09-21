@@ -2,7 +2,7 @@
 
 This repository holds the theme for https://mystmd.org as well as the content for the **landing/overview pages** of the website.
 
-The theme is a custom [Remix](https://remix.run) application that depends on [myst-theme](https://github.com/executablebooks/myst-theme) components. The web application brings together documentation from multiple different projects and provides a custom splash page, sandbox and search experience.
+The theme is a custom [Remix](https://remix.run) application that depends on [myst-theme](https://github.com/jupyter-book/myst-theme) components. The web application brings together documentation from multiple different projects and provides a custom splash page, sandbox and search experience.
 
 ## How to update the content at mystmd.org
 
